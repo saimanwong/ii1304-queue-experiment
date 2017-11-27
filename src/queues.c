@@ -5,6 +5,9 @@
 #include <sys/types.h>
 #include "queues.h"
 
+/*
+ * Prints out the entire list
+ */
 void print_list(list_t* list) {
 #if DATA_STRUCTURE == ARRAY_PRIORITY
     int i;
@@ -45,6 +48,10 @@ list_t* new_queue() {
     return list;
 }
 
+
+/*
+ * Delete the entire list
+ */
 void delete_list(list_t* list) {
     node_t* to_remove;
 
@@ -104,6 +111,9 @@ void helper_remove(list_t* list) {
 }
 #endif
 
+/*
+ * Dequeues the element with highest priority (low numerical value)
+ */
 int32_t dequeue(list_t* list) {
     int32_t to_return = 0;
 #if DATA_STRUCTURE == ARRAY_PRIORITY
@@ -170,6 +180,9 @@ int32_t dequeue(list_t* list) {
 }
 
 
+
+
+
 #if HELPER_FUNCTION
 void helper_insert(list_t* list, node_t* current, node_t* to_insert) {
     if(current->priority <= to_insert->priority) {
@@ -199,6 +212,10 @@ void helper_insert(list_t* list, node_t* current, node_t* to_insert) {
 }
 #endif
 
+
+/*
+ * Puts the element in the right location
+ */
 list_t* enqueue(list_t* list, int32_t node, double priority) {
     node_t* current;
 
@@ -269,7 +286,7 @@ list_t* enqueue(list_t* list, int32_t node, double priority) {
         list->first = to_insert;
         list->last = to_insert;
     }
-    else if(priority > list->mean) {
+    else if(priority < list->mean) {
         /*
          * Insert from front
          */
