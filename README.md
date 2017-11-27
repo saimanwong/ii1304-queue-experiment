@@ -1,11 +1,11 @@
-#Experiment II1304
+# Experiment II1304
 To compile: `make`
 
 To clean: `make clean`
 
-##Description
+## Description
 
-##Mission (in Swedish)
+## [Mission (in Swedish)](https://www.kth.se/social/course/II1304/page/uppgift-lasaret-1516/)
 Du skall utvärdera fyra olika implementationer av prioritetsköer som baseras på länkade listor. Prioritetsköer används bland annat för att implementera mängden framtida händelser (eng. pending event set) i händelsestyrda simuleringar och som ready-köer i schemaläggning av processer och trådar.
 
 Utvärderingen skall kunna användas för att ligga till grund för val av prioritetsköimplementation i generella fall. Därför måste din utvärdering omfatta både analytiska och exekveringsmässiga bästa-, värsta- och normalfallsprestanda för de olika datastrukturerna för användningsfall både som shemaläggningskö för processer/trådar med heltalsprioriteter i ett begränsat intervall och för användning som händelselista för händelsestyrd simulering. 
