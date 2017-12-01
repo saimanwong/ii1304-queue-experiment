@@ -43,7 +43,7 @@ int cmp(const void *x, const void *y) {
 /*         enqueue(list, test_pid, test_priority); */
 /*         test_list[test_pid].test_pid = test_pid; */
 /*         test_list[test_pid].test_priority = test_priority; */
-/*         #<{(| printf("Enqueued - test_pid: %d, test_priority: %f\n", test_pid, test_priority); |)}># */
+/*         #<{(| WORST CASE | printf("Enqueued - test_pid: %d, test_priority: %f\n", test_pid, test_priority); |)}># */
 /*     } */
 /*  */
 /*     qsort (test_list, TOTAL_ELEMENTS, sizeof(test_node), cmp); */
@@ -78,7 +78,7 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[SINGLY_LINKED_LIST | ENQUEUE] %f seconds\n", time_taken);
+    printf("[SINGLY_LINKED_LIST | BEST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -87,7 +87,7 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[SINGLY_LINKED_LIST | DEQUEUE] %f seconds\n", time_taken);
+    printf("[SINGLY_LINKED_LIST | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = test_pid;
@@ -98,7 +98,7 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST | ENQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST | BEST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -107,17 +107,17 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST | DEQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST_AVG
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
-        test_priority = test_pid;
+        test_priority = 1;
 
         t = clock();
         enqueue(list, test_pid, test_priority);
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST_AVG | ENQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST_AVG | BEST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -126,7 +126,7 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST_AVG | DEQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST_AVG | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == ARRAY_PRIORITY
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = test_pid % 41;
@@ -136,7 +136,7 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[ARRAY_PRIORITY | ENQUEUE] %f seconds\n", time_taken);
+    printf("[ARRAY_PRIORITY | BEST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -145,7 +145,7 @@ list_t* test_best_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[ARRAY_PRIORITY | DEQUEUE] %f seconds\n", time_taken);
+    printf("[ARRAY_PRIORITY | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #endif
 
     return list;
@@ -169,7 +169,7 @@ list_t* test_average_case() {
     }
 
 #if DATA_STRUCTURE == SINGLY_LINKED_LIST
-    printf("[SINGLY_LINKED_LIST | ENQUEUE] %f seconds\n", time_taken);
+    printf("[SINGLY_LINKED_LIST | AVERAGE CASE | ENQUEUE] %f seconds\n", time_taken);
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         t = clock();
@@ -177,9 +177,9 @@ list_t* test_average_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[SINGLY_LINKED_LIST | DEQUEUE] %f seconds\n", time_taken);
+    printf("[SINGLY_LINKED_LIST | AVERAGE CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST
-    printf("[DOUBLY_LINKED_LIST | ENQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST | AVERAGE CASE | ENQUEUE] %f seconds\n", time_taken);
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         t = clock();
@@ -187,9 +187,9 @@ list_t* test_average_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST | DEQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST | AVERAGE CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST_AVG
-    printf("[DOUBLY_LINKED_LIST_AVG | ENQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST_AVG | AVERAGE CASE | ENQUEUE] %f seconds\n", time_taken);
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         t = clock();
@@ -197,9 +197,9 @@ list_t* test_average_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST_AVG | DEQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST_AVG | AVERAGE CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == ARRAY_PRIORITY
-    printf("[ARRAY_PRIORITY | ENQUEUE] %f seconds\n", time_taken);
+    printf("[ARRAY_PRIORITY | AVERAGE CASE | ENQUEUE] %f seconds\n", time_taken);
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         t = clock();
@@ -207,7 +207,7 @@ list_t* test_average_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[ARRAY_PRIORITY | DEQUEUE] %f seconds\n", time_taken);
+    printf("[ARRAY_PRIORITY | AVERAGE CASE | DEQUEUE] %f seconds\n", time_taken);
 #endif
     return list;
 }
@@ -233,7 +233,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[SINGLY_LINKED_LIST | ENQUEUE] %f seconds\n", time_taken);
+    printf("[SINGLY_LINKED_LIST | WORST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -242,7 +242,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[SINGLY_LINKED_LIST | DEQUEUE] %f seconds\n", time_taken);
+    printf("[SINGLY_LINKED_LIST | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST
     /*
      * Priority decrements
@@ -256,7 +256,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST | ENQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST | WORST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -265,7 +265,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST | DEQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST_AVG
     enqueue(list, 0, TOTAL_ELEMENTS*2);
     enqueue(list, 1, 0);
@@ -277,7 +277,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST_AVG | ENQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST_AVG | WORST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -286,7 +286,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[DOUBLY_LINKED_LIST_AVG | DEQUEUE] %f seconds\n", time_taken);
+    printf("[DOUBLY_LINKED_LIST_AVG | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == ARRAY_PRIORITY
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = 40;
@@ -296,7 +296,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[ARRAY_PRIORITY | ENQUEUE] %f seconds\n", time_taken);
+    printf("[ARRAY_PRIORITY | WORST CASE | ENQUEUE] %f seconds\n", time_taken);
 
     time_taken = 0.0;
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -305,7 +305,7 @@ list_t* test_worst_case() {
         t = clock() - t;
         time_taken += ((double)t)/CLOCKS_PER_SEC;
     }
-    printf("[ARRAY_PRIORITY | DEQUEUE] %f seconds\n", time_taken);
+    printf("[ARRAY_PRIORITY | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #endif
 
     return list;
