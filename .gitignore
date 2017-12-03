@@ -35,8 +35,6 @@ obj/
 # Debug files
 *.dSYM/
 
-# Misc
-*.pdf
 
 # Mac
 *.DS_Store
