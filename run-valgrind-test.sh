@@ -1,6 +1,4 @@
 #!/bin/bash
-make
-
 COUNTER_Y=0
 while [ $COUNTER_Y -le 10 ]; do
     TOT_ELEMENT=$((10000 + $COUNTER_Y * 5000))

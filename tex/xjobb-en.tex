@@ -396,10 +396,10 @@ The time complexity for best and worst case is:
         However, when the implementation starts over from priority 0, the enqueue operation still has to traverse through the FIFO-queues to insert the new elements correctly.
         For example, if we assume that the elements are distributed equally, we can represent the running time as:
         \begin{equation*}
-            1 + \frac{n}{\floor{\frac{41}{41-n}}}
+            1 + \left\floor{\frac{n}{41}\right}
         \end{equation*}
-        The one represent the cost to access the priority queue.
-        The rest represent the cost to traverse through the list.
+        The one represents the cost to access the priority queue.
+        The rest represents the cost to traverse through the list.
     \item \textbf{Worst Case $\mathcal{O}(n)$} -- The worst case is the same as described \cref{sec:singly}.
         That is, the implementation has to traverse $n$-times for a distribution of elements with only the same priority.
         The cost to access the priority queue can influence the running time.
@@ -534,8 +534,11 @@ Finally, \cref{tab:param} presents the remaining parameters we used for each tes
 \chapter{Results and Discussion}
 
 \section{Running Time}
+We visualized the running time results from the implementations with graphs and tables in \cref{app:singly}, \cref{app:doubly}, \cref{app:doublyavg} and \cref{app:arraypriority}.
+That is, the singly linked list, doubly linked list, doubly linked list with modification and scheduling queue respectively.
+
 \subsection{Enqueue}
-As shown in \cref{graph:Esingly}, \cref{graph:Edoubly}, \cref{graph:Eavg} and \cref{graph:Earray} in \cref{app:resultsgraphs}, the results similarity is that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
+The results similarity is that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
 The same goes for best case tests, that is, these show a lower bound limit.
 And the average case's time complexity lies somewhere between these limits.
 Another observation is that all the implementations perform similarly in best case and worst case.
@@ -545,23 +548,90 @@ That is, around 18 seconds with 60 000 elements.
 \skippara The doubly linked list with modification and scheduling queue algorithms produced a lower running time in average case tests.
 That is, around 10 seconds and 1 second, respectively, for 60 000 elements.
 The average case tests for the scheduling queue are only milliseconds higher than for its best case.
-On the contrary, the other implementation's average case produced running times that are several seconds higher than their average case.
+On the contrary, the other implementation's average case tests produced running times that are several seconds higher than their average case.
 That is, at least for more than 25 000 elements.
 
 
 
 \subsection{Dequeue}
 
-There is no significant results in these experiments, because the dequeue operation is similar for all the implementations.
+There is no significant changes in the results for these experiments, because the dequeue operation is similar for all the implementations.
 That is, the elements are in the correct order in the queue.
-The implementation only dequeues and removes the element from the head of the list.
+The implementation only needs to dequeue and remove the element from the head of the list.
 Thus, the running time slightly differ in milliseconds.
 
-\subsection{Memory Usage}
+\section{Memory Usage}
 
+\cref{app:memoryusage} summarizes the memory usage of all the implementations for best, average and worst case tests.
+The memory is the same for each test on a specific implementation, because it allocates the same number of elements.
+Thus, we did not have to calculate the mean and standard deviation value for memory usage.
+
+\skippara All the implementations memory usage increase linearly with the number of elements.
+The doubly linked list with and without modification reached similar memory usage.
+That is, around 4 Megabytes for 60 000 elements.
+And, singly linked list and priority queue implementation had similar memory usage.
+That is, around 6 Megabytes for 60 000 elements.
+The singly linked list and queue implementation use significantly less memory than the variations of doubly linked list.
+For example, for 60 000 elements, the former implementations use almost 2 Megabytes less memory than the queue based on doubly linked lists.
 
 % Här kan du fördjupa din diskussion och ta ett helhetsgrepp på din undersökning, metodval och resultat.
 \section{Discussion}
+\subsection{Running Time Analysis}
+Our complexity analysis matched with the results we generated from best, average and worst case tests.
+That is, the worst case test represents an upper bound limit for the running time of the algorithms, and the best case the lower bound.
+However, the most noticeable observation is that the scheduling queue implementation produced almost as low running time as for its lower bound limit.
+Thus, the scheduling queue implementation performed the best in terms of time.
+
+\skippara The scheduling queue has to traverse through a list, in general, fewer times than the rest of the implementations, because it has a assigned list for each priority.
+We can use our complexity analysis and math notation to express the average running time, where $n$ represents number of elements:
+\begin{itemize}
+    \item \textbf{Singly Linked List and Doubly Linked List} -- In worst case, these algorithms must traverse $n$ times.
+        Thus, we assume in average that these algorithms must at most traverse $n/2$ times,
+    \item \textbf{Doubly Linked List with Modification} -- It worst case, this algorithm must traverses the list $n$ times.
+        However, due to its modification, the insertion of new elements takes place in either the head or rear based on an average of first and last element's priority in the queue.
+        Thus, we assume in average that this algorithm must at most traverse $n/4$ times.
+    \item \textbf{Scheduling Priority} -- This algorithm traverses the list $n$ times in worst case.
+        However, due to its 41 different FIFO queues, each separate queues are in general shorter than the previous mentioned queues.
+        Thus, we assume in average that this algorithm must at most traverse $n/41$ times.
+\end{itemize}
+
+\skippara Hence, based on the assumptions in the list above, we can summarize each implementation's average time complexity in relation to the number of elements as the following:
+\begin{equation*}
+    \begin{bmatrix*}
+        \begin{array}{llll}
+            (1) & \text{Singly Linked List} & = & \dfrac{n}{2} \\[3ex]
+            (2) & \text{Doubly Linked List} & = & \dfrac{n}{2} \\[3ex]
+            (3) & \text{Doubly Linked List with Modification} & = & \dfrac{n}{4} \\[3ex]
+            (4) & \text{Scheduling Queue} & = & \dfrac{n}{41}
+        \end{array}
+    \end{bmatrix*}
+    \implies \frac{n}{2} \ge \frac{n}{4} \ge \frac{n}{41}
+\end{equation*}
+
+\skippara In average, we noticed that time complexity of (4) is approximately $10\times$ higher than (3), and $20\times$ higher than (1) and (2).
+Also, the time complexity of (1) and (2) is roughly $2\times$ higher than (1).
+Thus, our running time results from the average case tests yielded similar time complexity.
+For example, our running time for $n=60000$ was the following:
+\begin{equation*}
+    \begin{bmatrix*}
+        \begin{array}{llllll}
+            (1) & 17695.48 \pm 2\times 201.24 \text{ ms} & \approx 20000 \text{ ms}  & \approx 2\times(3)\text{ or } 20\times(4) \\[1ex]
+            (2) & 18662.72 \pm 2\times 201.24 \text{ ms} & \approx 20000 \text{ ms}  & \approx 2\times(3)\text{ or } 20\times(4) \\[1ex]
+            (3) & 9595.70 \pm 2\times 118.06 \text{ ms} & \approx 10000 \text{ ms} & \approx 10\times(4) \\[1ex]
+            (4) & 950.29 \pm 2\times 22.56 \text{ ms} & \approx 1000 \text{ ms} &
+        \end{array}
+    \end{bmatrix*}
+\end{equation*}
+
+\skippara Finally, the dequeue operation for all the algorithms have similar behavior.
+That is, all the dequeue operations take $\mathcal{O}(1)$ time.
+
+\subsection{Memory Usage Analysis}
+The reason both variations of doubly linked list has similar memory usage, and higher memory usage than singly linked list and scheduling queue, is because these implementations store in total two pointers.
+That is, doubly linked lists have a pointer that connects to the previous element, and the second connects to the next element.
+On the contrary, singly linked list and scheduling queue only store one pointer, which refers to the next element in the queue.
+Thus, the difference in memory usage is because of an extra pointer allocation.
+
 
 % ///////////////////////////////////
 % ///////////////////////////////////
@@ -634,7 +704,7 @@ Thus, we need to set up requirements that describes how to pass the task about t
 
 % that we refer to here: \ref{RDF_4}
 
-\chapter{Results -- Overview in Graphs}\label{app:resultsgraphs}
+\chapter{Results -- Singly Linked List}\label{app:singly}
 
 \begin{figure}[h!]
     \begin{adjustbox}{width=1\textwidth, center}
@@ -661,15 +731,15 @@ Thus, we need to set up requirements that describes how to pass the task about t
 
                 \addplot [style=thick, color=green, mark=o]
                 plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/singly_linked_list_best_enqueue.dat};
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/singly_linked_list_best_enqueue.dat};
 
                 \addplot [style=thick, color=blue, mark=o]
                 plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/singly_linked_list_avg_enqueue.dat};
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/singly_linked_list_avg_enqueue.dat};
 
                 \addplot [style=thick, color=red, mark=o]
                 plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/singly_linked_list_worst_enqueue.dat};
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/singly_linked_list_worst_enqueue.dat};
 
                 \legend{Best, Average, Worst}
 
@@ -679,320 +749,6 @@ Thus, we need to set up requirements that describes how to pass the task about t
     \caption{Running Time Enqueue Results -- Singly Linked List}
     \label{graph:Esingly}
 \end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Seconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=42,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/doubly_linked_list_best_enqueue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/doubly_linked_list_avg_enqueue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/doubly_linked_list_worst_enqueue.dat};
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Running Time Enqueue Results -- Doubly Linked List}
-    \label{graph:Edoubly}
-\end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Seconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=42,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/doubly_linked_list_avg_best_enqueue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/doubly_linked_list_avg_avg_enqueue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/doubly_linked_list_avg_worst_enqueue.dat};
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Running Time Enqueue Results -- Doubly Linked List with Modification}
-    \label{graph:Eavg}
-\end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Seconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=42,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/array_priority_best_enqueue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/array_priority_avg_enqueue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2]{../results/array_priority_worst_enqueue.dat};
-
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Running Time Enqueue Results -- Scheduling Queue}
-    \label{graph:Earray}
-\end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Milliseconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=20,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/singly_linked_list_best_dequeue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/singly_linked_list_avg_dequeue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/singly_linked_list_worst_dequeue.dat};
-
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Singly Linked List}
-    \label{}
-\end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Milliseconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=20,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_best_dequeue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_dequeue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_worst_dequeue.dat};
-
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Doubly Linked List}
-    \label{}
-\end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Milliseconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=20,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_best_dequeue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_avg_dequeue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_worst_dequeue.dat};
-
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Doubly Linked List}
-    \label{}
-\end{figure}
-
-\begin{figure}[h!]
-    \begin{adjustbox}{width=1\textwidth, center}
-        \renewcommand*\arraystretch{1.5}
-        \begin{tikzpicture}
-            \begin{axis}[
-                title={},
-                legend style={font=\scriptsize},
-                x label style = {text height = 0.7cm},
-                xlabel={Number of elements},
-                ylabel={Milliseconds},
-                xmin=10000, xmax=60000,
-                ymin=0, ymax=20,
-                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
-                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
-                legend pos=south east,
-                ymajorgrids=true,
-                grid style=dashed,
-                height=11cm,
-                width=20cm,
-                /pgf/number format/.cd,
-                1000 sep={}
-                ]
-
-                \addplot [style=thick, color=green, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/array_priority_best_dequeue.dat};
-
-                \addplot [style=thick, color=blue, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/array_priority_avg_dequeue.dat};
-
-                \addplot [style=thick, color=red, mark=o]
-                plot [error bars/.cd, y dir = both, y explicit]
-                table[y error index=2, y expr = \thisrowno{1}*1000]{../results/array_priority_worst_dequeue.dat};
-
-
-                \legend{Best, Average, Worst}
-
-            \end{axis}
-        \end{tikzpicture}
-    \end{adjustbox}
-    \caption{Scheduling Queue}
-    \label{}
-\end{figure}
-\chapter{Results -- Detailed in Tables}\label{app:resultsdetailed}
 
 \begin{table}[ht!]
 \caption{Best Case Enqueue -- Singly Linked List }
@@ -1012,9 +768,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*1000*2},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1028,113 +784,6 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/singly_linked_list_best_enqueue.dat}
-\end{table}
-\begin{table}[ht!]
-\caption{Best Case Enqueue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_best_enqueue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Best Case Enqueue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_best_enqueue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Best Case Enqueue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/array_priority_best_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
@@ -1156,9 +805,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1172,117 +821,6 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/singly_linked_list_avg_enqueue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Average Case Enqueue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_enqueue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Average Case Enqueue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_avg_enqueue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Average Case Enqueue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/array_priority_avg_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
@@ -1304,9 +842,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1322,118 +860,52 @@ every odd row/.style={
 ]{../results/singly_linked_list_worst_enqueue.dat}
 \end{table}
 
-\begin{table}[ht!]
-\caption{Worst Case Enqueue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_worst_enqueue.dat}
-\end{table}
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Milliseconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=20,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
 
-\begin{table}[ht!]
-\caption{Worst Case Enqueue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_worst_enqueue.dat}
-\end{table}
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/singly_linked_list_best_dequeue.dat};
 
-\begin{table}[ht!]
-\caption{Worst Case Enqueue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/array_priority_worst_enqueue.dat}
-\end{table}
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/singly_linked_list_avg_dequeue.dat};
 
-% ----------------- DEQUEUE ------------------
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/singly_linked_list_worst_dequeue.dat};
+
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Dequeue Results -- Singly Linked List}
+    \label{}
+\end{figure}
+
+\clearpage
 
 \begin{table}[ht!]
 \caption{Best Case Dequeue -- Singly Linked List }
@@ -1453,9 +925,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1469,113 +941,6 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/singly_linked_list_best_dequeue.dat}
-\end{table}
-\begin{table}[ht!]
-\caption{Best Case Dequeue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_best_dequeue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Best Case Dequeue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_best_dequeue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Best Case Dequeue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/array_priority_best_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
@@ -1597,9 +962,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1613,117 +978,6 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/singly_linked_list_avg_dequeue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Average Case Dequeue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_dequeue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Average Case Dequeue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/doubly_linked_list_avg_avg_dequeue.dat}
-\end{table}
-
-\begin{table}[ht!]
-\caption{Average Case Dequeue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../results/array_priority_avg_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
@@ -1745,9 +999,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1761,6 +1015,283 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/singly_linked_list_worst_dequeue.dat}
+\end{table}
+
+
+
+\chapter{Results -- Doubly Linked List}\label{app:doubly}
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Seconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=42,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/doubly_linked_list_best_enqueue.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/doubly_linked_list_avg_enqueue.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/doubly_linked_list_worst_enqueue.dat};
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Enqueue Results -- Doubly Linked List}
+    \label{graph:Edoubly}
+\end{figure}
+
+\begin{table}[ht!]
+\caption{Best Case Enqueue -- Doubly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_best_enqueue.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Average Case Enqueue -- Doubly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_enqueue.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Worst Case Enqueue -- Doubly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_worst_enqueue.dat}
+\end{table}
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Milliseconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=20,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_best_dequeue.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_dequeue.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_worst_dequeue.dat};
+
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Dequeue Results -- Doubly Linked List}
+    \label{}
+\end{figure}
+\clearpage
+
+\begin{table}[ht!]
+\caption{Best Case Dequeue -- Doubly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_best_dequeue.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Average Case Dequeue -- Doubly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
@@ -1782,9 +1313,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1798,6 +1329,283 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/doubly_linked_list_worst_dequeue.dat}
+\end{table}
+
+\chapter{Results -- Doubly Linked List with Modification}\label{app:doublyavg}
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Seconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=42,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/doubly_linked_list_avg_best_enqueue.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/doubly_linked_list_avg_avg_enqueue.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/doubly_linked_list_avg_worst_enqueue.dat};
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Enqueue Results -- Doubly Linked List with Modification}
+    \label{graph:Eavg}
+\end{figure}
+
+\begin{table}[ht!]
+\caption{Best Case Enqueue -- Doubly Linked List with Modification}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_best_enqueue.dat}
+\end{table}
+
+
+\begin{table}[ht!]
+\caption{Average Case Enqueue -- Doubly Linked List with Modification}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_avg_enqueue.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Worst Case Enqueue -- Doubly Linked List with Modification}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_worst_enqueue.dat}
+\end{table}
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Milliseconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=20,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000,y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_best_dequeue.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_avg_dequeue.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/doubly_linked_list_avg_worst_dequeue.dat};
+
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Dequeue Results -- Doubly Linked List with Modification}
+    \label{}
+\end{figure}
+\clearpage
+
+
+\begin{table}[ht!]
+\caption{Best Case Dequeue -- Doubly Linked List with Modification}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_best_dequeue.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Average Case Dequeue -- Doubly Linked List with Modification}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_avg_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
@@ -1819,9 +1627,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1836,6 +1644,295 @@ every odd row/.style={
 }
 ]{../results/doubly_linked_list_avg_worst_dequeue.dat}
 \end{table}
+
+\chapter{Results -- Scheduling Queue}\label{app:arraypriority}
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Seconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=42,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/array_priority_best_enqueue.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/array_priority_avg_enqueue.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2]{../results/array_priority_worst_enqueue.dat};
+
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Enqueue Results -- Scheduling Queue}
+    \label{graph:Earray}
+\end{figure}
+\begin{table}[ht!]
+\caption{Best Case Enqueue -- Scheduling Queue}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/array_priority_best_enqueue.dat}
+\end{table}
+
+
+
+
+\begin{table}[ht!]
+\caption{Average Case Enqueue -- Scheduling Queue}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/array_priority_avg_enqueue.dat}
+\end{table}
+
+
+
+
+\begin{table}[ht!]
+\caption{Worst Case Enqueue -- Scheduling Queue}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/array_priority_worst_enqueue.dat}
+\end{table}
+
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Milliseconds},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=20,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/array_priority_best_dequeue.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/array_priority_avg_dequeue.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2, y error expr = \thisrowno{2}*2*1000, y expr = \thisrowno{1}*1000]{../results/array_priority_worst_dequeue.dat};
+
+
+                \legend{Best, Average, Worst}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Running Time Dequeue Results -- Scheduling Queue}
+    \label{}
+\end{figure}
+
+\clearpage
+
+\begin{table}[ht!]
+\caption{Best Case Dequeue -- Scheduling Queue}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/array_priority_best_dequeue.dat}
+\end{table}
+
+
+
+
+\begin{table}[ht!]
+\caption{Average Case Dequeue -- Scheduling Queue}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Running Time in Milliseconds},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*1000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={$2\times$SD ($N=50$)},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1*2*1000},
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/array_priority_avg_dequeue.dat}
+\end{table}
+
+
+
 
 \begin{table}[ht!]
 \caption{Worst Case Dequeue -- Scheduling Queue}
@@ -1856,9 +1953,9 @@ columns/1/.style={
     /pgf/number format/precision=2,
 },
 columns/2/.style={
-    column name={Standard Deviation ($N=50$)},
+    column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
+    /pgfplots/table/preproc/expr={##1*2*1000},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1872,6 +1969,183 @@ every odd row/.style={
     before row={\rowcolor[gray]{.8}}
 }
 ]{../results/array_priority_worst_dequeue.dat}
+\end{table}
+
+\chapter{Results -- Memory Usage}\label{app:memoryusage}
+
+The best, worst, average case tests are included in the total memory usage for each implementation.
+Thus, the higher memory usage.
+
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Number of elements},
+                ylabel={Bytes},
+                xmin=10000, xmax=60000,
+                ymin=0, ymax=6000000,
+                xtick={10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000},
+                ytick={0, 500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000, 5000000, 5500000, 6000000},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [style=thick, color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[]{../results/singly_linked_list_memory.dat};
+
+                \addplot [style=thick, color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[]{../results/doubly_linked_list_memory.dat};
+
+                \addplot [color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[]{../results/doubly_linked_list_avg_memory.dat};
+
+                \addplot [color=black, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[]{../results/array_priority_memory.dat};
+
+                \legend{Singly Linked List, Doubly Linked List, Doubly Linked List with modification, Scheduling Queue}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Memory Usage Results of the All Queues}
+    \label{graph:memoryusage}
+\end{figure}
+
+\begin{table}[ht!]
+\caption{Memory Usage -- Singly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Memory Usage in Megabytes},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1/1000000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/singly_linked_list_memory.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Memory Usage -- Doubly Linked List}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Memory Usage in Megabytes},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1/1000000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_memory.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Memory Usage -- Doubly Linked List with Modification}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Memory Usage in Megabytes},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1/1000000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/doubly_linked_list_avg_memory.dat}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Memory Usage -- Scheduling Queue}
+\centering
+\label{}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Number of Elements},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Memory Usage in Megabytes},
+    /pgf/number format/fixed zerofill,
+    /pgfplots/table/preproc/expr={##1/1000000},
+    1000 sep={},
+    /pgf/number format/precision=2,
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{../results/array_priority_memory.dat}
 \end{table}
 
 \clearpage

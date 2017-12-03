@@ -31,11 +31,16 @@
 \contentsline {section}{\numberline {4.1}Running Time}{13}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Enqueue}{13}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Dequeue}{13}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Memory Usage}{13}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Discussion}{13}{section.4.2}
-\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{15}{chapter.5}
-\contentsline {chapter}{Appendices}{15}{section*.1}
-\contentsline {appendix}{\chapternumberline {A}Requirement Overview}{17}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Results -- Overview in Graphs}{19}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Results -- Detailed in Tables}{25}{appendix.C}
-\contentsline {chapter}{Bibliography}{35}{section*.3}
+\contentsline {section}{\numberline {4.2}Memory Usage}{14}{section.4.2}
+\contentsline {section}{\numberline {4.3}Discussion}{14}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Running Time Analysis}{14}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Memory Usage Analysis}{15}{subsection.4.3.2}
+\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{17}{chapter.5}
+\contentsline {chapter}{Appendices}{17}{section*.1}
+\contentsline {appendix}{\chapternumberline {A}Requirement Overview}{19}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Results -- Singly Linked List}{21}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Results -- Doubly Linked List}{25}{appendix.C}
+\contentsline {appendix}{\chapternumberline {D}Results -- Doubly Linked List with Modification}{29}{appendix.D}
+\contentsline {appendix}{\chapternumberline {E}Results -- Scheduling Queue}{33}{appendix.E}
+\contentsline {appendix}{\chapternumberline {F}Results -- Memory Usage}{37}{appendix.F}
+\contentsline {chapter}{Bibliography}{41}{section*.3}
