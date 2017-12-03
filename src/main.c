@@ -10,56 +10,71 @@
 /* #define TOTAL_ELEMENTS 40000 */
 int TOTAL_ELEMENTS;
 
-/*
- * test0 - tests enqueue and dequeue correctness
- */
-typedef struct {
-    uint32_t test_pid;
-    double test_priority;
-} test_node;
+#if TEST_CORRECTNESS
+void test_correctness(char* indata, char* outdata) {
 
-int cmp(const void *x, const void *y) {
-    test_node *xx = (test_node *)x;
-    test_node *yy = (test_node *)y;
+    char * temp;
 
-    if (xx->test_priority < yy->test_priority) return -1;
-    if (xx->test_priority > yy->test_priority) return 1;
-    return 0;
+    list_t* list = new_queue();
+    uint32_t pid = 0;
+    double test_priority = 0;
+    uint32_t test_pid = 0;
+
+    char line[512];
+    int i = 0;
+    FILE* file = fopen(indata, "r");
+
+    while (fgets(line, sizeof(line), file)) {
+        temp = strtok(line," ");
+        while (temp != NULL)
+        {
+            temp[strcspn(temp, "\n")] = '\0';
+
+            if (i == 0) {
+                test_pid = atoi(temp);
+                i = 1;
+            } else {
+                test_priority = atof(temp);
+                i = 0;
+            }
+
+
+            temp = strtok(NULL, " ");
+        }
+        enqueue(list, test_pid, test_priority);
+    }
+
+    fclose(file);
+
+    file = fopen(outdata, "r");
+
+    while (fgets(line, sizeof(line), file)) {
+        temp = strtok(line," ");
+        while (temp != NULL)
+        {
+            temp[strcspn(temp, "\n")] = '\0';
+
+            if (i == 0) {
+                test_pid = atoi(temp);
+                i = 1;
+            } else {
+                test_priority = atof(temp);
+                i = 0;
+            }
+
+            temp = strtok (NULL, " ");
+        }
+
+        pid = dequeue(list);
+        printf("pid %u == test_pid %d\n", pid, test_pid);
+        assert(pid == test_pid);
+    }
+
+    delete_list(list);
+
+    printf("test correctness - Passed\n");
 }
-
-/* void test_correctness() { */
-/*     double test_priority; */
-/*     uint32_t test_pid; */
-/*     test_node test_list[TOTAL_ELEMENTS]; */
-/*     list_t* list = new_queue(); */
-/*     uint32_t pid; */
-/*     int i; */
-/*  */
-/*  */
-/*     srand(time(NULL)); */
-/*     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) { */
-/*         test_priority = rand() / (RAND_MAX / 40); */
-/*  */
-/*         enqueue(list, test_pid, test_priority); */
-/*         test_list[test_pid].test_pid = test_pid; */
-/*         test_list[test_pid].test_priority = test_priority; */
-/*         #<{(| WORST CASE | printf("Enqueued - test_pid: %d, test_priority: %f\n", test_pid, test_priority); |)}># */
-/*     } */
-/*  */
-/*     qsort (test_list, TOTAL_ELEMENTS, sizeof(test_node), cmp); */
-/*  */
-/*     #<{(| print_list(list); |)}># */
-/*     for(i = 0; i < TOTAL_ELEMENTS; i++) { */
-/*         test_priority = test_list[i].test_priority; */
-/*         test_pid = test_list[i].test_pid; */
-/*         pid = dequeue(list); */
-/*  */
-/*         assert(pid == test_pid); */
-/*     } */
-/*  */
-/*     delete_list(list); */
-/*     printf("test0 correctness - Passed\n"); */
-/* } */
+#else
 
 list_t* test_best_case() {
     double test_priority;
@@ -310,13 +325,17 @@ list_t* test_worst_case() {
 
     return list;
 }
+#endif
 
 int main(int argc, char **argv) {
+#if TEST_CORRECTNESS
+    char* indata = argv[1];
+    char* outdata = argv[2];
+    test_correctness(indata, outdata);
+#else
     list_t* list;
 
     TOTAL_ELEMENTS = atoi(argv[1]);
-
-    /* test_correctness(); */
 
     list = test_best_case();
     delete_list(list);
@@ -326,6 +345,7 @@ int main(int argc, char **argv) {
 
     list = test_worst_case();
     delete_list(list);
+#endif
 
     return 0;
 }

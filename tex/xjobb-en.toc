@@ -1,0 +1,41 @@
+\changetocdepth {2}
+\select@language {english}
+\select@language {english}
+\select@language {swedish}
+\select@language {english}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Problem}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Hypothesis}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Purpose}{3}{section.1.4}
+\contentsline {section}{\numberline {1.5}Goal}{3}{section.1.5}
+\contentsline {section}{\numberline {1.6}Social Benefit, Ethics and Sustainable Development}{4}{section.1.6}
+\contentsline {section}{\numberline {1.7}Outline}{4}{section.1.7}
+\contentsline {chapter}{\chapternumberline {2}Method}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Inductive and Deductive Method}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Quantitative and Qualitative Method}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Data Collection}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Data Analysis}{6}{section.2.4}
+\contentsline {chapter}{\chapternumberline {3}System Description}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}System Development Method}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Queue Algorithms}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Singly Linked List}{8}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Doubly Linked List}{8}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Doubly Linked List with Modification}{9}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Scheduling Queue}{9}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Experimental Setup}{10}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Error Sources}{10}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Verification and Validation}{11}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Experiments}{11}{subsection.3.3.3}
+\contentsline {chapter}{\chapternumberline {4}Results and Discussion}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Running Time}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Enqueue}{13}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Dequeue}{13}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Memory Usage}{13}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Discussion}{13}{section.4.2}
+\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{15}{chapter.5}
+\contentsline {chapter}{Appendices}{15}{section*.1}
+\contentsline {appendix}{\chapternumberline {A}Requirement Overview}{17}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Results -- Overview in Graphs}{19}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Results -- Detailed in Tables}{25}{appendix.C}
+\contentsline {chapter}{Bibliography}{35}{section*.3}
