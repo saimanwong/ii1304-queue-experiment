@@ -12,8 +12,8 @@ for i in range(0, n):
 
 b = sorted(a, key=key)
 
-fa = open(filepath + "/test_correctness.in","w") 
-fb = open(filepath + "/test_correctness.out","w") 
+fa = open(filepath + "/test_correctness.input","w") 
+fb = open(filepath + "/test_correctness.output","w") 
 
 for i in range(0, n):
     temp = str(a[i][0]) + " " + str(a[i][1])
