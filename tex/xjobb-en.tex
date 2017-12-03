@@ -1160,6 +1160,7 @@ columns/2/.style={
     column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
     /pgfplots/table/preproc/expr={##1*2*1000},
+    1000 sep={},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -1473,6 +1474,7 @@ columns/2/.style={
     column name={$2\times$SD ($N=50$)},
     /pgf/number format/fixed zerofill,
     /pgfplots/table/preproc/expr={##1*2*1000},
+    1000 sep={},
     /pgf/number format/precision=2
 },
 every head row/.style={
@@ -2154,7 +2156,6 @@ every odd row/.style={
 % I den här rapporten använder du ISO690 numerisk variant för referenserna.
 %
 % Har man ett bra verktyg som man skriver i/hantera referenserna i så kan referenslistan automatgenereras. Det gör det också lättare att uppdatera referenslistan utan att behöva gå igenom varje referens i texten manuellt. Dessutom får man bara med källor som man refererat till minst en gång från texten.
-
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,sources}
 \end{document}

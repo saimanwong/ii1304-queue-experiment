@@ -1,14 +1,13 @@
 # Fdb version 3
-["bibtex xjobb-en"] 1512327743 "xjobb-en.aux" "xjobb-en.bbl" "xjobb-en" 1512329875
+["bibtex xjobb-en"] 1512331394 "xjobb-en.aux" "xjobb-en.bbl" "xjobb-en" 1512331534
   "./IEEEtran.bst" 1512101122 59362 bb55bbd56151c9fd1282bc904e790251 ""
   "IEEEabrv.bib" 1507040961 17394 5f68ac6bd88a4483a55f39046634d899 ""
   "sources.bib" 1512122808 3975 2e4cefc2bf4dafd890d36f2a12cacde8 ""
-  "xjobb-en.aux" 1512329875 22457 03a361c1cd33fcd629aba0f1bbcb32c4 ""
+  "xjobb-en.aux" 1512331534 22457 03a361c1cd33fcd629aba0f1bbcb32c4 ""
   "xjobb-en.bcf" 0 -1 0 ""
   (generated)
   "xjobb-en.bbl"
-  "xjobb-en.blg"
-["pdflatex"] 1512329869 "xjobb-en.tex" "xjobb-en.pdf" "xjobb-en" 1512329875
+["pdflatex"] 1512331527 "xjobb-en.tex" "xjobb-en.pdf" "xjobb-en" 1512331534
   "../results/array_priority_avg_dequeue.dat" 1512321179 379 72798d558f1f9b9aaa874904bd901a88 ""
   "../results/array_priority_avg_enqueue.dat" 1512321179 365 29ec4ae033ec72a13f8fd2ea643b31f4 ""
   "../results/array_priority_best_dequeue.dat" 1512321179 381 06bc3cec928a50b271d4d8e598fda239 ""
@@ -288,14 +287,14 @@
   "kth-mag.cls" 1507040961 3415 4bab1e95097b174b2a06047f768d9caa ""
   "modifications.sty" 1507040961 2577 d1b512f9ebeae6600c6c1695a1a851e8 ""
   "whitebg.png" 1507040961 173 f12f96902efd722b08ba484d64e19cb4 ""
-  "xjobb-en.aux" 1512329875 22457 03a361c1cd33fcd629aba0f1bbcb32c4 ""
-  "xjobb-en.bbl" 1512327743 3385 874e21effef61ea48ff0472b4a332a39 "bibtex xjobb-en"
-  "xjobb-en.out" 1512329875 2628 ddc520f7a05a5c0350a2d2a34f822359 ""
-  "xjobb-en.tex" 1512329868 91290 e4568b9fa875e1c496e59fcec78c5fd9 ""
-  "xjobb-en.toc" 1512329875 3445 fb3b852a93f883a29d6f869f28c55389 ""
+  "xjobb-en.aux" 1512331534 22457 03a361c1cd33fcd629aba0f1bbcb32c4 ""
+  "xjobb-en.bbl" 1512331394 3385 874e21effef61ea48ff0472b4a332a39 "bibtex xjobb-en"
+  "xjobb-en.out" 1512331534 2628 ddc520f7a05a5c0350a2d2a34f822359 ""
+  "xjobb-en.tex" 1512331527 91323 d8a5b5e65df67327f271d49242540551 ""
+  "xjobb-en.toc" 1512331534 3445 fb3b852a93f883a29d6f869f28c55389 ""
   (generated)
   "xjobb-en.out"
-  "xjobb-en.pdf"
-  "xjobb-en.toc"
-  "xjobb-en.log"
   "xjobb-en.aux"
+  "xjobb-en.log"
+  "xjobb-en.toc"
+  "xjobb-en.pdf"
