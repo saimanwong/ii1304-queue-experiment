@@ -69,6 +69,7 @@ void test_correctness(char* indata, char* outdata) {
         printf("pid %u == test_pid %d\n", pid, test_pid);
         assert(pid == test_pid);
     }
+    fclose(file);
 
     delete_list(list);
 

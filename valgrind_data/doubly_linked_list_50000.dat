@@ -1,0 +1,15 @@
+==127667== Memcheck, a memory error detector
+==127667== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==127667== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==127667== Command: ./obj/doubly_linked_list 50000
+==127667== Parent PID: 127270
+==127667== 
+==127667== 
+==127667== HEAP SUMMARY:
+==127667==     in use at exit: 0 bytes in 0 blocks
+==127667==   total heap usage: 150,004 allocs, 150,004 frees, 4,801,096 bytes allocated
+==127667== 
+==127667== All heap blocks were freed -- no leaks are possible
+==127667== 
+==127667== For counts of detected and suppressed errors, rerun with: -v
+==127667== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

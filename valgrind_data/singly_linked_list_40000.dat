@@ -1,0 +1,15 @@
+==127443== Memcheck, a memory error detector
+==127443== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==127443== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==127443== Command: ./obj/singly_linked_list 40000
+==127443== Parent PID: 127270
+==127443== 
+==127443== 
+==127443== HEAP SUMMARY:
+==127443==     in use at exit: 0 bytes in 0 blocks
+==127443==   total heap usage: 120,004 allocs, 120,004 frees, 2,881,072 bytes allocated
+==127443== 
+==127443== All heap blocks were freed -- no leaks are possible
+==127443== 
+==127443== For counts of detected and suppressed errors, rerun with: -v
+==127443== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

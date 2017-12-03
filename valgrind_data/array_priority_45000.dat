@@ -1,0 +1,15 @@
+==127603== Memcheck, a memory error detector
+==127603== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==127603== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==127603== Command: ./obj/array_priority 45000
+==127603== Parent PID: 127270
+==127603== 
+==127603== 
+==127603== HEAP SUMMARY:
+==127603==     in use at exit: 0 bytes in 0 blocks
+==127603==   total heap usage: 135,004 allocs, 135,004 frees, 3,242,032 bytes allocated
+==127603== 
+==127603== All heap blocks were freed -- no leaks are possible
+==127603== 
+==127603== For counts of detected and suppressed errors, rerun with: -v
+==127603== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
