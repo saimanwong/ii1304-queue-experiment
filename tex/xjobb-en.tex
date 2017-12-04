@@ -120,11 +120,11 @@ Software developers use these implementations frequently, and sometimes take the
 Thus, an inexperienced developer possess a limited knowledge of the theory and technical aspects of the used implementations.
 
 \skippara Developers use the data structure, or model, linked list to store data linearly.
-The simple linked list consists of entities. 
-An entity stores data and includes a connection to the next entity in the list. 
+The simple linked list consists of entities.
+An entity stores data and includes a connection to the next entity in the list.
 Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
 That is, an element stores data and consists of a pointer to the next element in the list.
-Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.  
+Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
 
 
 % Här beskriver du problemområdet och problemet i detalj. Beskriv också varför det är värdefullt att undersöka problemet. Försök formulera din problemställning så klart och koncist som möjligt – gärna i en mening!
@@ -150,7 +150,7 @@ We implemented the queues in the low-level programming language \texttt{C}, and 
     \item \textbf{Scheduling queue} -- The queue consists of an FIFO-queue for each priority in the $[0,40]$ interval.
 \end{enumerate}
 
-\skippara 
+\skippara
 Computer scientists evaluate algorithms in terms of space and time, such as execution time and memory usage.
 That is, we gather a large quantity of these metric to determine best, average and worst cases.
 Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
@@ -227,57 +227,57 @@ That is, we avoided to waste unnecessary electricity due to, for example, system
 \chapter{Method}
 
 \section{Inductive and Deductive Method}
-Scientists apply an inductive method when they try to reach practical conclusions from observations or data \cite{Omexperi69:online}.
-That is, in sequential order to 1) collect data, 2) detect pattern in it, 3) set up a hypothesis and 4) try to explain the findings with established theory to reach 5) a conclusion \cite{web:induction}.
-It is sometimes informally called a bottom-up approach due to its style to start with observations.
-Software engineers frequently apply this method to observe algorithms and a system's behavior.
-For example, a developer with specific an input can generate output from an algorithm to create an understanding of how it works.
+Scientists apply an inductive method to reach practical conclusions from observations or data \cite{Omexperi69:online}.
+That is, in sequential order to 1) collect data, 2) detect pattern in the data, 3) set up a hypothesis and 4) explain the findings with established theory to reach 5) a conclusion \cite{web:induction}.
+The method is sometimes informally called a bottom-up approach due to its style to first observe data.
+Software engineers frequently apply an inductive method to observe algorithms and a system's behavior.
+For example, a developer put in a specific input in the implementation and generate an output to observe the algorithm's performance.
 
-\skippara With the deductive method, also called top-down approach, scientists try to reach logical conclusions from theory.
-For example, mathematicians use a deductive method to try to explain something unknown with help of well-established theory (axioms and theorems).
-This also applies to researchers within computer science.
-That is, they use mathematical notations to represent theoretical models in, for example, algorithm analysis and complexity theory.
-Thus, researchers use these methods for different purposes, and they sometimes combine them to reach both a logical and practical conclusion.
+\skippara With the deductive method, also called top-down approach, scientists reach logical conclusions from theory first.
+For example, mathematicians use a deductive method to explain the unknown with help of established theory (axioms and theorems).
+A deductive method also applies to researchers within computer science.
+That is, computer scientists use mathematical notations to represent theoretical models in, for example, algorithm analysis and complexity theory.
+Thus, researchers use these methods for a variety of purposes, and sometimes combine them to reach both a logical and practical conclusion.
 
 \section{Quantitative and Qualitative Method}
 
-Researches apply a quantitative method in studies that rely on measurable data in large quantities to explain findings \cite{haakansson2013portal}.
-That is, the metrics in a quantitative study are measurable, such as time, temperature and age.
-These studies frequently apply statistical analysis to summarize the data in tables and graphs with error margins.
-For example, scientists use a quantitative method to try to predict a nation's growth based on the birth and death rate over a longer period.
+Researches apply a quantitative method in studies, which rely on measurable data in large quantities to explain findings \cite{haakansson2013portal}.
+That is, a quantitative study use measurable metrics, such as time, temperature and age.
+These studies apply statistical analysis to summarize the data in tables and graphs with error margins.
+For example, scientists use a quantitative method to predict a nation's growth based on the birth and death rate over a longer period.
 
 \skippara In contrast, a qualitative method relies on data of quality to interpret the results \cite{merriam2009qualitative}.
-Scientists use this method in studies when the data significantly more difficult to quantify, such as opinions, thoughts and happiness.
-The data are usually collected from other people in form of interviews and surveys.
-Thus, psychologists frequently implement a qualitative method to try to understand people's behavior.
+Scientists use a qualitative method in studies when the data is significantly more difficult to quantify, such as opinions, thoughts and happiness.
+The researchers conduct, for example, interviews and surveys, to collect data from individuals.
+Thus, psychologists often implement a qualitative method to examine people's behavior.
 
 % Beskriv hur du samlar in data, material och annat underlag för din undersökning? Svara på frågor som: Hur skall undersökningen genomföras? Hur är experimentuppställningen organiserad?
 \section{Data Collection}
-The most relevant metrics to examine algorithms with are time and space, such as execution time and memory usage.
-These metrics are all quantifiable.
-In contrast to, for example, interviews and surveys, which are common methods in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
-That is, qualitative studies reaches conclusions from the quality of the data rather quantity.
-Thus, this study uses an experimental quantitative method to try to get a deeper insight about queues.
+We used quantifiable metrics in our study.
+That is, execution time and memory usage, because computer scientists commonly apply these for algorithm och complexity analysis.
+In contrast to, for example, interviews and surveys, which the researchers within social sciences regularly use in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
+That is, qualitative studies reaches conclusions from the quality of the data.
+Thus, our study uses an experimental quantitative method to reach a deeper insight into data structures and queue implementations.
 
-\skippara For each of the four queue-implementations, we tested and generated the execution time for best, average and worst case.
-That is, we created input for the queues based on different distributions of the element's priorities.
-Besides execution time, we also log the memory usage for each implementation.
-Finally, we wrote scripts to execute the tests and logged all the raw data.
+\skippara For each of the four queue-implementations, we tested and generated the execution time for the best, average and worst case.
+That is, we created input for the queues with varying distributions of the element's priorities.
+Besides execution time, we log the memory usage for each implementation.
+Finally, we wrote scripts to execute the tests and logged the raw data.
 
 % Beskriv metoden för hur du avser analysera insamlad data/material. Beskriv också hur du planerar tolka  data
 \section{Data Analysis}
 We reasoned with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
-That is, we can reach theoretical conclusions from complexity theory about the algorithms.
-For example, it is possible to determine an algorithm's performance based solely on theoretical knowledge.
-However, the usage of deductive methods can also yield unexpected results when put into practice.
-Thus, we generate realistic data from our experiments, and use an inductive method to further analyze it.
-That is, to explore if we can notice any observable patters in the data with help of models.
+That is, we analyzed the algorithms with help of established complexity theory.
+For example, to determine an algorithm's performance based solely on theoretical knowledge.
+However, the usage of only a deductive methods can yield unexpected results when put into practice.
+Thus, we generate realistic data from our experiments, and use an inductive method to further analyze the algorithms.
+That is, to explore if we can notice observable patters in the data with help of complexity models.
 
-\skippara We used both graphs and tables to visualize the execution time and memory usage
-And, ran the experiments multiple times to get the sample mean and standard deviation.
-Standard deviation is important because it provides a deeper insight about the results around the sample mean.
-Also, it can eventually help us identify the external or internal error sources.
-For example, if the standard deviation is relatively high, then we can suspect that something is wrong.
+\skippara We used both graphs and tables to visualize the execution time and memory usage.
+And, ran the experiments multiple times to generate the sample mean and standard deviation.
+The standard deviation adds a deeper insight into the data and spread around the mean.
+Also, it help us to identify the external or internal error sources.
+If the standard deviation is relatively high, then we can suspect that something is wrong with, for example, the underlying system.
 
 
 
@@ -298,16 +298,16 @@ For example, if the standard deviation is relatively high, then we can suspect t
 % Om du utvecklat ett system (som algoritmerna för den här studien) så bör du beskriva vilken/vilka metoder och verktyg du använt för systemutvecklingen. I större undersökningar/arbeten vill man gärna också se en diskussion om olika alternativ och varför man valt de man använt.
 \section{System Development Method}
 Our implementation produces an executable for each of the four queue-implementations.
-It consists of primarily three files, \texttt{main.c} with all the tests, \texttt{queues.h} and \texttt{queues.c} which respectively describes and implements the functionalities.
-Thus, we use compile time macros to determine which of the four queue-implementation we create an executable from.
+The experiment consists of primarily three files, \texttt{main.c} with the tests, \texttt{queues.h} and \texttt{queues.c} which respectively describes and implements the functionalities of the queue.
+Finally, we used compile time macros to determine which of the four queue-implementation we create an executable from.
 
 \skippara We used Bash-scripts to automatically run tests and log the results in plain text.
-Also, we wrote a Python-script that 1) calculated the sample mean and standard deviation, and 2) summarized it in a specific format so that \LaTeX \  can visualize it in either tables or graphs.
-Finally, we also use Valgrind to examine that our implementation allocates and deallocates memory correctly.
+Also, we developer a Python-script, which 1) calculated the sample mean and standard deviation, and 2) summarized and visualized the data with tables and graphs in \LaTeX.\
+Finally, we used Valgrind on our implementations to examine memory allocation and deallocation.
 
-\skippara We also added an optional solution to run the entire experiment in a container.
-That is, if anyone only wants to run the entire experiment without thinking about the set up process, then the user only need to install Docker and run one command to achieve the results as we did.
-It is efficient, because containers shares the same resources as the host operating system.
+\skippara We added an optional solution to run the entire experiment in a container.
+That is, if anyone wants to run the entire experiment, and spend minimum time on the setup process, then the user only has to install Docker and execute a command to achieve the similar results we produced.
+Docker containers introduce an effective approach to package software, because containers use the same resources as the host operating system.
 
 
 % Det här är en anpassad rubrik för just den här studien. Här beskriver du (ev. med flera underrubriker) mer i detalj de algoritmer du implementerat, analyserar dem och hur du implementerat dem.
@@ -315,81 +315,79 @@ It is efficient, because containers shares the same resources as the host operat
 Our task is to implement four different queue-implementation in the programming language \texttt{C}, as described in \cref{sec:problem}.
 The following are common operations for a queue:
 \begin{itemize}
-    \item \textbf{Enqueue} -- enqueues the element in the correct spot in the queue, because it is a priority queue.
+    \item \textbf{Enqueue} -- enqueues the element in the correct spot in the priority queue.
     \item \textbf{Dequeue} -- dequeues the element with the highest priority, that is, the first element in the queue.
 \end{itemize}
 
-\skippara The only operation that can vary in the queue-implementations is the enqueue-operation, because it must insert the element in the correct position in the queue.
-Another common feature is that each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to other elements.
+\skippara The queues approach to enqueue varies for the implementations, because the algorithm traverses and inserts the new element in the correct position in the queue.
+Each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to additional elements.
 
-\skippara The following sections describe how we implemented the queues.
-Additionally, we analyze the time complexity for the enqueue-operation as it varies.
-Average cases are difficult to analyze theoretically.
-However, best and worst cases are easier to analyze in theory.
-Thus, we analyze the best and worst case to try to understand the average case for each implementation's enqueue-operation.
+\skippara The following sections describe our implementation of the queues.
+Additionally, we analyzed the time complexity for the enqueue-operation.
+We found the average case time complexity more difficult to theoretically analyze compared to the best and worst case.
+Thus, we examined the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
 
 \subsection{Singly Linked List}\label{sec:singly}
-This implementation uses a singly linked list to represent a queue.
+This queue implementation uses a singly linked list to represent a queue.
 That is, an element in the queue stores 1) a unique number identifier, 2) a priority and 3) a pointer to the next element in the queue.
-This algorithm enqueues new elements from head.
+The algorithm enqueues new elements from head.
 The following list analyzes the enqueue-operation's time complexity:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(1)$} -- This occurs when the enqueue-operation of new elements always takes place in the head.
-        That is, the implementation does not have to traverse the list to find the correct spot to insert the new element.
-        Instead, it needs to only perform one operation to put the new element in the head.
+    \item \textbf{Best Case $\mathcal{O}(1)$} -- The best case occurs when the enqueue-operation of new elements always takes place in the head.
+        That is, the algorithm avoids to traverse the list to find the correct spot to insert the new element.
+        On the other hand, the queue needs to only perform one operation to put the new element in the head.
         Thus, we can reach the best case with a distribution of priorities where the numerical value descends from a higher one.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- This happens when the implementation must traverse through the entire list, or $n$-times, to insert the new element in the correct place.
-        Thus, the implementation reaches the worst case scenario with a distribution of priorities with the same numerical value,
-because the queue uses an FIFO approach to manage elements with the same priority.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The worst case happens when the implementation traverse through the entire list, or $n$-times, to insert the new element in the correct place.
+        Thus, the implementation reaches the worst case scenario with priority distribution of the same numerical value, because the queue uses FIFO policy to manage elements of the same priority.
 \end{itemize}
 
 \subsection{Doubly Linked List}
-This implementation uses a doubly linked list data structure.
-An element stores 1) a unique number identifier, 2) priority, and 3-4) two pointers that connects next and previous element.
-In this implementation, the enqueue-operation of new elements takes place in the rear.
-The following examines the time complexity of this implementation:
+This algorithm uses a doubly linked list data structure.
+An element stores 1) a unique number identifier, 2) priority, and 3-4) two pointers that connects to next and previous element in the queue.
+The enqueue-operation of new elements takes place in the rear.
+The following examines the time complexity of the algorithm:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(1)$} -- This implementation reaches the best case when the priority distribution consists of the same number.
-        Because, it applies FIFO to manage elements with same priorities.
+    \item \textbf{Best Case $\mathcal{O}(1)$} -- The algorithm achieves the best case when the priority distribution consists of the same number.
+        Because, the queue applies FIFO to manage elements of the same priority.
         Thus, it requires only one operation to insert the new element.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- This queue reaches the worst case when the priority's numerical value constantly descends from a higher one.
-        With such numerical distribution, it has to traverse the list from the rear $n$-times to insert the element correctly.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The queue reaches the worst case when the priority's numerical value constantly descends from a higher one.
+        Thus, the algorithm traverses the list from the rear $n$-times to insert the new element correctly.
 \end{itemize}
 
 \subsection{Doubly Linked List with Modification}
-This queue is similar to the previous section's implementations.
+This queue is similar to the previous section's implementation.
 That is, an element stores the same properties as the last one.
-However, in this implementation the insertion of new elements takes place in either the head or rear.
-It depends on the average of the first and last element in the list.
-The following list clearly demonstrates the rules of the modified version:
+However, for this algorithm, the insertion of new elements takes place in either the head or rear.
+The enqueue-operation depends on the average of the first and last element in the list.
+The following list demonstrates the enqueue rules of the modified version:
 \begin{itemize}
     \item In the head -- New element has a higher priority than the mean value, that is, \\numerical value $<$ mean value.
     \item In the rear -- New element has a lower or equal priority to the mean value, that is,\\numerical value $\ge$ mean value.
 \end{itemize}
 
-\skippara We can also analyze the best and worst case for this implementation.
+\skippara We analyzed the best and worst case for this implementation.
 The following summarizes the analysis:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(1)$} -- For the best case, we can either design the distribution of priorities to only take place in either head or rear.
-        For example, let us say that we create a distribution with only the same priority.
+    \item \textbf{Best Case $\mathcal{O}(1)$} -- For the best case, we can either design the distribution of priorities to take place in either head or rear.
+        For example, let us say that we create a distribution of the same priority.
         The average will always be the same as the new element's priority.
-        Thus, the insertion of new elements always takes place in the rear.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- To achieve the worst case, we must traverse through the list for each enqueue-operation.
-        This is possible if the queue, for example, first enqueues two elements with significantly different priorities.
+        Thus, the insertion for each of new elements takes place in the rear.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} -- To achieve the worst case, we must traverse through the list for each insertion of a new element.
+        It is achievable if the queue, for example, first enqueues two elements with significantly differing priorities.
         One with a high priority, and another with significant lower priority.
         The average will skew towards the lower priority, that is, a notably high numerical value.
-        Thus, if the new element always will have a little lower priority than the previous one, then the insertion takes place in the head and traverses $(n-1)$-times to insert new element correctly.
+        Thus, if for each new element, it receives a lower priority than the previous one, then the insertion takes place in the head and traverses $(n-1)$-times to insert new element correctly in the queue.
 \end{itemize}
 
 \subsection{Scheduling Queue}
-This implementation uses a static list with 41 entries of pointers
-These entries represent the priority in the [0, 40] interval, and each pointer is connected to an FIFO-queue.
-Our implementation of the FIFO-queue is a singly linked list, as described in \cref{sec:singly}
-The time complexity for best and worst case is:
+This queue uses a static list, which consists of 41 pointers.
+These entries represent the priority in the [0, 40] interval, and each pointer connects to an FIFO-queue.
+A singly linked list represent each of the FIFO-queues, as described in \cref{sec:singly}.
+The following list presents the time complexity for the best and worst case:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(n)$} -- The implementation achieve the best time complexity if the elements are equally distributed in the queue.
-        The simplest distribution is to enqueue elements from highest to the lowest priority and start over.
-        That is, from priority 0 to 40, and then start over from priority 0.
+    \item \textbf{Best Case $\mathcal{O}(n)$} -- The algorithm achieve the best time complexity if we distrubute the elements equally in the queue.
+        The simplest distribution enqueues elements from highest to the lowest priority and resets from lowest.
+        That is, from priority 0 to 40, and then start over again from priority 0.
         However, when the implementation starts over from priority 0, the enqueue operation still has to traverse through the FIFO-queues to insert the new elements correctly.
         For example, if we assume that the elements are distributed equally, we can represent the running time as:
         \begin{equation*}
@@ -397,10 +395,8 @@ The time complexity for best and worst case is:
         \end{equation*}
         The one represents the cost to access the priority queue.
         The rest represents the cost to traverse through the list.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The worst case is the same as described \cref{sec:singly}.
-        That is, the implementation has to traverse $n$-times for a distribution of elements with only the same priority.
-        The cost to access the priority queue can influence the running time.
-        However, in complexity theory, the cost to access is insignificant.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The algorithm achieves the same worst case the singly linked list, which we described in \cref{sec:singly}.
+        That is, the implementation traverse $n$-times for a priority distribution of the same priority.
 \end{itemize}
 
 
@@ -409,50 +405,41 @@ The time complexity for best and worst case is:
 % Här beskriver du mer i detalj din experimentuppställning. Vilken hårdvara, OS har du kört på. Hur har du försökt minimera felkällor (sominverkan av andra användare).
 % Beskriv de testfall du använt och implementerat. Argumentera för varför de är rimliga/bra.
 \section{Experimental Setup}
-We conducted the experiments on a Microsoft Azure virtual machine.
-Basically, it is a high-performance virtual private server.
-We used this service because we have full control over the environment.
+We conducted the experiments on a Microsoft Azure virtual private server (VPS).
+We used a VPS service because we gain full access over the machine.
 The system consisted of a 64 bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
 
-\subsection{Error Sources} Error sources are also necessary to take into account as these can influence the results of this study.
+\subsection{Error Sources} Error sources are important to take into account as these can influence the results of the study.
 That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
-Every software and computational research depend heavily on the underlying system, both hardware and software.
-Assume that the implementation is correct, the results depend on memory and CPU to produce accurate output, but also the operating system.
-Thus, we run the experiments multiple times and calculate statistical features, such as mean value and standard deviation.
+Software and computational research depend heavily on the underlying system, both hardware and software.
+Thus, we run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
 Standard deviation is relevant, because we can then identify how the execution time vary around the mean.
-For example, a large standard deviation indicates, for example, that another process irregularly consume a large amount of resources.
+A large standard deviation indicates, for example, that another process consume significant quantity of resources.
 
-\skippara Another error source is poor design and implementation of models.
-Thus, it important to grasp and follow scientific methodology rigorously, verify and validate the implementations.
-It gets significantly more difficult to identify error sources, if the latter mentioned points are not taken seriously.
-For example, a poor implementation design results in that the researcher waste valuable time to debug.
+\skippara Another error source comes from poor design and implementation of models.
+Thus, we must grasp and follow scientific method rigorously, verify and validate the implementations.
+For example, a developer wastes time to debug an implementation due to poor design.
 And, especially in a relative low-level programming language, such as C.
 
 \subsection{Verification and Validation}
-We developed a test case to verify the implementation' correctness.
-That is, to test that the queues inserted the elements correctly.
-We wrote a Python script that generates an input- and output-file.
-The former consists of elements with random priorities, and the output file contains the elements in correct order.
-Finally, we used these files in our implementations to verify its correctness.
-We also used Valgrind to verify that we allocated and deallocated memory correctly.
+We developed a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
+Our Python script generates an input- and output-file.
+The former consists of elements of randomized priorities, and the output file contains the elements in correct order.
+Finally, we used the input and output files in our implementations to verify its correctness.
+We used Valgrind and verified the memory allocation and deallocation of our implementations.
 
-\skippara
-We developed tests for best, average and worst cases to validate its behavior.
+\skippara We developed tests for the best, average and worst cases to validate its behavior.
 That is, we analyzed the running time and complexity theoretically.
-And, used statistical analysis to validate the algorithm with the theory, and vice versa.
-Finally, we tried to use different inputs and examine different edge cases, for example, an empty or a list with only one element.
+And, used statistical analysis and complexity theory to validate the algorithms.
+Finally, we examined the edge cases, for example, an empty or a list containing only one element.
 
 % Beskriv och motivera de experiment du designat (var noga att motivera varför de bidrar till att uppfylla målen)
 \subsection{Experiments}
-We developed a function that creates $n$ element with randomized priorities in the $[0,40]$ interval.
-Furthermore, the verification use the latter mentioned distribution of elements as input to enqueue it in both the queue implementation based on the standard library and our implementation.
-Finally, we dequeue the elements from the two queues to verify our implementation's correctness.
-
-\skippara To test best, average and worst case, we created different priority distributions as input based on our complexity analysis of our algorithms.
-This analysis takes place in \cref{sec:algorithms}.
-The average case is more difficult to analyze theoretically.
-However, we can assume that average case is between the best and worst case.
-We randomly assigned priorities in $[0,40]$ interval to the elements in the average case tests.
+To test the best, average and worst case, we created a variety of priority distributions as input based on our complexity analysis of our algorithms.
+The analysis takes place in \cref{sec:algorithms}.
+We did not analyze the time complexity for the average case theoretically.
+However, we assumed the average case somewhere lies between the best and worst case.
+Thus, We randomly assigned priorities in $[0,40]$ interval to the elements in the average case experiments.
 Finally, \cref{tab:param} presents the remaining parameters we used for each test case.
 
 \begin{table}
@@ -471,7 +458,8 @@ Finally, \cref{tab:param} presents the remaining parameters we used for each tes
 \end{table}
 
 
-\skippara The following list summarize the element's priority distribution, where $N$ is the set of elements, $p$ is a numerical priority and $n$ is the number of elements:
+\skippara The following list summarize the element's priority distribution, where $N$, $p$ and $n$ represent a set of elements, a numerical priority and the number of elements, respectively:
+illustrates
 \clearpage
 \begin{itemize}
     \item \textbf{Singly linked list}
@@ -531,64 +519,62 @@ Finally, \cref{tab:param} presents the remaining parameters we used for each tes
 \chapter{Results and Discussion}
 
 \section{Running Time}
-We visualized the running time results from the implementations with graphs and tables in \cref{app:singly}, \cref{app:doubly}, \cref{app:doublyavg} and \cref{app:arraypriority}.
+We visualized the running time results from the implementations with help of graphs and tables in \cref{app:singly}, \cref{app:doubly}, \cref{app:doublyavg} and \cref{app:arraypriority}.
 That is, the singly linked list, doubly linked list, doubly linked list with modification and scheduling queue respectively.
 
 \subsection{Enqueue}
-The result's similarity is that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
+Our running time results for the enqueue-operation shows that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
 The same goes for best case tests, that is, these show a lower bound limit.
 And the average case's time complexity lies somewhere between these limits.
-Another observation is that all the implementations perform similarly in best case and worst case.
+Each implementation reaches similar time complexity in the best and worst case.
 Finally, the singly and doubly linked list yielded similar running time for the average case.
 That is, around 18 seconds with 60 000 elements.
 
-\skippara The doubly linked list with modification and scheduling queue algorithms produced a lower running time in average case tests.
+\skippara The doubly linked list with modification and scheduling queue algorithms produced a lower running time in the average case tests.
 That is, around 10 seconds and 1 second, respectively, for 60 000 elements.
-The average case tests for the scheduling queue are only milliseconds higher than for its best case.
-Whereas, the other implementation's average case tests produced running times that are several seconds higher than their average case.
+The average case tests for the scheduling queue yielded running time that were only milliseconds higher than for its best case.
+Whereas, the rest of implementations' average case tests produced running times that were several seconds higher than their best case.
 That is, at least for more than 25 000 elements.
-
-
 
 \subsection{Dequeue}
 
-There is no significant changes in the results for these experiments, because the dequeue operation is similar for all the implementations.
+There were no significant changes in the results for the dequeue-operation experiments, because the dequeue operation is similar for each implementation.
 That is, the elements are in the correct order in the queue.
 The implementation only needs to dequeue and remove the element from the head of the list.
 Thus, the running time slightly differ in milliseconds.
 
 \section{Memory Usage}
 
-\cref{app:memoryusage} summarizes the memory usage of all the implementations for best, average and worst case tests.
-The memory is the same for each test on a specific implementation, because it allocates the same number of elements.
-Thus, we did not have to calculate the mean and standard deviation value for memory usage.
+\cref{app:memoryusage} summarizes the memory usage of the implementations for the best, average and worst case tests.
+The memory usage was the same across implementations, because the algorithms allocate the same number of elements for each test.
+Thus, we did not have to calculate the mean and standard deviation for memory usage.
 
-\skippara All the implementations' memory usage increase linearly with the number of elements.
+\skippara The implementations' memory usage increase linearly and in relation to the number of elements.
 The doubly linked list with and without modification reached similar memory usage.
 That is, around 4 Megabytes for 60 000 elements.
 And, singly linked list and priority queue implementation had similar memory usage.
 That is, around 6 Megabytes for 60 000 elements.
 The singly linked list and queue implementation use significantly less memory than the variations of doubly linked list.
-For example, for 60 000 elements, the former implementations use almost 2 Megabytes less memory than the queue based on doubly linked lists.
+For example, for 60 000 elements, the latter implementations use almost 2 Megabytes less memory than the queue based on doubly linked lists.
 
 % Här kan du fördjupa din diskussion och ta ett helhetsgrepp på din undersökning, metodval och resultat.
 \section{Discussion}
 \subsection{Running Time Analysis}
-Our complexity analysis matched with the results we generated from best, average and worst case tests.
+Our time complexity analysis matched with the results we generated from best, average and worst case tests.
 That is, the worst case test represents an upper bound limit for the running time of the algorithms, and the best case the lower bound.
 However, the most noticeable observation is that the scheduling queue implementation produced almost as low running time as for its lower bound limit.
-Thus, the scheduling queue implementation performed the best in terms of time.
+Thus, the scheduling queue implementation performed the best in terms of time and memory usage.
 
 \skippara The scheduling queue has to traverse through a list, in general, fewer times than the rest of the implementations, because it has a assigned list for each priority.
-We can use our complexity analysis and math notation to express the average running time, where $n$ represents number of elements:
+We can use our complexity analysis, generated data and math notation to express the average running time, where $n$ represents number of elements:
 \begin{itemize}
-    \item \textbf{Singly Linked List and Doubly Linked List} -- In the worst case, these algorithms must traverse $n$ times.
+\item \textbf{Singly Linked List and Doubly Linked List} -- In the worst case, these algorithms must traverse $n$ times, and in the best case $\mathcal{O}(1)$.
         Thus, we assume in average that these algorithms must at most traverse $n/2$ times,
-    \item \textbf{Doubly Linked List with Modification} -- It the worst case, this algorithm must traverses the list $n$ times.
+    \item \textbf{Doubly Linked List with Modification} -- In the worst case, the algorithm must traverses the list $n$ times.
         However, due to its modification, the insertion of new elements takes place in either the head or rear based on an average of first and last element's priority in the queue.
         Thus, we assume in average that this algorithm must at most traverse $n/4$ times.
     \item \textbf{Scheduling Priority} -- This algorithm traverses the list $n$ times in the worst case.
-        However, due to its 41 different FIFO queues, each separate queues are in general shorter than the previous mentioned queues.
+        However, due to its 41 FIFO queues, each separate queue is in general shorter than the previous mentioned queues.
         Thus, we assume in average that this algorithm must at most traverse $n/41$ times.
 \end{itemize}
 
@@ -596,26 +582,26 @@ We can use our complexity analysis and math notation to express the average runn
 \begin{equation*}
     \begin{bmatrix*}
         \begin{array}{llll}
-            (1) & \text{Singly Linked List} & = & \dfrac{n}{2} \\[3ex]
-            (2) & \text{Doubly Linked List} & = & \dfrac{n}{2} \\[3ex]
-            (3) & \text{Doubly Linked List with Modification} & = & \dfrac{n}{4} \\[3ex]
-            (4) & \text{Scheduling Queue} & = & \dfrac{n}{41}
+            (A) & \text{Singly Linked List} & = & \dfrac{n}{2} \\[3ex]
+            (B) & \text{Doubly Linked List} & = & \dfrac{n}{2} \\[3ex]
+            (C) & \text{Doubly Linked List with Modification} & = & \dfrac{n}{4} \\[3ex]
+            (D) & \text{Scheduling Queue} & = & \dfrac{n}{41}
         \end{array}
     \end{bmatrix*}
     \implies \frac{n}{2} \ge \frac{n}{4} \ge \frac{n}{41}
 \end{equation*}
 
-\skippara In average, we noticed that time complexity of (4) is approximately $10\times$ higher than (3), and $20\times$ higher than (1) and (2).
-Also, the time complexity of (1) and (2) is roughly $2\times$ higher than (1).
+\skippara In average, we noticed that time complexity of (D) is approximately $10\times$ higher than (C), and $20\times$ higher than (A) and (B).
+Also, the time complexity of (A) and (B) is roughly $2\times$ higher than (C).
 Thus, our running time results from the average case tests yielded similar time complexity.
 For example, our running time for $n=60000$ was the following:
 \begin{equation*}
     \begin{bmatrix*}
         \begin{array}{llllll}
-            (1) & 17695.48 \pm 2\times 201.24 \text{ ms} & \approx 20000 \text{ ms}  & \approx 2\times(3)\text{ or } 20\times(4) \\[1ex]
-            (2) & 18662.72 \pm 2\times 201.24 \text{ ms} & \approx 20000 \text{ ms}  & \approx 2\times(3)\text{ or } 20\times(4) \\[1ex]
-            (3) & 9595.70 \pm 2\times 118.06 \text{ ms} & \approx 10000 \text{ ms} & \approx 10\times(4) \\[1ex]
-            (4) & 950.29 \pm 2\times 22.56 \text{ ms} & \approx 1000 \text{ ms} &
+            (A) & 17695.48 \pm 2\times 201.24 \text{ ms} & \approx 20000 \text{ ms}  & \approx 2\times\text{(C)}\text{ or } 20\times\text{(D)} \\[1ex]
+            (B) & 18662.72 \pm 2\times 201.24 \text{ ms} & \approx 20000 \text{ ms}  & \approx 2\times\text{(C)}\text{ or } 20\times\text{(D)} \\[1ex]
+            (C) & 9595.70 \pm 2\times 118.06 \text{ ms} & \approx 10000 \text{ ms} & \approx 10\times\text{(D)} \\[1ex]
+            (D) & 950.29 \pm 2\times 22.56 \text{ ms} & \approx 1000 \text{ ms} &
         \end{array}
     \end{bmatrix*}
 \end{equation*}
@@ -624,7 +610,7 @@ For example, our running time for $n=60000$ was the following:
 That is, all the dequeue operations take $\mathcal{O}(1)$ time.
 
 \subsection{Memory Usage Analysis}
-The reason both variations of doubly linked list has similar memory usage, and higher memory usage than singly linked list and scheduling queue, is because these implementations store in total two pointers.
+The reason both variations of doubly linked list generated similar memory usage, and higher memory usage than singly linked list and scheduling queue, because these implementations store in total two pointers for each element.
 That is, doubly linked lists have a pointer that connects to the previous element, and the second connects to the next element.
 Singly linked list and scheduling queue only store one pointer, which refers to the next element in the queue.
 Thus, the difference in memory usage is because of an extra pointer allocation.

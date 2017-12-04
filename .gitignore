@@ -38,6 +38,9 @@ obj/
 *.aux
 *.fdb_latexmk
 *.log
+*.blg
+*.synctex.gz(busy)
+*.toc
 
 # Mac
 *.DS_Store
