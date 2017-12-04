@@ -541,7 +541,7 @@ That is, at least for more than 25 000 elements.
 There were no significant changes in the results for the dequeue-operation experiments, because the dequeue operation is similar for each implementation.
 That is, the elements are in the correct order in the queue.
 The implementation only needs to dequeue and remove the element from the head of the list.
-Thus, the running time slightly differ in milliseconds.
+Thus, the running time barely differ in milliseconds.
 
 \section{Memory Usage}
 
@@ -570,7 +570,7 @@ We can use our complexity analysis, generated data and math notation to express 
 \begin{itemize}
 \item \textbf{Singly Linked List and Doubly Linked List} -- In the worst case, these algorithms must traverse $n$ times, and in the best case $\mathcal{O}(1)$.
         Thus, we assume in average that these algorithms must at most traverse $n/2$ times,
-    \item \textbf{Doubly Linked List with Modification} -- In the worst case, the algorithm must traverses the list $n$ times.
+    \item \textbf{Doubly Linked List with Modification} -- In the worst case, the algorithm traverses the list $n$ times.
         However, due to its modification, the insertion of new elements takes place in either the head or rear based on an average of first and last element's priority in the queue.
         Thus, we assume in average that this algorithm must at most traverse $n/4$ times.
     \item \textbf{Scheduling Priority} -- This algorithm traverses the list $n$ times in the worst case.
@@ -578,7 +578,7 @@ We can use our complexity analysis, generated data and math notation to express 
         Thus, we assume in average that this algorithm must at most traverse $n/41$ times.
 \end{itemize}
 
-\skippara Hence, based on the assumptions in the list above, we can summarize each implementation's average time complexity in relation to the number of elements as the following:
+\skippara Based on the assumptions in the list above, we can summarize each implementation's average time complexity in relation to the number of elements as the following:
 \begin{equation*}
     \begin{bmatrix*}
         \begin{array}{llll}
@@ -625,6 +625,14 @@ Thus, the difference in memory usage is because of an extra pointer allocation.
 % Kan också kallas Diskussion eller Analys.
 % Börja med att diskutera målen och syftet med undersökningen och hur väl du nått dem. Summera de viktigaste slutsatserna/upptäckterna och avsluta med att diskutera hur arbetet skulle kunna fortsättas/utvecklas (speciellt om du inte nått alla delmål)
 \chapter{Conclusions and Future Work}
+
+This study shows through experiment that the calculated theoretical space and
+time complexity of a number of list implementations hold. The study also shows
+that the priority queue data structure provides a time complexity better than
+that of a double linked list with the low space complexity of the singly linked
+list.
+
+
 
 % I Bilagor (som inte alltid behöver finnas med) lägger man vid behov utökad information som man inte tar upp/redovisar i detalj i den ordinarie texten.
 %
