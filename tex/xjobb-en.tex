@@ -27,6 +27,19 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\usepackage{lmodern}  % for bold teletype font
+\usepackage{amsmath}  % for \hookrightarrow
+\usepackage{xcolor}   % for \textcolor
+\usepackage{listings}
+\lstset{
+    basicstyle=\tiny,
+    columns=fullflexible,
+    frame=single,
+    breaklines=true,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+
 % För formateringen av en rapport/artikel finns ofta färdiga mallar. Publicerar man t.ex. en artikel på en konferens eller i en tidskrift finns mallar/anvisningar som beskriver vilka typsnitt, storlekar, radavstånd, marginaler paragrafnumrering etc. som skall användas.
 % Ofta beskrivs också hur lång texten får vara i antal ord och antal sidor.
 % För den här uppgiften skall texten ligga mellan 7 och 12 sidor oräknat försättsblad, Abstract, sammanfattning, referenslista och bilagor.
@@ -559,7 +572,8 @@ For example, for 60 000 elements, the latter implementations use almost 2 Megaby
 
 % Här kan du fördjupa din diskussion och ta ett helhetsgrepp på din undersökning, metodval och resultat.
 \section{Discussion}
-\subsection{Running Time Analysis}
+
+\subsection{Running Time Analysis}\label{sec:rtanal}
 Our time complexity analysis matched with the results we generated from best, average and worst case tests.
 That is, the worst case test represents an upper bound limit for the running time of the algorithms, and the best case the lower bound.
 However, the most noticeable observation is that the scheduling queue implementation produced almost as low running time as for its lower bound limit.
@@ -615,6 +629,16 @@ That is, doubly linked lists have a pointer that connects to the previous elemen
 Singly linked list and scheduling queue only store one pointer, which refers to the next element in the queue.
 Thus, the difference in memory usage is because of an extra pointer allocation.
 
+\subsection{Choice of Methods}
+We used a deductive method to analyze each implementation's best and worst case.
+That is, we took help of established data structure and complexity theory to determine the best and worst case.
+And, assumed the average case's time complexity lies somewhere between the best and worst.
+
+\skippara An inductive method helped us to validate our best and worst case analysis.
+Additionally, the average case experiments contributed to a better comprehension of the average time complexities of the algorithms,
+That is, we observed patterns in the data from the tests, which resulted in a theoretical analysis and explanation of the algorithms average time complexity, as demonstrated in \cref{sec:rtanal}.
+Additionally, the data showed that the average case's time complexity lies indeed between the best (lower bound limit) and worst case (upper bound limit).
+Thus, a quantitative experimental study with both inductive and deductive reasoning was a feasible methodology to evaluate algorithms.
 
 % ///////////////////////////////////
 % ///////////////////////////////////
@@ -626,13 +650,15 @@ Thus, the difference in memory usage is because of an extra pointer allocation.
 % Börja med att diskutera målen och syftet med undersökningen och hur väl du nått dem. Summera de viktigaste slutsatserna/upptäckterna och avsluta med att diskutera hur arbetet skulle kunna fortsättas/utvecklas (speciellt om du inte nått alla delmål)
 \chapter{Conclusions and Future Work}
 
-This study shows through experiment that the calculated theoretical space and
-time complexity of a number of list implementations hold. The study also shows
-that the priority queue data structure provides a time complexity better than
-that of a double linked list with the low space complexity of the singly linked
-list.
+This quantitative experimental study shows that the calculated theoretical space and time complexity of a number of list implementations hold.
+The study also shows that the priority queue implementation provides a time complexity better than
+a double linked list with a low space complexity as the singly linked list.
 
-
+\skippara
+We applied the scientific method to conduct an experiment with honesty, transparency and rigor.
+The experiment helped us to verify and validate our implementations.
+We produced a reproducible study and reached the goals to grasp the scientific method.
+Finally and hopefully, our analysis and findings can help engineering students to achieve a deeper theoretical and practical comprehension of algorithms and data structures.
 
 % I Bilagor (som inte alltid behöver finnas med) lägger man vid behov utökad information som man inte tar upp/redovisar i detalj i den ordinarie texten.
 %
@@ -2140,6 +2166,15 @@ every odd row/.style={
 }
 ]{../results/array_priority_memory.dat}
 \end{table}
+
+\chapter{Code -- \texttt{main.c}}
+\lstinputlisting[language=c]{../src/main.c}
+
+\chapter{Code -- \texttt{queue.c}}
+\lstinputlisting[language=c]{../src/queues.c}
+
+\chapter{Code -- \texttt{queue.h}}
+\lstinputlisting[language=c]{../src/queues.h}
 
 \clearpage
 % Här listar du dina referenser. De skall täcka in alla relevanta delar  i din bakgrund, vara väl utvalda (dvs. hålla för källkritik).
