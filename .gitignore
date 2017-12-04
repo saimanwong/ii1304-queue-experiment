@@ -35,6 +35,9 @@ obj/
 # Debug files
 *.dSYM/
 
+*.aux
+*.fdb_latexmk
+*.log
 
 # Mac
 *.DS_Store
