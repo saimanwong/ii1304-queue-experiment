@@ -101,72 +101,71 @@ inceptos hymenaeos.
 
 % Huvudrubriker sätts i Arial 12 punkter fet stil autonumrerad (KTH nRubrik 1). Här introducerar man problemomådet. Här skall finnas en bakgrund till projektet, de problem man adresserar/undersöker och syftet med arbetet.De olika underkapitlen/styckena till introduktionen  förtydligar det du skriver här. Här förväntar man sig hitta ett antal noga utvalda hög-kvalitativa referenser.
 \chapter{Introduction}
-To plan in advance and thoroughly is one of the cores to successfully carry out a credible scientific work.
-However, students and engineers sometimes takes this step unseriously and carelessly.
-As a result, time can get wasted to redo everything due to poor design and execution.
-To prevent this, students and engineers need to possess a deeper knowledge of the scientific method.
-That is, not only theoretical knowledge, but also how to apply it in practice is equally as important.
-Thus, in this study, we used the scientific method to evaluate algorithms with a rigorous, honest and transparent method.
+A researcher plan in advance to conduct a successful and credible scientific work.
+However, students and engineers occasionally approach the planning phase in a careless manner.
+As a result, researchers waste time to redo the changes due to poor design and execution.
+Students and engineers lack a deeper knowledge of the scientific method to contribute with quality work.
+That is, science emphasizes the importance of theoretical knowledge and its application in practice.
+Thus, in our study, we used the scientific method to evaluate algorithms with a rigorous, honest and transparent method.
 
 % Underrubriker (första nivån) sätts i Arial 12 punkter fet stil autonumrerad (KTH  nRubrik 2). (Har man ytterligare undernivåer sätter man rubrikerna för nästa nivå  med (KTH nRubrik 3)) Man försöker ofta begäränsa sig till tre nivåer på rubriker och man har i princip aldrig fler än 4 nivåer på rubriker.
 %I stycket om bakgrund (som ibland kallas ”Related work” på engelska) förväntar man sig hitta en gedigen bakgrundsbeskrivning till problemområdet i stort och till det specifika problem som studeras i rapporten. Den skall innehålla/baseras på en litteraturstudie. Det behöver väl knappast påpekas att den bör innehålla utvalda, högkvalitativa referenser.
 \section{Background}
-A data structure is a model to represent data, and there is a large number of different types \cite{deshpande2004c}.
-The common challenge is to identify the most feasible data structure for a specific purpose, such as a queue.
-Software engineers frequently use queues in software development.
-For example, to manage arbitrary entities in a first-in-first-out (FIFO) order, such as a memory buffer or scheduling in an operating system.
+A data structure represent a model to store data with a methodical approach \cite{deshpande2004c}.
+Software engineers use queues in software development to manage arbitrary entities in a first-in-first-out (FIFO) order.
+For example, developers use a queue to develop a memory buffer or scheduling in an operating system.
 
-\skippara In high-level programming languages, there are libraries that provide finished features, such as a queue-implementation.
-However, this may result in that developers often take the underlying implementations for granted.
-Thus, they may possess insufficient theoretical and technical knowledge about the features they use.
+\skippara Higher level programming languages often provide a standardized library with finished implementations, such as a queue.
+Software developers use these implementations frequently, and sometimes take the underlying architecture for granted.
+Thus, an inexperienced developer possess a limited knowledge of the theory and technical aspects of the used implementations.
 
-\skippara Another model to represent data linearly is a linked list.
-Linked list comes in different variations.
-However, the basics of a simple linked list is that an entity stores data and has a connection to the next entity.
-In computer science, the entity is referred to as a node or an element, and the connection is called a pointer.
-The most simple linked list implementation represent data linearly, because each node stores data and has a pointer to the next node.
-Thus, developer frequently use different variations of linked lists to represent a list or queue.
-
+\skippara Developers use the data structure, or model, linked list to store data linearly.
+The simple linked list consists of entities. 
+An entity stores data and includes a connection to the next entity in the list. 
+Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
+That is, an element stores data and consists of a pointer to the next element in the list.
+Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.  
 
 
 % Här beskriver du problemområdet och problemet i detalj. Beskriv också varför det är värdefullt att undersöka problemet. Försök formulera din problemställning så klart och koncist som möjligt – gärna i en mening!
 \section{Problem}\label{sec:problem}
-The scientific method is crucial for further development within any research field.
-Also, to understand the underlying implementation of features in an API\footnote{API -- Application Programming Interface}-library.
-However, the problem is that engineers and students sometimes takes these for granted.
-Thus, in this study we applied the scientific method rigorously to evaluate algorithms in depth, both theoretically and practically.
+An engineer must learn the skill to apply the scientific method in practice.
+That is, to later on possess the ability to contribute with further development and exploration within the scientific community.
+Also, a software engineer needs to grasp the basics of features in an API\footnote{API -- Application Programming Interface}-library.
+However, developers sometimes use these library features in projects, and take these algorithms for granted to behave in a specific manner.
+Thus, we applied the scientific method rigorously to evaluate algorithms in depth, both in theory and practice.
 
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
-Each element has a numerical value to represent its priority in the queue.
-In this study and to clarify, an element with a low numerical value represents higher priority, because it is closer to the time and ready for execution.
-We implemented the queues in the low-level programming language \texttt{C}, and the following are the implementation specifications:
+Each element compromises of a number to represent its priority in the queue.
+To clarify, an element with a low number represents higher priority, because the element lies closer to the time and ready for execution.
+We implemented the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
 \begin{enumerate}
     \item \textbf{Singly linked list} -- Insertion of new elements takes place in the head.
     \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the rear.
-        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean value of the first and last element's mean value.
+        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean of the first and last element's priority.
         \begin{itemize}
-            \item In the head -- New element has a higher priority than the mean value, that is, \\numerical value $<$ mean value.
-            \item In the rear -- New element has a lower or equal priority to the mean value, that is,\\numerical value $\ge$ mean value.
+            \item In the head -- The new element's priority is higher than the mean, that is, \\numerical value $<$ mean value.
+            \item In the rear -- The new element's priority is lower than the mean, that is,\\numerical value $\ge$ mean value.
         \end{itemize}
-    \item \textbf{Scheduling queue} -- There is an FIFO-queue for each priority in the $[0,40]$ interval.
+    \item \textbf{Scheduling queue} -- The queue consists of an FIFO-queue for each priority in the $[0,40]$ interval.
 \end{enumerate}
 
-
-\skippara The relevant parameters to use and examine are primarily time and space for algorithms, such as execution time and memory usage.
-That is, we can gather a large quantity of these metric to determine best, average and worst cases.
+\skippara 
+Computer scientists evaluate algorithms in terms of space and time, such as execution time and memory usage.
+That is, we gather a large quantity of these metric to determine best, average and worst cases.
 Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
 
 
 \clearpage
 % Om detta är en studie där syftet är att undersöka en hypotes (alla projekt är inte hypotesprövande) så beskriver du/formulerar du hypotesen här. Lämpligt är också att beskriva hur/varför/på vilka grunder du formulerat hypotesen. Är det inte ett hypotesprövande projekt så tar du bort rubriken.
 \section{Hypothesis}
-A queue's purpose is to enqueue and dequeue elements with an FIFO approach.
-Because of the FIFO policy, we assumed with a correct implementation and theory that the dequeue-operation should take $\mathcal{O}(1)$ time.
-However, the enqueue-operation is more sensitive to the element's priority, because it must insert each element in the correct spot in the queue.
-Thus, the implementations can perform differently due to the distribution of the priorities.
-For example, the implementation reaches $\mathcal{O}(n)$ time if it always has to traverse through the entire list to enqueue an element.
+A queue either enqueues or dequeues elements with an FIFO policy.
+Because of the FIFO policy, we assumed with a correct implementation and theory, the dequeue-operation take $\mathcal{O}(1)$ time.
+However, the enqueue-operation becomes more sensitive to an element's priority, because the algorithm insert each element in the correct spot in the queue.
+Thus, the implementations perform differently because of priority distribution.
+For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm traverses through the entire list to enqueue an element.
 
-\skippara Our hypotheses were the following:
+\skippara The following list describes our hypotheses:
 \begin{itemize}
     \item The dequeue-operation for all the queues takes $\mathcal{O}(1)$ time.
     \item The enqueue-operation for all the queues takes $\mathcal{O}(n)$ time.
@@ -174,46 +173,44 @@ For example, the implementation reaches $\mathcal{O}(n)$ time if it always has t
 
 % Beskriv varför projektet genomförs.
 \section{Purpose}
-Our purpose with this paper was to raise awareness about the features in API-libraries and scientific aspects, which are often taken for granted.
-Thus, we conduct experiments to get a deeper insight into four varieties of a queue-implementation and the scientific method.
-Consequently, we wanted to contribute with a study other students and engineers can learn from and further develop.
+Our purpose was to raise awareness of the features in API-libraries with the scientific method, which developers and engineers often take for granted.
+Thus, we conducted experiments to achieve a deeper knowledge to apply the scientific method, and to evaluate four versions of a queue implementation.
+Consequently, we wanted to contribute with a study students and engineers can learn from and further develop.
 
 % Beskriv de förväntade resultat- och effektmålen av undersökningen. Beskriv alla mål du satt upp även om de inte nåddes!
 \section{Goal}
-The bigger goal was to get a deeper knowledge about the scientific method, and apply it to evaluate four queue-implementations.
+The bigger goal was to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
 However, the following list demonstrates the sub-goals:
 \begin{itemize}
     \item Apply scientific method to plan, design, experiment, document, analyze and present the findings.
-    \item Understand the importance of scientific method.
-    \item Conduct a study which is reproducible.
-    \item Attain the ability to present, analyze and draw conclusions from experiments, both theoretically and practically.
-    \item Implement queues correctly, that is, to verify its behavior and validate the data.
-    \item Create tests to generate the implementation's execution time and memory usage.
+    \item Grasp the importance of scientific method.
+    \item Conduct a reproducible study.
+    \item Attain the ability to present, analyze and draw conclusions from experiments, both in theory and practice.
+    \item Implement queues correctly, that is, verify its behavior and validate the data.
+    \item Create tests to generate the execution time and memory usage from the algorithms.
 \end{itemize}
 
 % Beskriv vem och på vilket sätt man kan ha nytta av utredningen. Beskriv etiska och hållbar utvecklingsrelaterade frågor kopplade till utredningen.
 \section{Social Benefit, Ethics and Sustainable Development}
-This study can influence students and engineers to apply the scientific method more seriously.
-Also, it can facilitate the process for software engineers to choose an implementation of a queue that fits their specific purpose.
-Finally, this study delves into the foundations of algorithms, data structure and complexity theory.
-Thus, it can help students and engineers to get a deeper knowledge within computer science.
+Our study influence students and engineers to apply the scientific method more with a more serious approach.
+Also, the study facilitate the process for software engineers to choose an implementation of a queue, which fits their specific purpose.
+Finally, we delve into the foundations of algorithms, data structure and complexity theory.
+Thus, our work help students and engineers to acquire a deeper comprehension of computer science.
 
-\skippara In scientific community, it is a researcher's moral responsibility to try to make the work as easily reproducible as best to their ability and circumstances.
-That is, so that other people can reproduce and further develop the work.
+\skippara Within science, a researcher undertake a moral responsibility to conduct a reproducible work with honesty and transparency.
+However, sometimes scientists encounter difficult circumstances, which limits their ability to produce a reproducible work.
+For example, due to economical and practical reasons, such as expensive hardware.
 We documented each step and presented findings with rigor, honesty and transparency.
-That is, we emphasize that other people try to reproduce our findings.
+That is, we encourage students to reproduce our findings.
 
 \skippara We conducted the experiment on a virtual machine on Microsoft's cloud platform.
-Thus, we only used the exact amount of resources needed to conduct this experiment.
-That is, we did not waste unnecessary electricity due to, for example, system idle.
-
+Thus, we used the exact quantity of resources needed to conduct the experiments.
+That is, we avoided to waste unnecessary electricity due to, for example, system idle.
 
 
 
 % I större, mer omfattande rapporter med flera stycken lägger man ibland till en översikt Disposition (Overview) som beskrivar vad läsaren kommer att hitta i de olika styckena. Syftet är att hjälpa läsaren få en översikt över rapporten så han/hon kan hitta snabbt i den.
 \section{Outline}
-
-
 
 
 
@@ -234,7 +231,7 @@ Scientists apply an inductive method when they try to reach practical conclusion
 That is, in sequential order to 1) collect data, 2) detect pattern in it, 3) set up a hypothesis and 4) try to explain the findings with established theory to reach 5) a conclusion \cite{web:induction}.
 It is sometimes informally called a bottom-up approach due to its style to start with observations.
 Software engineers frequently apply this method to observe algorithms and a system's behavior.
-For example, a developer with specific a input can generate output from an algorithm to create an understanding of how it works.
+For example, a developer with specific an input can generate output from an algorithm to create an understanding of how it works.
 
 \skippara On the contrary, scientists use a deductive method, or top-down approach, to try to reach logical conclusions from theory.
 For example, mathematicians use a deductive method to try to explain something unknown with help of well-established theory (axioms and theorems).
@@ -323,7 +320,7 @@ The following are common operations for a queue:
 \end{itemize}
 
 \skippara The only operation that can vary in the queue-implementations is the enqueue-operation, because it must insert the element in the correct position in the queue.
-Another common feature is that each element stores at least 1) an unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to other elements.
+Another common feature is that each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to other elements.
 
 \skippara The following sections describe how we implemented the queues.
 Additionally, we analyze the time complexity for the enqueue-operation as it varies.
@@ -348,14 +345,14 @@ because the queue uses an FIFO approach to manage elements with the same priorit
 
 \subsection{Doubly Linked List}
 This implementation uses a doubly linked list data structure.
-An element stores 1) an unique number identifier, 2) priority, and 3-4) two pointers that connects next and previous element.
+An element stores 1) a unique number identifier, 2) priority, and 3-4) two pointers that connects next and previous element.
 In this implementation, the enqueue-operation of new elements takes place in the rear.
 The following examines the time complexity of this implementation:
 \begin{itemize}
     \item \textbf{Best Case $\mathcal{O}(1)$} -- This implementation reaches the best case when the priority distribution consists of the same number.
         Because, it applies FIFO to manage elements with same priorities.
         Thus, it requires only one operation to insert the new element.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} --  This queue reaches the worst case when the priority's numerical value constantly descends from a higher one.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} -- This queue reaches the worst case when the priority's numerical value constantly descends from a higher one.
         With such numerical distribution, it has to traverse the list from the rear $n$-times to insert the element correctly.
 \end{itemize}
 
@@ -381,7 +378,7 @@ The following summarizes the analysis:
         This is possible if the queue, for example, first enqueues two elements with significantly different priorities.
         One with a high priority, and another with significant lower priority.
         The average will skew towards the lower priority, that is, a notably high numerical value.
-        Thus, if the new element always will have a little bit lower priority than the previous one, then the insertion takes place in the head and traverses $(n-1)$-times to insert new element correctly.
+        Thus, if the new element always will have a little lower priority than the previous one, then the insertion takes place in the head and traverses $(n-1)$-times to insert new element correctly.
 \end{itemize}
 
 \subsection{Scheduling Queue}
@@ -391,7 +388,7 @@ Our implementation of the FIFO-queue is a singly linked list, as described in \c
 The time complexity for best and worst case is:
 \begin{itemize}
     \item \textbf{Best Case $\mathcal{O}(n)$} -- The implementation achieve the best time complexity if the elements are equally distributed in the queue.
-        The simplest distribution is to enqueue elements from highest to lowest priority and start over.
+        The simplest distribution is to enqueue elements from highest to the lowest priority and start over.
         That is, from priority 0 to 40, and then start over from priority 0.
         However, when the implementation starts over from priority 0, the enqueue operation still has to traverse through the FIFO-queues to insert the new elements correctly.
         For example, if we assume that the elements are distributed equally, we can represent the running time as:
@@ -403,7 +400,7 @@ The time complexity for best and worst case is:
     \item \textbf{Worst Case $\mathcal{O}(n)$} -- The worst case is the same as described \cref{sec:singly}.
         That is, the implementation has to traverse $n$-times for a distribution of elements with only the same priority.
         The cost to access the priority queue can influence the running time.
-        However, in complexity theory, the cost to access the it is insignificant.
+        However, in complexity theory, the cost to access is insignificant.
 \end{itemize}
 
 
@@ -432,7 +429,7 @@ For example, a poor implementation design results in that the researcher waste v
 And, especially in a relative low-level programming language, such as C.
 
 \subsection{Verification and Validation}
-We developed a test case to verify the implementations correctness.
+We developed a test case to verify the implementation' correctness.
 That is, to test that the queues inserted the elements correctly.
 We wrote a Python script that generates an input- and output-file.
 The former consists of elements with random priorities, and the output file contains the elements in correct order.
@@ -449,7 +446,7 @@ Finally, we tried to use different inputs and examine different edge cases, for 
 \subsection{Experiments}
 We developed a function that creates $n$ element with randomized priorities in the $[0,40]$ interval.
 Furthermore, the verification use the latter mentioned distribution of elements as input to enqueue it in both the queue implementation based on the standard library and our implementation.
-Finally, we dequeue the elements from the two queues to to verify our implementation's correctness.
+Finally, we dequeue the elements from the two queues to verify our implementation's correctness.
 
 \skippara To test best, average and worst case, we created different priority distributions as input based on our complexity analysis of our algorithms.
 This analysis takes place in \cref{sec:algorithms}.
@@ -505,7 +502,7 @@ Finally, \cref{tab:param} presents the remaining parameters we used for each tes
                 \begin{equation*}
                     N = \left\{p_{n} \, \Big| \, p \ge 0,\, n \ge 0 \right\}
                 \end{equation*}
-            \item Worst case -- Insert two element with significant different priority to skew the average.
+            \item Worst case -- Insert two elements with significant different priority to skew the average.
                 Then, linearly decrease the priority from one with the highest one, for example:
                 \begin{equation*}
                     \resizebox{.9\hsize}{!}{$N = \left\{p_1, (p*2)_2, (p+1)_3, (p+2)_4, (p+3)_5,..., (p+n-2)_{(n-2)} \, \Big| \, p \ge n \ge 3 \right\}$}
@@ -538,7 +535,7 @@ We visualized the running time results from the implementations with graphs and 
 That is, the singly linked list, doubly linked list, doubly linked list with modification and scheduling queue respectively.
 
 \subsection{Enqueue}
-The results similarity is that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
+The result's similarity is that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
 The same goes for best case tests, that is, these show a lower bound limit.
 And the average case's time complexity lies somewhere between these limits.
 Another observation is that all the implementations perform similarly in best case and worst case.
@@ -566,7 +563,7 @@ Thus, the running time slightly differ in milliseconds.
 The memory is the same for each test on a specific implementation, because it allocates the same number of elements.
 Thus, we did not have to calculate the mean and standard deviation value for memory usage.
 
-\skippara All the implementations memory usage increase linearly with the number of elements.
+\skippara All the implementations' memory usage increase linearly with the number of elements.
 The doubly linked list with and without modification reached similar memory usage.
 That is, around 4 Megabytes for 60 000 elements.
 And, singly linked list and priority queue implementation had similar memory usage.
@@ -585,12 +582,12 @@ Thus, the scheduling queue implementation performed the best in terms of time.
 \skippara The scheduling queue has to traverse through a list, in general, fewer times than the rest of the implementations, because it has a assigned list for each priority.
 We can use our complexity analysis and math notation to express the average running time, where $n$ represents number of elements:
 \begin{itemize}
-    \item \textbf{Singly Linked List and Doubly Linked List} -- In worst case, these algorithms must traverse $n$ times.
+    \item \textbf{Singly Linked List and Doubly Linked List} -- In the worst case, these algorithms must traverse $n$ times.
         Thus, we assume in average that these algorithms must at most traverse $n/2$ times,
-    \item \textbf{Doubly Linked List with Modification} -- It worst case, this algorithm must traverses the list $n$ times.
+    \item \textbf{Doubly Linked List with Modification} -- It the worst case, this algorithm must traverses the list $n$ times.
         However, due to its modification, the insertion of new elements takes place in either the head or rear based on an average of first and last element's priority in the queue.
         Thus, we assume in average that this algorithm must at most traverse $n/4$ times.
-    \item \textbf{Scheduling Priority} -- This algorithm traverses the list $n$ times in worst case.
+    \item \textbf{Scheduling Priority} -- This algorithm traverses the list $n$ times in the worst case.
         However, due to its 41 different FIFO queues, each separate queues are in general shorter than the previous mentioned queues.
         Thus, we assume in average that this algorithm must at most traverse $n/41$ times.
 \end{itemize}
