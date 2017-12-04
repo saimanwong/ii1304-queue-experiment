@@ -1,7 +1,79 @@
 # Experiment II1304
-To compile: `make`
+## Run experiments on host machine
+__Requirements__:
+ - make (required)
+ - gcc (required)
+ - python (optional, but required to run correctness test)
+ - valgrind (optional, but required to run memory test)
 
-To clean: `make clean`
+-- Run the entire experiment:
+```bash
+$ ./RUN_TESTS.sh
+```
+The script runs a correctness, running time and memory test, respectively.
+Correctness test prints out results in terminal.
+Running time test stores the results in directory `./data_running_time`, and runs 50 iterations.
+Memory test stores results in the directory `./data_valgrind`.
+
+--- Run separate experiments
+
+Correctness test
+```bash
+$ make
+$ ./run_correctness.sh <NUMBER_OF_ELEMENTS>
+```
+
+Running time test (best, average and worst case)
+```bash
+$ make
+$ ./run_running_time.sh <DATA_DIR> <ITERATIONS>
+```
+
+Memory test
+```bash
+$ make
+$ ./run_valgrind.sh <DATA_DIR>
+```
+## Run experiments with Docker on host machine
+__Requirements__:
+ - Docker (required)
+ 
+1) Create an image:
+```bash
+$ docker build -t <IMAGE_NAME> .
+```
+-- Run entire experiment in container and interactive mode with bash
+```bash
+$ docker run -it --entrypoint bash <IMAGE_NAME>
+```
+-- Run entire experiment in container to store data on host machine
+```bash
+$ docker run \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
+    <IMAGE_NAME>
+```
+-- Run entire experiment in container to store data on host machine in the background
+```bash
+$ docker run -d \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
+    <IMAGE_NAME>
+```
+-- Run separate experiment in container to store data on host machine
+```bash
+$ docker run --entrypoint test_correctness.sh <IMAGE_NAME>
+```
+```bash
+$ docker run --entrypoint test_running_time.sh \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
+    <IMAGE_NAME>
+```
+```bash
+$ docker run --entrypoint test_valgrind.sh \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
+    <IMAGE_NAME>
+```
 
 ## Description
 
@@ -21,3 +93,4 @@ Prioritetsköerna som skall utvärderas är:
 2. En dubbellänkad lista med insättning av nya element från slutet av listan.
 3. En dubbellänkad lista där insättning av ett nytt element sker framifrån om prioriteten på det nya elementet är högre än medelvärdet av prioriteterna på det första och sista elementet i listan. Annars sker insättning från slutet av listan.
 4. En prioritetskö specialanpassad för schemaläggning av processer/trådar där prioriteterna är heltal i intervallet [0,40] där lågt numeriskt värde är hög prioritet. För varje prioritet skall finnas en kö. Varje delkö betjänas enligt FIFO. 
+

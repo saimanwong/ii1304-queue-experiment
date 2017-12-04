@@ -1,4 +1,5 @@
 #!/bin/bash
+make
 
 echo "CORRECTNESS TEST STARTING..."
 sleep 5
