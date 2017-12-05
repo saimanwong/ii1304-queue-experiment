@@ -34,6 +34,7 @@
 \lstset{
     basicstyle=\tiny\ttfamily,
     columns=fullflexible,
+    showstringspaces=false,
     frame=single,
     breaklines=true,
     postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
@@ -780,7 +781,7 @@ $ docker run -it --entrypoint bash <IMAGE_NAME>
 \skippara Run entire experiment in container to store data on host machine:
 \begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
 $ docker run \
--v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
+    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
     <IMAGE_NAME>
 \end{lstlisting}
@@ -2272,6 +2273,17 @@ every odd row/.style={
 
 \chapter{Code -- \texttt{queue.h}}
 \lstinputlisting[language=c]{../src/queues.h}
+
+\chapter{Code -- \texttt{RUN\_TESTS.sh}}
+\lstinputlisting[language=bash]{../RUN_TESTS.sh}
+\chapter{Code -- \texttt{test\_correctness.sh}}
+\lstinputlisting[language=bash]{../test_correctness.sh}
+\chapter{Code -- \texttt{test\_running\_time.sh}}
+\lstinputlisting[language=bash]{../test_running_time.sh}
+\chapter{Code -- \texttt{test\_valgrind.sh}}
+\lstinputlisting[language=bash]{../test_valgrind.sh}
+\chapter{Code -- \texttt{generate\_correctness\_in\_out\_file.py}}
+\lstinputlisting[language=python]{../src/generate_correctness_in_out_file.py}
 
 \clearpage
 % Här listar du dina referenser. De skall täcka in alla relevanta delar  i din bakgrund, vara väl utvalda (dvs. hålla för källkritik).
