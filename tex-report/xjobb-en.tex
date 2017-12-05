@@ -30,6 +30,7 @@
 \usepackage{lmodern}  % for bold teletype font
 \usepackage{amsmath}  % for \hookrightarrow
 \usepackage{xcolor}   % for \textcolor
+\usepackage{textcomp}
 \usepackage{listings}
 \lstset{
     basicstyle=\tiny\ttfamily,
@@ -53,11 +54,11 @@
 % Försättssida: Titeln skall vara deskriptiv/informativ. Sätts i Arial 14 punkter fet stil (KTH titel)
 
 % Försättssida: Här anger man namn på alla författare, titlar och kontaktinformation
-\title{Priority Queues Experiment}
-\subtitle{December 3, 2017}
-\foreigntitle{Lorem ipsum dolor sit amet, sed diam nonummy nibh eui mod tincidunt ut laoreet dol}
+\title{Priority Queue Experiment}
+\subtitle{December 5, 2017}
+\foreigntitle{Prioritetsk\"{o} Experiment}
 \author{Wong, Sai Man\\ Tigerstr\"{o}m, Gabriel}
-\date{November 2016}
+\date{}
 \blurb{}
 \trita{}
 \newcommand*{\skippara}{\par\vspace{\baselineskip} \noindent}
@@ -70,33 +71,20 @@
 
 % Ny sida- startar på högersida: I examensarbetsrapporter på KTH skall det finnas sammanfattning på både svenska och engelska (Abstract). Rubriken sätts i Arial 12 punkter fet stil ( KTH rubrik), brödtexten som  Times New Roman 10 punkter (KTH Brödtext)
 \begin{abstract}
-This is a skeleton for KTH theses. More documentation
-regarding the KTH thesis class file can be found in
-the package documentation.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris
-purus. Fusce tempor. Nulla facilisi. Sed at turpis. Phasellus eu
-ipsum. Nam porttitor laoreet nulla. Phasellus massa massa, auctor
-rutrum, vehicula ut, porttitor a, massa. Pellentesque fringilla. Duis
-nibh risus, venenatis ac, tempor sed, vestibulum at, tellus. Class
-aptent taciti sociosqu ad litora torquent per conubia nostra, per
-inceptos hymenaeos.
+    Scientists emphasize on the importance of a structured plan to subsequently conduct a reproducible and credible scientific work.
+    That is, to plan and apply the scientific method with rigor, transparency and honesty.
+    However, students and engineers occasionally approach the planning phase carelessly, which later results in wasted time during the execution phase due to poor design and execution.
+    Our work applies the scientific method to develop and run quantitative experiments on four priority queue algorithms in the programming language C.
+    We also use algorithms, data structures and complexity theory to correctly predict and examine our findings.
 \end{abstract}
 \clearpage
 
 % Ny sida, startar på högersida. Sammanfattning och Abstract skall innehålla samma text men på olika språk. Sammanfattningen skall översiktligt beskriva vad rapporten innehåller och de viktigaste resultaten. Den hålls normalt ganska kortfattad (1/4-1/2 A4 sida text. De skrivs på separata sidor.
 \begin{foreignabstract}{swedish}
-Denna fil ger ett avhandlingsskelett.
-Mer information om \LaTeX-mallen finns i
-dokumentationen till paketet.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris
-purus. Fusce tempor. Nulla facilisi. Sed at turpis. Phasellus eu
-ipsum. Nam porttitor laoreet nulla. Phasellus massa massa, auctor
-rutrum, vehicula ut, porttitor a, massa. Pellentesque fringilla. Duis
-nibh risus, venenatis ac, tempor sed, vestibulum at, tellus. Class
-aptent taciti sociosqu ad litora torquent per conubia nostra, per
-inceptos hymenaeos.
+    Forskare betonar vikten av en strukturerad plan f\"{o}r att d\"{a}refter skapa ett reproducerbart och trov\"{a}rdigt vetenskapligt arbete, det vill s\"{a}ga att planera och till\"{a}mpa den vetenskapliga metoden med noggrannhet, \"{o}ppenhet och \"{a}rlighet.
+    Studenter och ingenj\"{o}rer kan emellertid utf\"{o}ra planeringsfasen slarvigt, vilket senare resulterar i bortkastad tid under utf\"{o}randet p\r{a} grund av d\r{a}lig design och utf\"{o}rande.
+    V\r{a}rt arbete anv\"{a}nder den vetenskapliga metoden f\"{o}r att utveckla och genomf\"{o}ra kvantitativa experiment p\r{a} fyra prioritetsk\"{o}-algoritmer i programmeringsspr\r{a}ket C.
+    Vi anv\"{a}nder \"{a}ven algoritmer, datastrukturer och komplexitetsteori f\"{o}r att korrekt f\"{o}ruts\"{a}ga, unders\"{o}ka och tolka v\r{a}ra resultat.
 \end{foreignabstract}
 \clearpage
 
@@ -115,7 +103,7 @@ inceptos hymenaeos.
 % ///////////////////////////////////
 
 % Huvudrubriker sätts i Arial 12 punkter fet stil autonumrerad (KTH nRubrik 1). Här introducerar man problemomådet. Här skall finnas en bakgrund till projektet, de problem man adresserar/undersöker och syftet med arbetet.De olika underkapitlen/styckena till introduktionen  förtydligar det du skriver här. Här förväntar man sig hitta ett antal noga utvalda hög-kvalitativa referenser.
-\chapter{Introduction}
+\chapter{Introduction}\label{chapter:intro}
 A researcher plan in advance to conduct a successful and credible scientific work.
 However, students and engineers occasionally approach the planning phase in a careless manner.
 As a result, researchers waste time to redo the changes due to poor design and execution.
@@ -227,7 +215,12 @@ That is, we avoided to waste unnecessary electricity due to, for example, system
 % I större, mer omfattande rapporter med flera stycken lägger man ibland till en översikt Disposition (Overview) som beskrivar vad läsaren kommer att hitta i de olika styckena. Syftet är att hjälpa läsaren få en översikt över rapporten så han/hon kan hitta snabbt i den.
 \section{Outline}
 
+\textbf{\cref{chapter:intro}} gives the reader a general overview of our work, such as background, problem, purpose and goal.
 
+\skippara \textbf{\cref{chapter:method}} introduces the reader to scientific methods and the application of these to our work.
+\skippara \textbf{\cref{chapter:system}} describes our system setup, algorithm implementations and analysis to subsequently conduct the experiments.
+\skippara \textbf{\cref{chapter:results}} presents and discusses the findings from our experiments.
+\skippara \textbf{\cref{chapter:conclusion}} concludes our work.
 
 % ///////////////////////////////////
 % ///////////////////////////////////
@@ -239,7 +232,7 @@ That is, we avoided to waste unnecessary electricity due to, for example, system
 %
 % Vilka relevanta metoder finns? Vilka har du övervägt att använda? Varför valde du den/de metoder du använt?
 %  Beskriv kort den metod du använt och hur du applicerat den - dvs. vilken data du samlar in, hur du gör det och varför. Beskriv också tillförlitligheten hos data du samlar in. Går experimenten att upprepa? Finns etiska eller HU aspekter på ditt arbete.
-\chapter{Method}
+\chapter{Method}\label{chapter:method}
 
 \section{Inductive and Deductive Method}
 Scientists apply an inductive method to reach practical conclusions from observations or data \cite{Omexperi69:online}.
@@ -307,7 +300,7 @@ If the standard deviation is relatively high, then we can suspect that something
 % Ett kapitel om Systembeskrivning / Konstruktion eller i detta fall Experimentuppställning  finns inte med i alla studier men ofta i tekniska rapporter där man konstruerat ett system. Den här delen kan vara ett kapitel/stycke eller flera beroende på hur stort arbete man gjort.
 
 % Här startar man normalt med en beskrivning av det/de system man utvecklat och /eller haft som underlag i studien.
-\chapter{System Description}
+\chapter{System Description}\label{chapter:system}
 
 
 % Om du utvecklat ett system (som algoritmerna för den här studien) så bör du beskriva vilken/vilka metoder och verktyg du använt för systemutvecklingen. I större undersökningar/arbeten vill man gärna också se en diskussion om olika alternativ och varför man valt de man använt.
@@ -531,7 +524,7 @@ illustrates
 % ///////////////////////////////////
 
 % Här presenterar du dina resultat och slutsatser från undersökningen. Tänk på att presentera resultaten på ett tydligt sätt och ta med tillräckligt mycket i presentationen så att alla slutsatser är tydligt välgrundade. Lyft fram det som är mest intressant och viktigt.
-\chapter{Results and Discussion}
+\chapter{Results and Discussion}\label{chapter:results}
 
 \section{Running Time}
 We visualized the running time results from the implementations with help of graphs and tables in \cref{app:singly}, \cref{app:doubly}, \cref{app:doublyavg} and \cref{app:arraypriority}.
@@ -650,7 +643,7 @@ Thus, a quantitative experimental study with both inductive and deductive reason
 
 % Kan också kallas Diskussion eller Analys.
 % Börja med att diskutera målen och syftet med undersökningen och hur väl du nått dem. Summera de viktigaste slutsatserna/upptäckterna och avsluta med att diskutera hur arbetet skulle kunna fortsättas/utvecklas (speciellt om du inte nått alla delmål)
-\chapter{Conclusions and Future Work}
+\chapter{Conclusions and Future Work}\label{chapter:conclusion}
 
 This quantitative experimental study shows that the calculated theoretical space and time complexity of a number of list implementations hold.
 The study also shows that the priority queue implementation provides a time complexity better than
@@ -734,7 +727,7 @@ Thus, we need to set up requirements that describes how to pass the task about t
 \end{itemize}
 
 \skippara \textbf{Run the entire experiment:}
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ ./RUN_TESTS.sh
 \end{lstlisting}
 The script runs a correctness, running time and memory test, respectively.
@@ -744,19 +737,19 @@ Memory test stores results in the directory \texttt{./data\_valgrind}.
 
 \skippara \textbf{Run separate experiments:}
 \skippara Correctness test:
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ make
 $ ./run_correctness.sh <NUMBER_OF_ELEMENTS>
 \end{lstlisting}
 
 \skippara Running time test (best, average and worst case):
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ make
 $ ./run_running_time.sh <DATA_DIR> <ITERATIONS>
 \end{lstlisting}
 
 \skippara Memory test:
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ make
 $ ./run_valgrind.sh <DATA_DIR>
 \end{lstlisting}
@@ -768,18 +761,18 @@ $ ./run_valgrind.sh <DATA_DIR>
 \end{itemize}
 
 \skippara \textbf{1) Create an image:}
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker build -t <IMAGE_NAME> .
 \end{lstlisting}
 
 \skippara Run entire experiment in container and interactive mode with bash:
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker run -it --entrypoint bash <IMAGE_NAME>
 \end{lstlisting}
 
 
 \skippara Run entire experiment in container to store data on host machine:
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker run \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
@@ -787,7 +780,7 @@ $ docker run \
 \end{lstlisting}
 
 \skippara Run entire experiment in container to store data on host machine in the background:
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker run -d \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
@@ -795,29 +788,19 @@ $ docker run -d \
 \end{lstlisting}
 
 \skippara Run separate experiment in container to store data on host machine:
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker run --entrypoint test_correctness.sh <IMAGE_NAME>
 \end{lstlisting}
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker run --entrypoint test_running_time.sh \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
     <IMAGE_NAME>
 \end{lstlisting}
-\begin{lstlisting}[basicstyle=\ttfamily\normal, frame=single]
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single]
 $ docker run --entrypoint test_valgrind.sh \
     -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
     <IMAGE_NAME>
 \end{lstlisting}
-% 1) Create an image:
-% ```bash
-% ```
-% ```
-% ```
-% ```
-% ```
-% ```bash
-% ```bash
-% ```
 
 \chapter{Results -- Singly Linked List}\label{app:singly}
 
@@ -2265,24 +2248,31 @@ every odd row/.style={
 ]{../data_all_latex/array_priority_memory.dat}
 \end{table}
 
-\chapter{Code -- \texttt{main.c}}
+\chapter{Code Listings}
+\section{Build Automation}
+\subsection{\texttt{Dockerfile}}
+\lstinputlisting[]{../Dockerfile}
+\subsection{\texttt{Makefile}}
+\lstinputlisting[]{../Makefile}
+
+\section{Implementation}
+\subsection{\texttt{main.c}}
 \lstinputlisting[language=c]{../src/main.c}
-
-\chapter{Code -- \texttt{queue.c}}
+\subsection{\texttt{queues.c}}
 \lstinputlisting[language=c]{../src/queues.c}
-
-\chapter{Code -- \texttt{queue.h}}
+\subsection{\texttt{queues.h}}
 \lstinputlisting[language=c]{../src/queues.h}
 
-\chapter{Code -- \texttt{RUN\_TESTS.sh}}
+\section{Tests}
+\subsection{\texttt{RUN\_TESTS.sh}}
 \lstinputlisting[language=bash]{../RUN_TESTS.sh}
-\chapter{Code -- \texttt{test\_correctness.sh}}
+\subsection{\texttt{test\_correctness.sh}}
 \lstinputlisting[language=bash]{../test_correctness.sh}
-\chapter{Code -- \texttt{test\_running\_time.sh}}
+\subsection{\texttt{test\_running\_time.sh}}
 \lstinputlisting[language=bash]{../test_running_time.sh}
-\chapter{Code -- \texttt{test\_valgrind.sh}}
+\subsection{\texttt{test\_valgrind.sh}}
 \lstinputlisting[language=bash]{../test_valgrind.sh}
-\chapter{Code -- \texttt{generate\_correctness\_in\_out\_file.py}}
+\subsection{\texttt{generate\_correctness\_in\_out\_file.py}}
 \lstinputlisting[language=python]{../src/generate_correctness_in_out_file.py}
 
 \clearpage

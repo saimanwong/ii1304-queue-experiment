@@ -88,6 +88,9 @@ void delete_list(list_t* list) {
 }
 
 
+/*
+ * Helper dequeue function for doubly linked lists to
+ */
 #if HELPER_FUNCTION
 void helper_remove(list_t* list) {
     node_t* to_remove = NULL;
@@ -182,7 +185,9 @@ int32_t dequeue(list_t* list) {
 
 
 
-
+/*
+ * Helper enqueueu function for doubly linked list
+ */
 #if HELPER_FUNCTION
 void helper_insert(list_t* list, node_t* current, node_t* to_insert) {
     if(current->priority <= to_insert->priority) {
@@ -214,7 +219,7 @@ void helper_insert(list_t* list, node_t* current, node_t* to_insert) {
 
 
 /*
- * Puts the element in the right location
+ * Inserts the element in the corrct location
  */
 list_t* enqueue(list_t* list, int32_t node, double priority) {
     node_t* current;
@@ -315,14 +320,23 @@ list_t* enqueue(list_t* list, int32_t node, double priority) {
 #endif
 
 #if DATA_STRUCTURE == ARRAY_PRIORITY
+    /*
+     * Priorities must be in [0, 40]
+     */
     if (priority <= PRIORITY_SIZE) {
         current = list->priority_list[(int)priority];
 
         to_insert->next = NULL;
+        /*
+         * There is no element in FIFO queue
+         */
         if(current == NULL) {
             list->priority_list[(int)priority] = to_insert;
         }
         else{
+            /*
+             * Traverse through the FIFO queue
+             */
             while(current->next != NULL) {
                 current = current->next;
             }

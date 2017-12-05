@@ -1,0 +1,259 @@
+\documentclass[a4paper,11pt]{kth-mag}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[latin1]{inputenc}
+\usepackage[swedish,english]{babel}
+\usepackage{modifications}
+\usepackage{graphicx} % Required to insert images
+\usepackage[colorlinks=true, citecolor=magenta, linkcolor=magenta]{hyperref}
+\usepackage[nameinlink, capitalise]{cleveref}
+\newcommand{\RN}[1]{%
+      \textup{\uppercase\expandafter{\romannumeral#1}}%
+  }
+\usepackage{longtable}
+\newcommand\fnurl[2]{%
+    \href{#1}{#2}\footnote{\url{#1}}%
+}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+% För formateringen av en rapport/artikel finns ofta färdiga mallar. Publicerar man t.ex. en artikel på en konferens eller i en tidskrift finns mallar/anvisningar som beskriver vilka typsnitt, storlekar, radavstånd, marginaler paragrafnumrering etc. som skall användas.
+% Ofta beskrivs också hur lång texten får vara i antal ord och antal sidor.
+% För den här uppgiften skall texten ligga mellan 7 och 12 sidor oräknat försättsblad, Abstract, sammanfattning, referenslista och bilagor.
+
+% Den här rapportmallen beskriver vad man kan förvänta sig finna i en teknisk rapport som baseras på någon form av undersökning/utredning. De rubriker/stycken som är beskrivna är de som återfinns i de allra flesta rapporter. För längre rapporter delar man ofta upp rapporten i flera stycken med egna rubriker. T.ex. kanske man beskriver flera olika experiment och experimentuppställningar.
+
+% I rapporten kan och bör du återanvända delar av det du skrivit i din projektplanering.
+
+% Försättssida: Titeln skall vara deskriptiv/informativ. Sätts i Arial 14 punkter fet stil (KTH titel)
+
+% Försättssida: Här anger man namn på alla författare, titlar och kontaktinformation
+\title{Experimental Method - Planning}
+\subtitle{December 3, 2017}
+\author{Wong, Sai Man\\ Tigerstr\"{o}m, Gabriel}
+\blurb{}
+\trita{}
+\newcommand*{\skippara}{\par\vspace{\baselineskip} \noindent}
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+\removepagenumbers
+\maketitle
+\selectlanguage{english}
+
+% Ny sida- startar på högersida: I examensarbetsrapporter på KTH skall det finnas sammanfattning på både svenska och engelska (Abstract). Rubriken sätts i Arial 12 punkter fet stil ( KTH rubrik), brödtexten som  Times New Roman 10 punkter (KTH Brödtext)
+
+% Ny sida, startar på högersida. Sammanfattning och Abstract skall innehålla samma text men på olika språk. Sammanfattningen skall översiktligt beskriva vad rapporten innehåller och de viktigaste resultaten. Den hålls normalt ganska kortfattad (1/4-1/2 A4 sida text. De skrivs på separata sidor.
+
+% Om man har ett bra verktyg som man skriver sin rapport i och man använder väldefinierade paragraf/stilmallar så kan innehållsförteckningen oftast automatgenereras
+{
+      \hypersetup{linkcolor=black}
+      \tableofcontents*
+}
+\mainmatter
+\pagestyle{newchap}
+
+\chapter{Experimental Method - Planning}
+In this paper, we plan our process to conduct experiments on four queue-implementations.
+The task is presented in \cite{Uppgiftl9:online}, and overview of the requreiments to pass this examination moment is presented in \cref{app:A}.
+
+\section{Purpose}\label{sec:purpose}
+A data structure is a model to represent data, and there is a large number of different types \cite{deshpande2004c}.
+The common challenge is to identify the most feasible data structure for a specific purpose, such as a queue.
+Software engineers frequently use queues in software development.
+For example, to manage arbitrary entities in a first-in-first-out (FIFO) order, such as a memory buffer or scheduling in an operating system.
+
+\skippara In high-level programming languages, there are libraries that provide finished features, such as a queue-implementation.
+However, this may result in that developers often take the underlying implementations for granted.
+Thus, they may possess insufficient theoretical and technical knowledge about the features they use.
+
+\skippara Our purpose with this paper is to raise awareness about the aspects that are often taken for granted.
+Thus, we conduct experiments to get a deeper insight into four varieties of a queue-implementation.
+Consequently, we want to contribute with a study other students and engineers can learn from and further develop.
+
+\section{Prestudy}\label{sec:prestudy}
+A model to represent data linearly is a linked list.
+Linked list comes in different variations.
+However, the basics of a simple linked list is that an entity stores data and has a connection to the next entity.
+In computer science, the entity is referred to as a node or an element, and the connection is called a pointer.
+The most simple linked list implementation represent data linearly, because each node stores data and has a pointer to the next node.
+Thus, developer frequently use different variations of linked lists to represent a list or queue.
+
+\skippara Our task is to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
+Each element has a numerical value to represent its priority in the queue.
+In this study and to clarify, an element with a low numerical value represents higher priority, because it is closer to the time and ready for execution.
+We implement the queues in the low-level programming language \texttt{C}, and the following are the implementation specifications:
+\begin{enumerate}
+    \item \textbf{Singly linked list} -- Insertion of new elements takes place in the head.
+    \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the tail.
+        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean value of the first and last element's mean value.
+        \begin{itemize}
+            \item In the head -- New element has a higher priority than the mean value, that is, \\numerical value $<$ mean value.
+            \item In the tail -- New element has a lower or equal priority to the mean value, that is,\\numerical value $\ge$ mean value.
+        \end{itemize}
+    \item \textbf{Scheduling queue} -- there is an FIFO-queue for each priority in the $[0,40]$ interval.
+\end{enumerate}
+
+\skippara The relevant parameters to use and examine are primarily time and space for algorithms, such as execution time and memory usage.
+That is, we can gather a large quantity of these metrics and determine the implementations performance.
+
+\skippara A queue's purpose is to enqueue and dequeue elements with an FIFO approach.
+Because of the FIFO policy, we can assume with a correct implementation and theory that the dequeue-operation should take $\mathcal{O}(1)$ time.
+However, the enqueue-operation is more sensitive to the element's priority, because it must insert each element in the correct spot in the queue.
+Thus, the implementations can perform differently due to the distribution of the priorities.
+
+\section{Indentify Relevant Methods}\label{sec:methods}
+As mentioned in the last section, the most relevant metrics to examine algorithms with are time and space, such as execution time and memory usage.
+These metrics are all quantifiable.
+In contrast to, for example, interviews and surveys, which are common methods in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
+That is, qualitative studies reaches conclusions from the quality of the data rather quantity.
+Thus, this study uses an experimental quantitative method to try to get a deeper insight about queues.
+However, we use both inductive and deductive method to reason about the algorithms.
+
+\skippara We reason with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
+That is, we can reach theoretical conclusions from complexity theory about the algorithms.
+For example, it is possible to determine an algorithm's performance based solely on theoretical knowledge.
+On the contrary, the usage of deductive methods can also yield unexpected results when put into practice.
+Thus, we generate realistic data from our experiments, and use an inductive method to further analyze it.
+That is, to explore if we can notice any observable patters in the data with help of models.
+
+\section{Experimental Plan}\label{sec:plan}
+We verify, validate and examine the implementation's performance in form of time and space.
+Also, we analyze and test the best, average and worst case for each implementation.
+Finally, we evaluate these based on both theoretical knowledge and practical observations from the experiments.
+This is a must, because if it is not performed rigorously and correctly, then the study loses credibility.
+
+\skippara We measure execution time for the implementation's enqueue- and dequeue-operations to determine its efficiency for best, average and worst cases.
+From a practical aspect, we use different stochastic distributions for the priorities to test the implementations.
+The space metric is also important to take into consideration.
+For example, to examine the memory usage of the algorithms.
+And, to avoid an incorrect implementation of a queue, which can result in memory leaks.
+We use Valgrind to monitor allocation and deallocation of memory as it is a widely accepted tool for this purpose.
+The following list presents the overview of our experiment plan:
+\begin{enumerate}
+    \item \textbf{Understand the problem} -- Gather a general understanding of queues, linked list and algorithm complexity.
+        And, analyze how these models relates to our problem, or task, in theory and practice.
+        Finally, set up hypotheses and assumptions based on the analysis.
+    \item \textbf{Methods} -- Evaluate different scientific methods to apply in this study.
+        That is, for our purpose, an experimental quantitative study is the most feasible one
+        Finally, we discuss the findings and reach conclusions with both deductive and inductive reasoning.
+    \item \textbf{Break down the problem} -- Use scientific methodology to set up smaller and clear requirements for the experiments.
+    \item \textbf{Implementation} -- Implement the four variations of a queue.
+    \item \textbf{Verification} -- Test each implementation's behavior.
+        For example, write tests to verify that the implementation can enqueue the elements in correct order.
+    \item \textbf{Validation} -- Analyze and validate the generated results from the implementation with theory.
+        That is, to avoid unexpected and inaccurate output.
+        The execution time of a specific implementation for best case tests are higher than worst case is an example of inaccurate result.
+    \item \textbf{Interpretation and visualize} -- It is useless in science to generate data without an interpretation of it.
+        We can represent, for example, the execution time and memory usage in graphs.
+        That is, we use inductive method to interpret the data and reach a conclusion.
+        Finally, then compare the latter conclusion with theoretical findings from deductive reasoning.
+    \item \textbf{Communication} -- Present the entire work in form of a report.
+        It is important that the study is as transparent, honest and rigorous as possible.
+        That is, to create a credible and reproducible work.
+\end{enumerate}
+
+\section{Experimental setup}\label{sec:setup}
+A solid foundation of software development, algorithms, data structures and complexity theory are required prerequisites to perform this experiment.
+In this study, we demonstrate our knowledge about these as clearly as possible.
+
+\subsection{System}
+We conduct the experiments on a Microsoft Azure virtual machine.
+Basically, it is a high-performance virtual private server.
+We use this service because we have full control over the environment.
+The system consists of a 64 bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
+
+\subsection{Error Sources} Error sources are also necessary to take into account as these can influence the results of this study.
+That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
+Every software and computational research depend heavily on the underlying system, both hardware and software.
+Assume that the implementation is correct, the results depend on memory and CPU to produce accurate output, but also the operating system.
+Thus, we run the experiments multiple times and calculate statistical features, such as mean value and standard deviation.
+Standard deviation is relevant, because we can then identify how the execution time vary around the mean.
+For example, a large standard deviation indicates, for example, that another process irregularly consume a large amount of resources.
+
+\skippara Another error source is poor design and implementation of models.
+Thus, it important to grasp and follow scientific methodology rigorously, verify and validate the implementations.
+It gets significantly more difficult to identify error sources, if the latter mentioned points are not taken seriously.
+For example, a poor implementation design results in that the researcher waste valuable time to debug.
+And, especially in a relative low-level programming language, such as C.
+
+\subsection{Implementation}
+A queue implementation consists primarily of enqueue- and dequeue-operations.
+When the queue enqueues an element, the implementation needs to allocate memory for the it and put it in the correct spot in the queue based on priority.
+For the dequeue-operation, the queue need to return the correct element with highest priority and free it from the memory to avoid memory leak.
+
+\skippara We represent elements with help of data structure that can store data.
+And, it must also store one or two pointers.
+That is, the type of queue determines the amount of pointers.
+For example, an element in a singly linked list has one pointer, which refers to the next element in the list.
+And, an element in a doubly linked list has an additional pointer and it connects with the previous element.
+We plan to create an executable for each of the queue-implementations.
+Thus, for each executable we set up test cases to 1) test exertion time for best, average, worst cases and other stochastic distributions and 2) test memory usage.
+
+\skippara
+
+\section{Goals Reached and Experiments Completed}\label{sec:goal}
+The bigger goal is to get a deeper knowledge about the scientific method, and apply it to evaluate four queue-implementations.
+In this paper we have identified what needs to be done to complete this study.
+Thus, the only goals to be reached is to execute the experiments, analyze the results, discuss and conclude the entire work in a smaller scientific report.
+\cref{app:A} also shows gives an overview over the requirement analysis of this study.
+
+\skippara The experiments are completed if the results are both verified and validated.
+Because, there is no value in scientific work to analyze inaccurate and wrong data.
+We explained the verification and validation process in \cref{sec:plan} and \cref{sec:setup}.
+
+
+
+\appendix
+\addappheadtotoc
+\chapter{Requirement Analysis}\label{app:A}
+
+In \cite{web:requirementoverview}, the author describes that a requirement analysis is a summary of all the requirement the researcher can find.
+The author clearly states that this document is \emph{not} about how one should implement something to achieve a specific requirement.
+On the contrary, it should only cover the meaning of the requirement.
+Thus, we need to set up requirements that describes how to pass the task about the scientific method, specifically experimental quantitative method, as shown in \cref{tab:requirement}.
+
+{\footnotesize
+    \begin{longtable}{ |P{2cm}||P{1.7cm}|P{2.2cm}|P{4.3cm}|P{2.3cm}| }
+        \caption{Requirement analysis about the scientific method} \label{tab:requirement}\\
+        \hline
+        Requirement number & Requirement type & Name or source & Clarified description of the requirement, followed by what should be fulfilled& Fulfilled or not fulfilled or partly fulfilled\\
+        \hline
+        1 & \textbf{Must} mandatory task & Purpose \cite{A3Experi4:online} & Ask good questions and identify the purpose. That is, why is it necessary to conduct an experimental evaluation of algorithms, and what is the application of it. The specific task description is described in \cite{Uppgiftl9:online}. & Fulfilled (\cref{sec:purpose})\\
+        \hline
+        2 & \textbf{Must} mandatory task & Prestudy \cite{A3Experi4:online} & Demonstrate an understanding about the task and field of study. Also, identify which parameters to use, how these can depend on and vary from each other & Fulfilled \cref{sec:prestudy}\\
+        \hline
+        3 & \textbf{Must} mandatory task & Methods \cite{A3Experi4:online} & Identify which scientific method(s) to use. For example, quantitative, qualitative, deductive and/or inductive method & Fulfilled \cref{sec:methods}\\
+        \hline
+        4 & \textbf{Must} mandatory task & Experimental Plan \cite{A3Experi4:online} & Identify experiments to conduct. Describe why these are relevant. Examine metrics to measure and elaborate on why these are relevant to this study. & Fulfilled \cref{sec:plan}\\
+        \hline
+        5 & \textbf{Must} mandatory task & Experimental Setup \cite{A3Experi4:online} & Describe in details the resources needed. Identify and examine the influence of error sources, both external and internal ones. Set up an implementation, verification and validation plan. & Fulfilled \cref{sec:setup}\\
+        \hline
+        5 & \textbf{Must} mandatory task & Goals \cite{A3Experi4:online} & Demonstrate how to determine when a goal is reached and an experiment is completed. & Fulfilled \cref{sec:goal}\\
+        \hline
+        6 & \textbf{Must} mandatory task & Communication Part \RN{1} \cite{A3Experi4:online} & Communicate and summarize the discussions of requirement 1-5 (\cref{app:A}) in a document and hand it in to the mentor/supervisor & Fulfilled \\
+        \hline
+        7 & \textbf{Must} mandatory task & Experimental Execution \cite{A3Experi4:online, Uppgiftl9:online} & Follow the discussed requirements 1-5, or only 6, to conduct the experiments on a real system. And, regularly document the findings with honesty and transparency. & \\
+        \hline
+        8 & \textbf{Must} mandatory task & Communication Part \RN{2} \cite{A3Experi7:online} & Summarize the entire work and its requirements, that is 1-7, in a smaller version of a technical report. Use the IMRAD-structure (Introduction, Method, Results, and Discussion). It is a common communication structure in scientific reports. & \\
+        \hline
+\end{longtable}}
+
+% \begin{figure}[ht]
+%     \begin{center}
+%         And here is a figure
+%         \caption{\small{Several statements describing the same resource.}}\label{RDF_4}
+%     \end{center}
+% \end{figure}
+
+% that we refer to here: \ref{RDF_4}
+
+    \clearpage
+    % Här listar du dina referenser. De skall täcka in alla relevanta delar  i din bakgrund, vara väl utvalda (dvs. hålla för källkritik).
+    %
+    % I den här rapporten använder du ISO690 numerisk variant för referenserna.
+    %
+    % Har man ett bra verktyg som man skriver i/hantera referenserna i så kan referenslistan automatgenereras. Det gör det också lättare att uppdatera referenslistan utan att behöva gå igenom varje referens i texten manuellt. Dessutom får man bara med källor som man refererat till minst en gång från texten.
+    \bibliographystyle{IEEEtran}
+    \bibliography{IEEEabrv,sources}
+    \end{document}

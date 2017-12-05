@@ -7,10 +7,12 @@
 #include <sys/types.h>
 #include "queues.h"
 
-/* #define TOTAL_ELEMENTS 40000 */
 int TOTAL_ELEMENTS;
 
 #if TEST_CORRECTNESS
+/*
+ * Test correctness fuction
+ */
 void test_correctness(char* indata, char* outdata) {
 
     char * temp;
@@ -24,6 +26,9 @@ void test_correctness(char* indata, char* outdata) {
     int i = 0;
     FILE* file = fopen(indata, "r");
 
+    /*
+     * Read input-file element and enqueue them in queueu
+     */
     while (fgets(line, sizeof(line), file)) {
         temp = strtok(line," ");
         while (temp != NULL)
@@ -48,6 +53,10 @@ void test_correctness(char* indata, char* outdata) {
 
     file = fopen(outdata, "r");
 
+
+    /*
+     * Read output-file element, dequeue and check correctness
+     */
     while (fgets(line, sizeof(line), file)) {
         temp = strtok(line," ");
         while (temp != NULL)
@@ -67,6 +76,9 @@ void test_correctness(char* indata, char* outdata) {
 
         pid = dequeue(list);
         printf("pid %u == test_pid %d\n", pid, test_pid);
+        /*
+         * The program fails correctness
+         */
         assert(pid == test_pid);
     }
     fclose(file);
@@ -77,6 +89,10 @@ void test_correctness(char* indata, char* outdata) {
 }
 #else
 
+
+/*
+ * The best case tests
+ */
 list_t* test_best_case() {
     double test_priority;
     uint32_t test_pid;
@@ -86,6 +102,11 @@ list_t* test_best_case() {
     list_t* list = new_queue();
 
 #if DATA_STRUCTURE == SINGLY_LINKED_LIST
+    /*
+     * Distrution of element's priority.
+     * Priority becomes incremental higher, that is,
+     * descends from a higher numerical value
+     */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = TOTAL_ELEMENTS - test_pid;
 
@@ -105,6 +126,10 @@ list_t* test_best_case() {
     }
     printf("[SINGLY_LINKED_LIST | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST
+    /*
+     * Distrution of element's priority.
+     * Element's priority is identical.
+     */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = test_pid;
 
@@ -125,6 +150,10 @@ list_t* test_best_case() {
     }
     printf("[DOUBLY_LINKED_LIST | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST_AVG
+    /*
+     * Distrution of element's priority.
+     * Element's priority is identical.
+     */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = 1;
 
@@ -144,6 +173,11 @@ list_t* test_best_case() {
     }
     printf("[DOUBLY_LINKED_LIST_AVG | BEST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == ARRAY_PRIORITY
+    /*
+     * Distrution of element's priority.
+     * Element's priority is distruibuted equally
+     * throughout the 41 FIFO queues
+     */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = test_pid % 41;
 
@@ -167,6 +201,9 @@ list_t* test_best_case() {
     return list;
 }
 
+/*
+ * The average case tests
+ */
 list_t* test_average_case() {
     double test_priority;
     uint32_t test_pid;
@@ -174,6 +211,10 @@ list_t* test_average_case() {
     double time_taken = 0;
     list_t* list = new_queue();
 
+    /*
+     * Distrution of element's priority for all queues.
+     * Randomized priority in the [0, 40] interval
+     */
     srand(time(NULL));
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = rand() / (RAND_MAX / 40);
@@ -229,6 +270,9 @@ list_t* test_average_case() {
 }
 
 
+/*
+ * The worst case tests
+ */
 list_t* test_worst_case() {
     double test_priority;
     uint32_t test_pid;
@@ -239,7 +283,9 @@ list_t* test_worst_case() {
 
 #if DATA_STRUCTURE == SINGLY_LINKED_LIST
     /*
-     * Priority increments
+     * Distrution of element's priority.
+     * Priority becomes decremental lower, that is,
+     * ascends from a lower numerical value
      */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = test_pid;
@@ -261,7 +307,9 @@ list_t* test_worst_case() {
     printf("[SINGLY_LINKED_LIST | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST
     /*
-     * Priority decrements
+     * Distrution of element's priority.
+     * Priority becomes incremental higher, that is,
+     * descends from a higher numerical value
      */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = TOTAL_ELEMENTS - test_pid;
@@ -283,6 +331,13 @@ list_t* test_worst_case() {
     }
     printf("[DOUBLY_LINKED_LIST | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == DOUBLY_LINKED_LIST_AVG
+    /*
+     * Distrution of element's priority.
+     * Inserts one extermely low and high priority element
+     * to skew the average.
+     * Then, priority becomes decremental lower,
+     * that is, ascends from a lower numerical value.
+     */
     enqueue(list, 0, TOTAL_ELEMENTS*2);
     enqueue(list, 1, 0);
     for(test_pid = 2; test_pid < TOTAL_ELEMENTS; test_pid++) {
@@ -304,6 +359,10 @@ list_t* test_worst_case() {
     }
     printf("[DOUBLY_LINKED_LIST_AVG | WORST CASE | DEQUEUE] %f seconds\n", time_taken);
 #elif DATA_STRUCTURE == ARRAY_PRIORITY
+    /*
+     * Distrution of element's priority.
+     * Element's priority is identical.
+     */
     for(test_pid = 0; test_pid < TOTAL_ELEMENTS; test_pid++) {
         test_priority = 40;
 
@@ -329,7 +388,11 @@ list_t* test_worst_case() {
 #endif
 
 int main(int argc, char **argv) {
+
 #if TEST_CORRECTNESS
+    /*
+     * Begin correctness test
+     */
     char* indata = argv[1];
     char* outdata = argv[2];
     test_correctness(indata, outdata);
@@ -338,12 +401,21 @@ int main(int argc, char **argv) {
 
     TOTAL_ELEMENTS = atoi(argv[1]);
 
+    /*
+     * Begin the best case test
+     */
     list = test_best_case();
     delete_list(list);
 
+    /*
+     * Begin the average case test
+     */
     list = test_average_case();
     delete_list(list);
 
+    /*
+     * Begin the worst case test
+     */
     list = test_worst_case();
     delete_list(list);
 #endif
