@@ -114,9 +114,9 @@ Thus, in our study, we used the scientific method to evaluate algorithms with a 
 % Underrubriker (första nivån) sätts i Arial 12 punkter fet stil autonumrerad (KTH  nRubrik 2). (Har man ytterligare undernivåer sätter man rubrikerna för nästa nivå  med (KTH nRubrik 3)) Man försöker ofta begäränsa sig till tre nivåer på rubriker och man har i princip aldrig fler än 4 nivåer på rubriker.
 %I stycket om bakgrund (som ibland kallas ”Related work” på engelska) förväntar man sig hitta en gedigen bakgrundsbeskrivning till problemområdet i stort och till det specifika problem som studeras i rapporten. Den skall innehålla/baseras på en litteraturstudie. Det behöver väl knappast påpekas att den bör innehålla utvalda, högkvalitativa referenser.
 \section{Background}
-A data structure represent a model to store data with a methodical approach \cite{deshpande2004c}.
+A data structure represent a model to store data in a methodical manner \cite{deshpande2004c}.
 Software engineers use queues in software development to manage arbitrary entities in a first-in-first-out (FIFO) order.
-For example, developers use a queue to develop a memory buffer or scheduling in an operating system.
+For example, developers use a queue to develop a memory buffer, or scheduling in an operating system.
 
 \skippara Higher level programming languages often provide a standardized library with finished implementations, such as a queue.
 Software developers use these implementations frequently, and sometimes take the underlying architecture for granted.
@@ -176,9 +176,9 @@ For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm t
 
 % Beskriv varför projektet genomförs.
 \section{Purpose}
-Our purpose was to raise awareness of the features in API-libraries with the scientific method, which developers and engineers often take for granted.
-Thus, we conducted experiments to achieve a deeper knowledge to apply the scientific method, and to evaluate four versions of a queue implementation.
-Consequently, we wanted to contribute with a study students and engineers can learn from and further develop.
+Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted.
+Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation.
+Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
 
 % Beskriv de förväntade resultat- och effektmålen av undersökningen. Beskriv alla mål du satt upp även om de inte nåddes!
 \section{Goal}
@@ -687,23 +687,23 @@ Thus, we need to set up requirements that describes how to pass the task about t
         \hline
         Requirement number & Requirement type & Name or source & Clarified description of the requirement, followed by what should be fulfilled& Fulfilled or not fulfilled or partly fulfilled\\
         \hline
-        1 & \textbf{Must} mandatory task & Purpose \cite{A3Experi4:online} & Ask good questions and identify the purpose. That is, why is it necessary to conduct an experimental evaluation of algorithms, and what is the application of it. The specific task description is described in \cite{Uppgiftl9:online}. & \\
+        1 & \textbf{Must} mandatory task & Purpose \cite{A3Experi4:online} & Ask good questions and identify the purpose. That is, why is it necessary to conduct an experimental evaluation of algorithms, and what is the application of it. The specific task description is described in \cite{Uppgiftl9:online}. & Fulfilled \cref{chapter:intro} \\
         \hline
-        2 & \textbf{Must} mandatory task & Prestudy \cite{A3Experi4:online} & Demonstrate an understanding about the task and field of study. Also, identify which parameters to use, how these can depend on and vary from each other & \\
+        2 & \textbf{Must} mandatory task & Prestudy \cite{A3Experi4:online} & Demonstrate an understanding about the task and field of study. Also, identify which parameters to use, how these can depend on and vary from each other & Fulfilled \cref{chapter:intro} \\
         \hline
-        3 & \textbf{Must} mandatory task & Methods \cite{A3Experi4:online} & Identify which scientific method(s) to use. For example, quantitative, qualitative, deductive and/or inductive method & \\
+        3 & \textbf{Must} mandatory task & Methods \cite{A3Experi4:online} & Identify which scientific method(s) to use. For example, quantitative, qualitative, deductive and/or inductive method & Fulfilled \cref{chapter:method} \\
         \hline
-        4 & \textbf{Must} mandatory task & Experimental Plan \cite{A3Experi4:online} & Identify experiments to conduct. Describe why these are relevant. Examine metrics to measure and elaborate on why these are relevant to this study. & \\
+        4 & \textbf{Must} mandatory task & Experimental Plan \cite{A3Experi4:online} & Identify experiments to conduct. Describe why these are relevant. Examine metrics to measure and elaborate on why these are relevant to this study. & Fulfilled \cref{chapter:system}\\
         \hline
-        5 & \textbf{Must} mandatory task & Experimental Setup \cite{A3Experi4:online} & Describe in details the resources needed. Identify and examine the influence of error sources, both external and internal ones. Set up an implementation, verification and validation plan. & \\
+        5 & \textbf{Must} mandatory task & Experimental Setup \cite{A3Experi4:online} & Describe in details the resources needed. Identify and examine the influence of error sources, both external and internal ones. Set up an implementation, verification and validation plan. & Fulfilled \cref{chapter:system}\\
         \hline
-        5 & \textbf{Must} mandatory task & Goals \cite{A3Experi4:online} & Demonstrate how to determine when a goal is reached and an experiment is completed. & \\
+        5 & \textbf{Must} mandatory task & Goals \cite{A3Experi4:online} & Demonstrate how to determine when a goal is reached and an experiment is completed. & Fulfilled \cref{chapter:system} \\
         \hline
-        6 & \textbf{Must} mandatory task & Communication Part \RN{1} \cite{A3Experi4:online} & Communicate and summarize the discussions of requirement 1-5 (\cref{app:A}) in a document and hand it in to the mentor/supervisor & \\
+        6 & \textbf{Must} mandatory task & Communication Part \RN{1} \cite{A3Experi4:online} & Communicate and summarize the discussions of requirement 1-5 (\cref{app:A}) in a document and hand it in to the mentor/supervisor & Fulfilled \\
         \hline
-        7 & \textbf{Must} mandatory task & Experimental Execution \cite{A3Experi4:online, Uppgiftl9:online} & Follow the discussed requirements 1-5, or only 6, to conduct the experiments on a real system. And, regularly document the findings with honesty and transparency. & \\
+        7 & \textbf{Must} mandatory task & Experimental Execution \cite{A3Experi4:online, Uppgiftl9:online} & Follow the discussed requirements 1-5, or only 6, to conduct the experiments on a real system. And, regularly document the findings with honesty and transparency. & Fulfilled \cref{chapter:results} \\
         \hline
-        8 & \textbf{Must} mandatory task & Communication Part \RN{2} \cite{A3Experi7:online} & Summarize the entire work and its requirements, that is 1-7, in a smaller version of a technical report. Use the IMRAD-structure (Introduction, Method, Results, and Discussion). It is a common communication structure in scientific reports. & \\
+        8 & \textbf{Must} mandatory task & Communication Part \RN{2} \cite{A3Experi7:online} & Summarize the entire work and its requirements, that is 1-7, in a smaller version of a technical report. Use the IMRAD-structure (Introduction, Method, Results, and Discussion). It is a common communication structure in scientific reports. & Fulfilled \\
         \hline
 \end{longtable}}
 

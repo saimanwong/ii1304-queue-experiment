@@ -54,50 +54,53 @@
 \pagestyle{newchap}
 
 \chapter{Experimental Method - Planning}
-In this paper, we plan our process to conduct experiments on four queue-implementations.
-The task is presented in \cite{Uppgiftl9:online}, and overview of the requreiments to pass this examination moment is presented in \cref{app:A}.
+Throughout the paper, we describe our plan and process to conduct experiments on four queue-implementations.
+Our task comes from \cite{Uppgiftl9:online}, and \cref{app:A} shows an overview of the requirements we must complete.
 
 \section{Purpose}\label{sec:purpose}
-A data structure is a model to represent data, and there is a large number of different types \cite{deshpande2004c}.
-The common challenge is to identify the most feasible data structure for a specific purpose, such as a queue.
-Software engineers frequently use queues in software development.
-For example, to manage arbitrary entities in a first-in-first-out (FIFO) order, such as a memory buffer or scheduling in an operating system.
 
-\skippara In high-level programming languages, there are libraries that provide finished features, such as a queue-implementation.
-However, this may result in that developers often take the underlying implementations for granted.
-Thus, they may possess insufficient theoretical and technical knowledge about the features they use.
+A data structure represent a model to store data in a methodical manner \cite{deshpande2004c}.
+Software engineers use queues in software developer to manage arbitrary entities in a first-in-first-out (FIFO) order.
+For example, developers use a queue to develop a memory buffer, or scheduling in an operating system.
 
-\skippara Our purpose with this paper is to raise awareness about the aspects that are often taken for granted.
-Thus, we conduct experiments to get a deeper insight into four varieties of a queue-implementation.
-Consequently, we want to contribute with a study other students and engineers can learn from and further develop.
+\skippara Higher level programming languages often provide a standardized library with finished implementations, such as a queue.
+Software developers use these implementations frequently, and sometimes take the underlying architecture for granted.
+Thus, an inexperienced developer possess a limited knowledge of the theory and technical aspects of the used implementations.
+
+
+\skippara Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted.
+Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation.
+Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
 
 \section{Prestudy}\label{sec:prestudy}
-A model to represent data linearly is a linked list.
-Linked list comes in different variations.
-However, the basics of a simple linked list is that an entity stores data and has a connection to the next entity.
-In computer science, the entity is referred to as a node or an element, and the connection is called a pointer.
-The most simple linked list implementation represent data linearly, because each node stores data and has a pointer to the next node.
-Thus, developer frequently use different variations of linked lists to represent a list or queue.
+Developers use the data structure, or model, linked list to store data linearly.
+The simple linked list consists of entities.
+An entity stores data and includes a connection to the next entity in the list.
+Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
+That is, an element stores data and consists of a pointer to the next element in the list.
+Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
 
-\skippara Our task is to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
-Each element has a numerical value to represent its priority in the queue.
-In this study and to clarify, an element with a low numerical value represents higher priority, because it is closer to the time and ready for execution.
-We implement the queues in the low-level programming language \texttt{C}, and the following are the implementation specifications:
+\skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
+Each element compromises of a number to represent its priority in the queue.
+For clarification, an element with a low number represents higher priority, because the element lies closer to the present time and therefore ready for execution.
+We must implement the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
 \begin{enumerate}
     \item \textbf{Singly linked list} -- Insertion of new elements takes place in the head.
-    \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the tail.
-        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean value of the first and last element's mean value.
+    \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the rear.
+        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean of the first and last element's priority.
         \begin{itemize}
-            \item In the head -- New element has a higher priority than the mean value, that is, \\numerical value $<$ mean value.
-            \item In the tail -- New element has a lower or equal priority to the mean value, that is,\\numerical value $\ge$ mean value.
+            \item In the head -- The new element's priority is higher than the mean, that is, \\numerical value $<$ mean value.
+            \item In the rear -- The new element's priority is lower than the mean, that is,\\numerical value $\ge$ mean value.
         \end{itemize}
-    \item \textbf{Scheduling queue} -- there is an FIFO-queue for each priority in the $[0,40]$ interval.
+    \item \textbf{Scheduling queue} -- The queue consists of an FIFO-queue for each priority in the $[0,40]$ interval.
 \end{enumerate}
 
-\skippara The relevant parameters to use and examine are primarily time and space for algorithms, such as execution time and memory usage.
-That is, we can gather a large quantity of these metrics and determine the implementations performance.
 
-\skippara A queue's purpose is to enqueue and dequeue elements with an FIFO approach.
+\skippara Computer scientists evaluate algorithms in terms of space and time, such as execution time and memory usage.
+That is, we gather a large quantity of these metric to determine best, average and worst cases.
+Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
+
+\skippara A queue's purpose is to enqueue and dequeue elements with an FIFO policy.
 Because of the FIFO policy, we can assume with a correct implementation and theory that the dequeue-operation should take $\mathcal{O}(1)$ time.
 However, the enqueue-operation is more sensitive to the element's priority, because it must insert each element in the correct spot in the queue.
 Thus, the implementations can perform differently due to the distribution of the priorities.
