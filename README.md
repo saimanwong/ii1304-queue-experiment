@@ -6,7 +6,7 @@ __Requirements__:
  - python (optional, but required to run correctness test)
  - valgrind (optional, but required to run memory test)
 
--- Run the entire experiment:
+__Run the entire experiment:__
 ```bash
 $ ./RUN_TESTS.sh
 ```
@@ -15,21 +15,21 @@ Correctness test prints out results in terminal.
 Running time test stores the results in directory `./data_running_time`, and runs 50 iterations.
 Memory test stores results in the directory `./data_valgrind`.
 
---- Run separate experiments
+__Run separate experiments:__
 
-Correctness test
+Correctness test:
 ```bash
 $ make
 $ ./run_correctness.sh <NUMBER_OF_ELEMENTS>
 ```
 
-Running time test (best, average and worst case)
+Running time test (best, average and worst case):
 ```bash
 $ make
 $ ./run_running_time.sh <DATA_DIR> <ITERATIONS>
 ```
 
-Memory test
+Memory test:
 ```bash
 $ make
 $ ./run_valgrind.sh <DATA_DIR>
@@ -38,40 +38,40 @@ $ ./run_valgrind.sh <DATA_DIR>
 __Requirements__:
  - Docker (required)
  
-1) Create an image:
+__1) Create an image:__
 ```bash
 $ docker build -t <IMAGE_NAME> .
 ```
--- Run entire experiment in container and interactive mode with bash
+Run entire experiment in container and interactive mode with bash:
 ```bash
 $ docker run -it --entrypoint bash <IMAGE_NAME>
 ```
--- Run entire experiment in container to store data on host machine
+Run entire experiment in container to store data on host machine:
 ```bash
 $ docker run \
-    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
-    -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
+    -v <DATA_DIR>:/usr/src/experiment/data_running_time \
+    -v <DATA_DIR>:/usr/src/experiment/data_valgrind \
     <IMAGE_NAME>
 ```
--- Run entire experiment in container to store data on host machine in the background
+Run entire experiment in container to store data on host machine in the background:
 ```bash
 $ docker run -d \
-    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
-    -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
+    -v <DATA_DIR>:/usr/src/experiment/data_running_time \
+    -v <DATA_DIR>:/usr/src/experiment/data_valgrind \
     <IMAGE_NAME>
 ```
--- Run separate experiment in container to store data on host machine
+Run separate experiment in container to store data on host machine:
 ```bash
 $ docker run --entrypoint test_correctness.sh <IMAGE_NAME>
 ```
 ```bash
 $ docker run --entrypoint test_running_time.sh \
-    -v <DIRECTORY_NAME>:/usr/src/experiment/data_running_time \
+    -v <DATA_DIR>:/usr/src/experiment/data_running_time \
     <IMAGE_NAME>
 ```
 ```bash
 $ docker run --entrypoint test_valgrind.sh \
-    -v <DIRECTORY_NAME>:/usr/src/experiment/data_valgrind \
+    -v <DATA_DIR>:/usr/src/experiment/data_valgrind \
     <IMAGE_NAME>
 ```
 
