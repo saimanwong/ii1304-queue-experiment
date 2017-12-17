@@ -71,18 +71,18 @@
 
 % Ny sida- startar på högersida: I examensarbetsrapporter på KTH skall det finnas sammanfattning på både svenska och engelska (Abstract). Rubriken sätts i Arial 12 punkter fet stil ( KTH rubrik), brödtexten som  Times New Roman 10 punkter (KTH Brödtext)
 \begin{abstract}
-    Scientists emphasize on the importance of a structured plan to subsequently conduct a reproducible and credible scientific work.
-    That is, to plan and apply the scientific method with rigor, transparency and honesty.
-    However, students and engineers occasionally approach the planning phase carelessly, which later results in wasted time during the execution phase due to poor design and execution.
+    Scientists emphasize the importance of a structured plan to conduct a reproducible and credible scientific work subsequently.
+    That is, to plan and apply the scientific method with rigor, transparency, and honesty.
+    However, students and engineers occasionally approach the planning phase carelessly, which later results in wasted time during the execution phase due to poor design.
     Our work applies the scientific method to develop and run quantitative experiments on four priority queue algorithms in the programming language C.
-    We also use algorithms, data structures and complexity theory to correctly predict and examine our findings.
+    We also use algorithms, data structures, and complexity theory to predict and examine our findings correctly.
 \end{abstract}
 \clearpage
 
 % Ny sida, startar på högersida. Sammanfattning och Abstract skall innehålla samma text men på olika språk. Sammanfattningen skall översiktligt beskriva vad rapporten innehåller och de viktigaste resultaten. Den hålls normalt ganska kortfattad (1/4-1/2 A4 sida text. De skrivs på separata sidor.
 \begin{foreignabstract}{swedish}
     Forskare betonar vikten av en strukturerad plan f\"{o}r att d\"{a}refter skapa ett reproducerbart och trov\"{a}rdigt vetenskapligt arbete, det vill s\"{a}ga att planera och till\"{a}mpa den vetenskapliga metoden med noggrannhet, \"{o}ppenhet och \"{a}rlighet.
-    Studenter och ingenj\"{o}rer kan emellertid utf\"{o}ra planeringsfasen slarvigt, vilket senare resulterar i bortkastad tid under utf\"{o}randet p\r{a} grund av d\r{a}lig design och utf\"{o}rande.
+    Studenter och ingenj\"{o}rer kan emellertid utf\"{o}ra planeringsfasen slarvigt, vilket senare resulterar i bortkastad tid under utf\"{o}randet p\r{a} grund av d\r{a}lig design.
     V\r{a}rt arbete anv\"{a}nder den vetenskapliga metoden f\"{o}r att utveckla och genomf\"{o}ra kvantitativa experiment p\r{a} fyra prioritetsk\"{o}-algoritmer i programmeringsspr\r{a}ket C.
     Vi anv\"{a}nder \"{a}ven algoritmer, datastrukturer och komplexitetsteori f\"{o}r att korrekt f\"{o}ruts\"{a}ga, unders\"{o}ka och tolka v\r{a}ra resultat.
 \end{foreignabstract}
@@ -105,37 +105,37 @@
 % Huvudrubriker sätts i Arial 12 punkter fet stil autonumrerad (KTH nRubrik 1). Här introducerar man problemomådet. Här skall finnas en bakgrund till projektet, de problem man adresserar/undersöker och syftet med arbetet.De olika underkapitlen/styckena till introduktionen  förtydligar det du skriver här. Här förväntar man sig hitta ett antal noga utvalda hög-kvalitativa referenser.
 \chapter{Introduction}\label{chapter:intro}
 A researcher plan in advance to conduct a successful and credible scientific work.
-However, students and engineers occasionally approach the planning phase in a careless manner.
+However, students and engineers occasionally carelessly approach the planning phase.
 As a result, researchers waste time to redo the changes due to poor design and execution.
-Students and engineers lack a deeper knowledge of the scientific method to contribute with quality work.
+Students and engineers lack a more profound knowledge of the scientific method to produce high-quality work.
 That is, science emphasizes the importance of theoretical knowledge and its application in practice.
 Thus, in our study, we used the scientific method to evaluate algorithms with a rigorous, honest and transparent method.
 
 % Underrubriker (första nivån) sätts i Arial 12 punkter fet stil autonumrerad (KTH  nRubrik 2). (Har man ytterligare undernivåer sätter man rubrikerna för nästa nivå  med (KTH nRubrik 3)) Man försöker ofta begäränsa sig till tre nivåer på rubriker och man har i princip aldrig fler än 4 nivåer på rubriker.
 %I stycket om bakgrund (som ibland kallas ”Related work” på engelska) förväntar man sig hitta en gedigen bakgrundsbeskrivning till problemområdet i stort och till det specifika problem som studeras i rapporten. Den skall innehålla/baseras på en litteraturstudie. Det behöver väl knappast påpekas att den bör innehålla utvalda, högkvalitativa referenser.
 \section{Background}
-A data structure represent a model to store data in a methodical manner \cite{deshpande2004c}.
+A data structure represents a model to store data methodically \cite{deshpande2004c}.
 Software engineers use queues in software development to manage arbitrary entities in a first-in-first-out (FIFO) order.
-For example, developers use a queue to develop a memory buffer, or scheduling in an operating system.
+For example, developers use a queue to develop a memory buffer or scheduling in an operating system.
 
-\skippara Higher level programming languages often provide a standardized library with finished implementations, such as a queue.
+\skippara Higher level programming languages often provide a standardized library with complete implementations, such as a queue.
 Software developers use these implementations frequently, and sometimes take the underlying architecture for granted.
-Thus, an inexperienced developer possess a limited knowledge of the theory and technical aspects of the used implementations.
+Thus, an inexperienced developer possesses a limited knowledge of the theory and technical aspects of the used implementations.
 
 \skippara Developers use the data structure, or model, linked list to store data linearly.
 The simple linked list consists of entities.
 An entity stores data and includes a connection to the next entity in the list.
 Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
-That is, an element stores data and consists of a pointer to the next element in the list.
+That is an element stores data and consists of a pointer to the next element in the list.
 Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
 
 
 % Här beskriver du problemområdet och problemet i detalj. Beskriv också varför det är värdefullt att undersöka problemet. Försök formulera din problemställning så klart och koncist som möjligt – gärna i en mening!
 \section{Problem}\label{sec:problem}
 An engineer must learn the skill to apply the scientific method in practice.
-That is, to later on possess the ability to contribute with further development and exploration within the scientific community.
+Later on, possess the ability to contribute to further development and exploration within the scientific community.
 Also, a software engineer needs to grasp the basics of features in an API\footnote{API -- Application Programming Interface}-library.
-However, developers sometimes use these library features in projects, and take these algorithms for granted to behave in a specific manner.
+However, developers sometimes use these library features in projects and take these algorithms for granted to behave in a specific manner.
 Thus, we applied the scientific method rigorously to evaluate algorithms in depth, both in theory and practice.
 
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
@@ -145,7 +145,7 @@ We implemented the queues in the low-level programming language \texttt{C}, and 
 \begin{enumerate}
     \item \textbf{Singly linked list} -- Insertion of new elements takes place in the head.
     \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the rear.
-        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean of the first and last element's priority.
+    \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean of the first and last element's priority.
         \begin{itemize}
             \item In the head -- The new element's priority is higher than the mean, that is, \\numerical value $<$ mean value.
             \item In the rear -- The new element's priority is lower than the mean, that is,\\numerical value $\ge$ mean value.
@@ -154,17 +154,17 @@ We implemented the queues in the low-level programming language \texttt{C}, and 
 \end{enumerate}
 
 \skippara
-Computer scientists evaluate algorithms in terms of space and time, such as execution time and memory usage.
-That is, we gather a large quantity of these metric to determine best, average and worst cases.
+Computer scientists evaluate algorithms regarding space and time, such as execution time and memory usage.
+That is, we gather a large quantity of these metrics to determine best, average and worst cases.
 Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
 
 
 \clearpage
 % Om detta är en studie där syftet är att undersöka en hypotes (alla projekt är inte hypotesprövande) så beskriver du/formulerar du hypotesen här. Lämpligt är också att beskriva hur/varför/på vilka grunder du formulerat hypotesen. Är det inte ett hypotesprövande projekt så tar du bort rubriken.
 \section{Hypothesis}
-A queue either enqueues or dequeues elements with an FIFO policy.
-Because of the FIFO policy, we assumed with a correct implementation and theory, the dequeue-operation take $\mathcal{O}(1)$ time.
-However, the enqueue-operation becomes more sensitive to an element's priority, because the algorithm insert each element in the correct spot in the queue.
+A queue either enqueues or dequeues elements with a FIFO policy.
+Because of the FIFO policy, we assumed with a correct implementation and theory, the dequeue- operation take $\mathcal{O}(1)$ time.
+However, the enqueue-operation becomes more sensitive to an element's priority, because the algorithm inserts each element in the correct spot in the queue.
 Thus, the implementations perform differently because of priority distribution.
 For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm traverses through the entire list to enqueue an element.
 
@@ -185,7 +185,7 @@ Consequently, we wanted to produce a credible and scientific work, so that other
 The bigger goal was to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
 However, the following list demonstrates the sub-goals:
 \begin{itemize}
-    \item Apply scientific method to plan, design, experiment, document, analyze and present the findings.
+    \item Apply the scientific method to plan, design, experiment, document, analyze and present the findings.
     \item Grasp the importance of scientific method.
     \item Conduct a reproducible study.
     \item Attain the ability to present, analyze and draw conclusions from experiments, both in theory and practice.
@@ -196,19 +196,19 @@ However, the following list demonstrates the sub-goals:
 % Beskriv vem och på vilket sätt man kan ha nytta av utredningen. Beskriv etiska och hållbar utvecklingsrelaterade frågor kopplade till utredningen.
 \section{Social Benefit, Ethics and Sustainable Development}
 Our study influence students and engineers to apply the scientific method more with a more serious approach.
-Also, the study facilitate the process for software engineers to choose an implementation of a queue, which fits their specific purpose.
-Finally, we delve into the foundations of algorithms, data structure and complexity theory.
-Thus, our work help students and engineers to acquire a deeper comprehension of computer science.
+Also, the study facilitates the process for software engineers to choose an implementation of a queue, which fits their specific purpose.
+Finally, we delve into the foundations of algorithms, data structure, and complexity theory.
+Thus, our work helps students and engineers to acquire a deeper comprehension of computer science.
 
-\skippara Within science, a researcher undertake a moral responsibility to conduct a reproducible work with honesty and transparency.
+\skippara Within science, a researcher undertakes a moral responsibility to conduct a reproducible work with honesty and transparency.
 However, sometimes scientists encounter difficult circumstances, which limits their ability to produce a reproducible work.
-For example, due to economical and practical reasons, such as expensive hardware.
-We documented each step and presented findings with rigor, honesty and transparency.
+For example, due to economic and practical reasons, such as expensive hardware.
+We documented each step and presented findings with rigor, honesty, and transparency.
 That is, we encourage students to reproduce our findings.
 
-\skippara We conducted the experiment on a virtual machine on Microsoft's cloud platform.
+\skippara We experimented with a virtual machine on Microsoft's cloud platform.
 Thus, we used the exact quantity of resources needed to conduct the experiments.
-That is, we avoided to waste unnecessary electricity due to, for example, system idle.
+That is, we avoided to waste additional electricity due to, for example, system idle.
 
 
 
@@ -236,36 +236,35 @@ That is, we avoided to waste unnecessary electricity due to, for example, system
 
 \section{Inductive and Deductive Method}
 Scientists apply an inductive method to reach practical conclusions from observations or data \cite{Omexperi69:online}.
-That is, in sequential order to 1) collect data, 2) detect pattern in the data, 3) set up a hypothesis and 4) explain the findings with established theory to reach 5) a conclusion \cite{web:induction}.
+That is, in sequential order to 1) collect data, 2) detect the pattern in the data, 3) set up a hypothesis and 4) explain the findings with the established theory to reach 5) a conclusion \cite{web:induction}.
 The method is sometimes informally called a bottom-up approach due to its style to first observe data.
 Software engineers frequently apply an inductive method to observe algorithms and a system's behavior.
 For example, a developer put in a specific input in the implementation and generate an output to observe the algorithm's performance.
 
-\skippara With the deductive method, also called top-down approach, scientists reach logical conclusions from theory first.
-For example, mathematicians use a deductive method to explain the unknown with help of established theory (axioms and theorems).
+\skippara With the deductive method, also called top-down approach, scientists reach logical conclusions from a theory first.
+For example, mathematicians use a deductive method to explain the unknown with the help of established theory (axioms and theorems).
 A deductive method also applies to researchers within computer science.
 That is, computer scientists use mathematical notations to represent theoretical models in, for example, algorithm analysis and complexity theory.
-Thus, researchers use these methods for a variety of purposes, and sometimes combine them to reach both a logical and practical conclusion.
+Thus, researchers use these methods for a variety of purposes and sometimes combine them to reach both a logical and practical conclusion.
 
 \section{Quantitative and Qualitative Method}
-
-Researches apply a quantitative method in studies, which rely on measurable data in large quantities to explain findings \cite{haakansson2013portal}.
-That is, a quantitative study use measurable metrics, such as time, temperature and age.
+Researchers apply a quantitative method in studies, which rely on measurable data in large quantities to explain findings \cite{haakansson2013portal}.
+That is, a quantitative study uses measurable metrics, such as time, temperature and age.
 These studies apply statistical analysis to summarize the data in tables and graphs with error margins.
-For example, scientists use a quantitative method to predict a nation's growth based on the birth and death rate over a longer period.
+For example, scientists use a quantitative method to predict a nation's growth based on the birth and death rate over a more extended period.
 
 \skippara In contrast, a qualitative method relies on data of quality to interpret the results \cite{merriam2009qualitative}.
-Scientists use a qualitative method in studies when the data is significantly more difficult to quantify, such as opinions, thoughts and happiness.
+Scientists use a qualitative method in studies when the data is significantly more difficult to quantify, such as opinions, thoughts, and happiness.
 The researchers conduct, for example, interviews and surveys, to collect data from individuals.
 Thus, psychologists often implement a qualitative method to examine people's behavior.
 
 % Beskriv hur du samlar in data, material och annat underlag för din undersökning? Svara på frågor som: Hur skall undersökningen genomföras? Hur är experimentuppställningen organiserad?
 \section{Data Collection}
 We used quantifiable metrics in our study.
-That is, execution time and memory usage, because computer scientists commonly apply these for algorithm och complexity analysis.
+That is, execution time and memory usage because computer scientists commonly apply these for algorithm och complexity analysis.
 In contrast to, for example, interviews and surveys, which the researchers within social sciences regularly use in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
-That is, qualitative studies reaches conclusions from the quality of the data.
-Thus, our study uses an experimental quantitative method to reach a deeper insight into data structures and queue implementations.
+That is, qualitative studies reach conclusions from the quality of the data.
+Thus, our study uses an experimental quantitative method to reach a broader insight into data structures and queue implementations.
 
 \skippara For each of the four queue-implementations, we tested and generated the execution time for the best, average and worst case.
 That is, we created input for the queues with varying distributions of the element's priorities.
@@ -275,20 +274,17 @@ Finally, we wrote scripts to execute the tests and logged the raw data.
 % Beskriv metoden för hur du avser analysera insamlad data/material. Beskriv också hur du planerar tolka  data
 \section{Data Analysis}
 We reasoned with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
-That is, we analyzed the algorithms with help of established complexity theory.
+That is, we analyzed the algorithms with the help of established complexity theory.
 For example, to determine an algorithm's performance based solely on theoretical knowledge.
 However, the usage of only a deductive methods can yield unexpected results when put into practice.
-Thus, we generate realistic data from our experiments, and use an inductive method to further analyze the algorithms.
-That is, to explore if we can notice observable patters in the data with help of complexity models.
+Thus, we generate realistic data from our experiments and use an inductive method to analyze the algorithms further.
+That is, to explore if we can notice observable patterns in the data with the help of complexity models.
 
 \skippara We used both graphs and tables to visualize the execution time and memory usage.
-And, ran the experiments multiple times to generate the sample mean and standard deviation.
+Also, ran the experiments multiple times to generate the sample mean and standard deviation.
 The standard deviation adds a deeper insight into the data and spread around the mean.
-Also, it help us to identify the external or internal error sources.
+Also, it helps us to identify the external or internal error sources.
 If the standard deviation is relatively high, then we can suspect that something is wrong with, for example, the underlying system.
-
-
-
 
 
 % ///////////////////////////////////
@@ -307,21 +303,20 @@ If the standard deviation is relatively high, then we can suspect that something
 \section{System Development Method}
 Our implementation produces an executable for each of the four queue-implementations.
 The experiment consists of primarily three files, \texttt{main.c} with the tests, \texttt{queues.h} and \texttt{queues.c} which respectively describes and implements the functionalities of the queue.
-Finally, we used compile time macros to determine which of the four queue-implementation we create an executable from.
+Finally, we used compile-time macros to determine the executable to produce based on the implementations.
 
-\skippara We used Bash-scripts to automatically run tests and log the results in plain text.
-Also, we developer a Python-script, which 1) calculated the sample mean and standard deviation, and 2) summarized and visualized the data with tables and graphs in \LaTeX.\
+\skippara We used Bash-scripts to run tests and log the results in plain text automatically.
+Also, we developed a Python-script, which 1) calculated the sample mean and standard deviation, and 2) summarized and visualized the data with tables and graphs in \LaTeX.\.
 Finally, we used Valgrind on our implementations to examine memory allocation and deallocation.
 
 \skippara We added an optional solution to run the entire experiment in a container.
 That is, if anyone wants to run the entire experiment, and spend minimum time on the setup process, then the user only has to install Docker and execute a command to achieve the similar results we produced.
-Docker containers introduce an effective approach to package software, because containers use the same resources as the host operating system.
-
+Docker containers introduce a practical approach to package software because containers use the same resources as the host operating system.
 
 % Det här är en anpassad rubrik för just den här studien. Här beskriver du (ev. med flera underrubriker) mer i detalj de algoritmer du implementerat, analyserar dem och hur du implementerat dem.
 \section{Queue Algorithms}\label{sec:algorithms}
 Our task is to implement four different queue-implementation in the programming language \texttt{C}, as described in \cref{sec:problem}.
-The following are common operations for a queue:
+The following are standard operations for a queue:
 \begin{itemize}
     \item \textbf{Enqueue} -- enqueues the element in the correct spot in the priority queue.
     \item \textbf{Dequeue} -- dequeues the element with the highest priority, that is, the first element in the queue.
@@ -332,7 +327,7 @@ Each element stores at least 1) a unique number identifier of the data type inte
 
 \skippara The following sections describe our implementation of the queues.
 Additionally, we analyzed the time complexity for the enqueue-operation.
-We found the average case time complexity more difficult to theoretically analyze compared to the best and worst case.
+We found the average case time complexity more challenging to analyze compared to the best and worst case theoretically.
 Thus, we examined the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
 
 \subsection{Singly Linked List}\label{sec:singly}
@@ -341,30 +336,33 @@ That is, an element in the queue stores 1) a unique number identifier, 2) a prio
 The algorithm enqueues new elements from head.
 The following list analyzes the enqueue-operation's time complexity:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(1)$} -- The best case occurs when the enqueue-operation of new elements always takes place in the head.
+    \item \textbf{Best Case $\mathcal{O}(1)$} --
+        The best case occurs when the enqueue-operation of new elements always takes place in the head.
         That is, the algorithm avoids to traverse the list to find the correct spot to insert the new element.
-        On the other hand, the queue needs to only perform one operation to put the new element in the head.
+        On the other hand, the queue needs only to perform one operation to put the new element in the head.
         Thus, we can reach the best case with a distribution of priorities where the numerical value descends from a higher one.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The worst case happens when the implementation traverse through the entire list, or $n$-times, to insert the new element in the correct place.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} --
+        The worst case happens when the implementation traverse through the entire list, or $n$-times, to insert the new element in the correct place.
         Thus, the implementation reaches the worst case scenario with priority distribution of the same numerical value, because the queue uses FIFO policy to manage elements of the same priority.
 \end{itemize}
 
 \subsection{Doubly Linked List}
 This algorithm uses a doubly linked list data structure.
-An element stores 1) a unique number identifier, 2) priority, and 3-4) two pointers that connects to next and previous element in the queue.
+An element stores 1) a unique number identifier, 2) priority and 3-4) two pointers that connect to the next and previous element in the queue.
 The enqueue-operation of new elements takes place in the rear.
 The following examines the time complexity of the algorithm:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(1)$} -- The algorithm achieves the best case when the priority distribution consists of the same number.
-        Because, the queue applies FIFO to manage elements of the same priority.
+    \item \textbf{Best Case $\mathcal{O}(1)$} --
+        The algorithm achieves the best case when the priority distribution consists of the same number because the queue applies FIFO to manage elements of the same priority.
         Thus, it requires only one operation to insert the new element.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The queue reaches the worst case when the priority's numerical value constantly descends from a higher one.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} --
+        The queue reaches the worst case when the priority's numerical value continually descends from a higher one.
         Thus, the algorithm traverses the list from the rear $n$-times to insert the new element correctly.
 \end{itemize}
 
 \subsection{Doubly Linked List with Modification}
 This queue is similar to the previous section's implementation.
-That is, an element stores the same properties as the last one.
+That is an element stores the same properties as the last one.
 However, for this algorithm, the insertion of new elements takes place in either the head or rear.
 The enqueue-operation depends on the average of the first and last element in the list.
 The following list demonstrates the enqueue rules of the modified version:
@@ -376,15 +374,17 @@ The following list demonstrates the enqueue rules of the modified version:
 \skippara We analyzed the best and worst case for this implementation.
 The following summarizes the analysis:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(1)$} -- For the best case, we can either design the distribution of priorities to take place in either head or rear.
-        For example, let us say that we create a distribution of the same priority.
-        The average will always be the same as the new element's priority.
-        Thus, the insertion for each of new elements takes place in the rear.
-    \item \textbf{Worst Case $\mathcal{O}(n)$} -- To achieve the worst case, we must traverse through the list for each insertion of a new element.
+    \item \textbf{Best Case $\mathcal{O}(1)$} --
+       For the best case, we can either design the distribution of priorities to take place in either head or rear.
+       For example, let us say that we create a distribution of the same priority.
+       The average will always be the same as the new element's priority.
+       Thus, the insertion for each of new elements takes place in the rear.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} --
+        To achieve the worst case, we must traverse through the list for each insertion of a new element.
         It is achievable if the queue, for example, first enqueues two elements with significantly differing priorities.
-        One with a high priority, and another with significant lower priority.
+        One with a high priority, and another with significantly lower priority.
         The average will skew towards the lower priority, that is, a notably high numerical value.
-        Thus, if for each new element, it receives a lower priority than the previous one, then the insertion takes place in the head and traverses $(n-1)$-times to insert new element correctly in the queue.
+        Thus, if for each new element, it receives a lower priority than the previous one, then the insertion takes place in the head and traverses $(n - 1)$-times to insert new element correctly in the queue.
 \end{itemize}
 
 \subsection{Scheduling Queue}
@@ -414,41 +414,42 @@ The following list presents the time complexity for the best and worst case:
 % Beskriv de testfall du använt och implementerat. Argumentera för varför de är rimliga/bra.
 \section{Experimental Setup}
 We conducted the experiments on a Microsoft Azure virtual private server (VPS).
-We used a VPS service because we gain full access over the machine.
-The system consisted of a 64 bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
+We used a VPS service because we gain full access to the machine.
+The system consisted of a 64-bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
 
-\subsection{Error Sources} Error sources are important to take into account as these can influence the results of the study.
+\subsection{Error Sources}
+Error sources are important to take into account as these can influence the results of the study.
 That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
-Software and computational research depend heavily on the underlying system, both hardware and software.
+Software and computational research depend heavily on the underlying system, both hardware, and software.
 Thus, we run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
-Standard deviation is relevant, because we can then identify how the execution time vary around the mean.
-A large standard deviation indicates, for example, that another process consume significant quantity of resources.
+Standard deviation is relevant because we can then identify how the execution time varies around the mean.
+A large standard deviation indicates, for example, that another process a significant quantity of resources.
 
 \skippara Another error source comes from poor design and implementation of models.
 Thus, we must grasp and follow scientific method rigorously, verify and validate the implementations.
 For example, a developer wastes time to debug an implementation due to poor design.
-And, especially in a relative low-level programming language, such as C.
+Furthermore, especially in a relatively low-level programming language, such as \texttt{C}.
 
 \subsection{Verification and Validation}
 We developed a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
-Our Python script generates an input- and output-file.
-The former consists of elements of randomized priorities, and the output file contains the elements in correct order.
+Our Python script generates an input- and output file.
+The former consists of elements of randomized priorities and the output file contain the elements in correct order.
 Finally, we used the input and output files in our implementations to verify its correctness.
 We used Valgrind and verified the memory allocation and deallocation of our implementations.
 
 \skippara We developed tests for the best, average and worst cases to validate its behavior.
 That is, we analyzed the running time and complexity theoretically.
-And, used statistical analysis and complexity theory to validate the algorithms.
+Also, used statistical analysis and complexity theory to validate the algorithms.
 Finally, we examined the edge cases, for example, an empty or a list containing only one element.
 
 % Beskriv och motivera de experiment du designat (var noga att motivera varför de bidrar till att uppfylla målen)
 \subsection{Experiments}
-To test the best, average and worst case, we created a variety of priority distributions as input based on our complexity analysis of our algorithms.
-The analysis takes place in \cref{sec:algorithms}.
+To test the best, average and worst case, we created a variety of priority distributions as input based on our complexity analysis of our algorithms. The analysis takes place in \cref{sec:algorithms}.
 We did not analyze the time complexity for the average case theoretically.
 However, we assumed the average case somewhere lies between the best and worst case.
-Thus, We randomly assigned priorities in $[0,40]$ interval to the elements in the average case experiments.
+Thus, We randomly assigned priorities in $[0, 40]$ interval to the elements in the average case experiments.
 Finally, \cref{tab:param} presents the remaining parameters we used for each test case.
+
 
 \begin{table}
     \small
@@ -466,8 +467,7 @@ Finally, \cref{tab:param} presents the remaining parameters we used for each tes
 \end{table}
 
 
-\skippara The following list summarize the element's priority distribution, where $N$, $p$ and $n$ represent a set of elements, a numerical priority and the number of elements, respectively:
-illustrates
+\skippara The following list summarizes the element's priority distribution, where $N$, $p$ and $n$ represent a set of elements, a numerical priority and the number of elements, respectively:
 \clearpage
 \begin{itemize}
     \item \textbf{Singly linked list}
@@ -498,7 +498,7 @@ illustrates
                 \begin{equation*}
                     N = \left\{p_{n} \, \Big| \, p \ge 0,\, n \ge 0 \right\}
                 \end{equation*}
-            \item Worst case -- Insert two elements with significant different priority to skew the average.
+            \item Worst case -- Insert two elements with significant difference in priority to skew the average.
                 Then, linearly decrease the priority from one with the highest one, for example:
                 \begin{equation*}
                     \resizebox{.9\hsize}{!}{$N = \left\{p_1, (p*2)_2, (p+1)_3, (p+2)_4, (p+3)_5,..., (p+n-2)_{(n-2)} \, \Big| \, p \ge n \ge 3 \right\}$}
@@ -527,32 +527,30 @@ illustrates
 \chapter{Results and Discussion}\label{chapter:results}
 
 \section{Running Time}
-We visualized the running time results from the implementations with help of graphs and tables in \cref{app:singly}, \cref{app:doubly}, \cref{app:doublyavg} and \cref{app:arraypriority}.
+We visualized the running time results from the implementations with the help of graphs and tables in \cref{app:singly}, \cref{app:doubly}, \cref{app:doublyavg} and \cref{app:arraypriority}.
 That is, the singly linked list, doubly linked list, doubly linked list with modification and scheduling queue respectively.
 
 \subsection{Enqueue}
 Our running time results for the enqueue-operation shows that the worst case tests represent an upper bound limit of time complexity for each of the algorithms.
 The same goes for best case tests, that is, these show a lower bound limit.
-And the average case's time complexity lies somewhere between these limits.
+The average case's time complexity lies somewhere between these limits.
 Each implementation reaches similar time complexity in the best and worst case.
 Finally, the singly and doubly linked list yielded similar running time for the average case.
-That is, around 18 seconds with 60 000 elements.
+That is around 18 seconds with 60 000 elements.
 
 \skippara The doubly linked list with modification and scheduling queue algorithms produced a lower running time in the average case tests.
 That is, around 10 seconds and 1 second, respectively, for 60 000 elements.
-The average case tests for the scheduling queue yielded running time that were only milliseconds higher than for its best case.
+The average case tests for the scheduling queue yielded running time that was only milliseconds higher than for its best case.
 Whereas, the rest of implementations' average case tests produced running times that were several seconds higher than their best case.
 That is, at least for more than 25 000 elements.
 
 \subsection{Dequeue}
-
-There were no significant changes in the results for the dequeue-operation experiments, because the dequeue operation is similar for each implementation.
+There were no significant changes in the results for the dequeue-operation experiments because the dequeue operation is similar for each implementation.
 That is, the elements are in the correct order in the queue.
 The implementation only needs to dequeue and remove the element from the head of the list.
-Thus, the running time barely differ in milliseconds.
+Thus, the running time barely differs in milliseconds.
 
 \section{Memory Usage}
-
 \cref{app:memoryusage} summarizes the memory usage of the implementations for the best, average and worst case tests.
 The memory usage was the same across implementations, because the algorithms allocate the same number of elements for each test.
 Thus, we did not have to calculate the mean and standard deviation for memory usage.
@@ -565,29 +563,45 @@ That is, around 6 Megabytes for 60 000 elements.
 The singly linked list and queue implementation use significantly less memory than the variations of doubly linked list.
 For example, for 60 000 elements, the latter implementations use almost 2 Megabytes less memory than the queue based on doubly linked lists.
 
+\cref{app:memoryusage} summarizes the memory usage of the implementations for the best, average and worst case tests.
+The memory usage was the same across implementations because the algorithms allocate the same number of elements for each test.
+Thus, we did not have to calculate the mean and standard deviation for memory usage.
+
+\skippara The implementations' memory usage increase linearly and with the number of elements.
+The doubly linked list with and without modification reached similar memory usage.
+That is around 4 Megabytes for 60 000 elements.
+The singly linked list and priority queue implementation had similar memory usage.
+That is around 6 Megabytes for 60 000 elements.
+The singly linked list and queue implementation use significantly less memory than the variations of a doubly linked list.
+For example, for 60 000 elements, the following implementations use almost 2 Megabytes less memory than the queue based on doubly linked lists.
+
 % Här kan du fördjupa din diskussion och ta ett helhetsgrepp på din undersökning, metodval och resultat.
 \section{Discussion}
 
 \subsection{Running Time Analysis}\label{sec:rtanal}
 Our time complexity analysis matched with the results we generated from best, average and worst case tests.
 That is, the worst case test represents an upper bound limit for the running time of the algorithms, and the best case the lower bound.
-However, the most noticeable observation is that the scheduling queue implementation produced almost as low running time as for its lower bound limit.
-Thus, the scheduling queue implementation performed the best in terms of time and memory usage.
+However, the most notable observation is that the scheduling queue implementation produced almost as low running time as for its lower bound limit.
+Thus, the scheduling queue implementation performed the best regarding time and memory usage.
 
-\skippara The scheduling queue has to traverse through a list, in general, fewer times than the rest of the implementations, because it has a assigned list for each priority.
-We can use our complexity analysis, generated data and math notation to express the average running time, where $n$ represents number of elements:
+\skippara The scheduling queue has to traverse through a list, in general, fewer times than the rest of the implementations, because it has an assigned list for each priority.
+We can use our complexity analysis, generated data and math notation to express the average running time, where $n$ represents the number of elements:
 \begin{itemize}
-\item \textbf{Singly Linked List and Doubly Linked List} -- In the worst case, these algorithms must traverse $n$ times, and in the best case $\mathcal{O}(1)$.
-        Thus, we assume in average that these algorithms must at most traverse $n/2$ times,
-    \item \textbf{Doubly Linked List with Modification} -- In the worst case, the algorithm traverses the list $n$ times.
+    \item \textbf{Singly Linked List and Doubly Linked List} --
+        In the worst case, these algorithms must traverse $n$ times, and in the best case $\mathcal{O}(1)$.
+        Thus, we assume on average that these algorithms traverse n/2 times at most,
+    \item \textbf{Doubly Linked List with Modification} --
+        In the worst case, the algorithm traverses the list $n$ times.
         However, due to its modification, the insertion of new elements takes place in either the head or rear based on an average of first and last element's priority in the queue.
-        Thus, we assume in average that this algorithm must at most traverse $n/4$ times.
-    \item \textbf{Scheduling Priority} -- This algorithm traverses the list $n$ times in the worst case.
-        However, due to its 41 FIFO queues, each separate queue is in general shorter than the previous mentioned queues.
-        Thus, we assume in average that this algorithm must at most traverse $n/41$ times.
+        Thus, we assume on average that this algorithm traverses $n/4$ times at most.
+    \item \textbf{Scheduling Priority} --
+        This algorithm traverses the list $n$ times in the worst case.
+        However, due to its 41 FIFO queues, each separate queue is in general shorter than the previously mentioned queues.
+        Thus, we assume on average that this algorithm traverses $n/41$ times at most.
+
 \end{itemize}
 
-\skippara Based on the assumptions in the list above, we can summarize each implementation's average time complexity in relation to the number of elements as the following:
+\skippara Based on the assumptions in the list above, we can summarize each implementation's average time complexity with the number of elements as the following:
 \begin{equation*}
     \begin{bmatrix*}
         \begin{array}{llll}
@@ -619,7 +633,7 @@ For example, our running time for $n=60000$ was the following:
 That is, all the dequeue operations take $\mathcal{O}(1)$ time.
 
 \subsection{Memory Usage Analysis}
-The reason both variations of doubly linked list generated similar memory usage, and higher memory usage than singly linked list and scheduling queue, because these implementations store in total two pointers for each element.
+The reason both variations of the doubly linked list generated similar memory usage, and higher memory usage than singly linked list and scheduling queue, because these implementations store in total two pointers for each element.
 That is, doubly linked lists have a pointer that connects to the previous element, and the second connects to the next element.
 Singly linked list and scheduling queue only store one pointer, which refers to the next element in the queue.
 Thus, the difference in memory usage is because of an extra pointer allocation.
@@ -627,12 +641,12 @@ Thus, the difference in memory usage is because of an extra pointer allocation.
 \subsection{Choice of Methods}
 We used a deductive method to analyze each implementation's best and worst case.
 That is, we took help of established data structure and complexity theory to determine the best and worst case.
-And, assumed the average case's time complexity lies somewhere between the best and worst.
+Also, assumed the average case's time complexity lies somewhere between the best and worst.
 
 \skippara An inductive method helped us to validate our best and worst case analysis.
-Additionally, the average case experiments contributed to a better comprehension of the average time complexities of the algorithms,
-That is, we observed patterns in the data from the tests, which resulted in a theoretical analysis and explanation of the algorithms average time complexity, as demonstrated in \cref{sec:rtanal}.
-Additionally, the data showed that the average case's time complexity lies indeed between the best (lower bound limit) and worst case (upper bound limit).
+Additionally, the average case experiments contributed to a better comprehension of the average time complexities of the algorithms
+That is, we observed patterns in the data from the tests, which resulted in theoretical analysis and explanation of the algorithms average time complexity, as demonstrated in \cref{sec:rtanal}.
+Furthermore, the data showed that the average case's time complexity lies indeed between the best (lower bound limit) and worst case (upper bound limit).
 Thus, a quantitative experimental study with both inductive and deductive reasoning was a feasible methodology to evaluate algorithms.
 
 % ///////////////////////////////////
@@ -644,17 +658,10 @@ Thus, a quantitative experimental study with both inductive and deductive reason
 % Kan också kallas Diskussion eller Analys.
 % Börja med att diskutera målen och syftet med undersökningen och hur väl du nått dem. Summera de viktigaste slutsatserna/upptäckterna och avsluta med att diskutera hur arbetet skulle kunna fortsättas/utvecklas (speciellt om du inte nått alla delmål)
 \chapter{Conclusions and Future Work}\label{chapter:conclusion}
+This quantitative experimental study shows that the calculated theoretical space and time complexity of many list implementations hold.
+The study also shows that the priority queue implementation provides a time complexity better than a double linked list with a low space complexity as the singly linked list.
 
-This quantitative experimental study shows that the calculated theoretical space and time complexity of a number of list implementations hold.
-The study also shows that the priority queue implementation provides a time complexity better than
-a double linked list with a low space complexity as the singly linked list.
-
-\skippara
-We applied the scientific method to conduct an experiment with honesty, transparency and rigor.
-The experiment helped us to verify and validate our implementations.
-We produced a reproducible study and reached the goals to grasp the scientific method.
-Finally and hopefully, our analysis and findings can help engineering students to achieve a deeper theoretical and practical comprehension of algorithms and data structures.
-
+\skippara We applied the scientific method to experiment with honesty, transparency, and rigor. The experiment helped us to verify and validate our implementations. We produced a reproducible study and reached the goals to grasp the scientific method. Finally and hopefully, our analysis and findings can help engineering students to achieve a deeper theoretical and practical comprehension of algorithms and data structures.
 % I Bilagor (som inte alltid behöver finnas med) lägger man vid behov utökad information som man inte tar upp/redovisar i detalj i den ordinarie texten.
 %
 % För den här uppgiften är Bilagorna 1-3 sådana som man kan förvänta sig finnas med i en teknisk rapport om det specifika problem du studerat i den här uppgiften. Bilaga 4 skall innehålla de saker som efterfrågas i ID2206 för att rapporten skall kunna godkännas som labrapport i den kursen.
@@ -666,21 +673,10 @@ Finally and hopefully, our analysis and findings can help engineering students t
 % Bilaga 4: Rådata från testerna
 
 \chapter{Requirement Overview}\label{app:A}
-% ////////////////////////////////////////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-% //////////////////// CHANGE THIS!!! ////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-% ////////////////////////////////////////////////////////////////////////////////
-
 In \cite{web:requirementoverview}, the author describes that a requirement analysis is a summary of all the requirement the researcher can find.
-The author clearly states that this document is \emph{not} about how one should implement something to achieve a specific requirement.
+The author states that this document is \emph{not} about how one should implement something to achieve a specific requirement.
 On the contrary, it should only cover the meaning of the requirement.
-Thus, we need to set up requirements that describes how to pass the task about the scientific method, specifically experimental quantitative method, as shown in \cref{tab:requirement}.
-
+Thus, we need to set up requirements that describe how to pass the task about the scientific method, specifically experimental quantitative method, as shown in \cref{tab:requirement}.
 {\footnotesize
     \begin{longtable}{ |P{2cm}||P{1.7cm}|P{2.2cm}|P{4.3cm}|P{2.3cm}| }
         \caption{Requirement analysis about the scientific method} \label{tab:requirement}\\
@@ -849,113 +845,113 @@ $ docker run --entrypoint test_valgrind.sh \
 \end{figure}
 
 \begin{table}[ht!]
-\caption{Best Case Enqueue -- Singly Linked List }
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000*2},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_best_enqueue.dat}
+    \caption{Best Case Enqueue -- Singly Linked List }
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000*2},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_best_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Average Case Enqueue -- Singly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_avg_enqueue.dat}
+    \caption{Average Case Enqueue -- Singly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_avg_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Worst Case Enqueue -- Singly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_worst_enqueue.dat}
+    \caption{Worst Case Enqueue -- Singly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_worst_enqueue.dat}
 \end{table}
 
 \begin{figure}[h!]
@@ -1006,113 +1002,113 @@ every odd row/.style={
 \clearpage
 
 \begin{table}[ht!]
-\caption{Best Case Dequeue -- Singly Linked List }
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_best_dequeue.dat}
+    \caption{Best Case Dequeue -- Singly Linked List }
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_best_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Average Case Dequeue -- Singly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_avg_dequeue.dat}
+    \caption{Average Case Dequeue -- Singly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_avg_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Worst Case Dequeue -- Singly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_worst_dequeue.dat}
+    \caption{Worst Case Dequeue -- Singly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_worst_dequeue.dat}
 \end{table}
 
 
@@ -1164,114 +1160,114 @@ every odd row/.style={
 \end{figure}
 
 \begin{table}[ht!]
-\caption{Best Case Enqueue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_best_enqueue.dat}
+    \caption{Best Case Enqueue -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_best_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Average Case Enqueue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_enqueue.dat}
+    \caption{Average Case Enqueue -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Worst Case Enqueue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    1000 sep={},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_worst_enqueue.dat}
+    \caption{Worst Case Enqueue -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        1000 sep={},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_worst_enqueue.dat}
 \end{table}
 
 \begin{figure}[h!]
@@ -1321,113 +1317,113 @@ every odd row/.style={
 \clearpage
 
 \begin{table}[ht!]
-\caption{Best Case Dequeue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_best_dequeue.dat}
+    \caption{Best Case Dequeue -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_best_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Average Case Dequeue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_dequeue.dat}
+    \caption{Average Case Dequeue -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Worst Case Dequeue -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_worst_dequeue.dat}
+    \caption{Worst Case Dequeue -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_worst_dequeue.dat}
 \end{table}
 
 \chapter{Results -- Doubly Linked List with Modification}\label{app:doublyavg}
@@ -1477,115 +1473,115 @@ every odd row/.style={
 \end{figure}
 
 \begin{table}[ht!]
-\caption{Best Case Enqueue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_best_enqueue.dat}
+    \caption{Best Case Enqueue -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_best_enqueue.dat}
 \end{table}
 
 
 \begin{table}[ht!]
-\caption{Average Case Enqueue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_avg_enqueue.dat}
+    \caption{Average Case Enqueue -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_avg_enqueue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Worst Case Enqueue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    1000 sep={},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_worst_enqueue.dat}
+    \caption{Worst Case Enqueue -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        1000 sep={},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_worst_enqueue.dat}
 \end{table}
 
 \begin{figure}[h!]
@@ -1636,113 +1632,113 @@ every odd row/.style={
 
 
 \begin{table}[ht!]
-\caption{Best Case Dequeue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_best_dequeue.dat}
+    \caption{Best Case Dequeue -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_best_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Average Case Dequeue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_avg_dequeue.dat}
+    \caption{Average Case Dequeue -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_avg_dequeue.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Worst Case Dequeue -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_worst_dequeue.dat}
+    \caption{Worst Case Dequeue -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_worst_dequeue.dat}
 \end{table}
 
 \chapter{Results -- Scheduling Queue}\label{app:arraypriority}
@@ -1792,119 +1788,119 @@ every odd row/.style={
     \label{graph:Earray}
 \end{figure}
 \begin{table}[ht!]
-\caption{Best Case Enqueue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_best_enqueue.dat}
+    \caption{Best Case Enqueue -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_best_enqueue.dat}
 \end{table}
 
 
 
 
 \begin{table}[ht!]
-\caption{Average Case Enqueue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_avg_enqueue.dat}
+    \caption{Average Case Enqueue -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_avg_enqueue.dat}
 \end{table}
 
 
 
 
 \begin{table}[ht!]
-\caption{Worst Case Enqueue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_worst_enqueue.dat}
+    \caption{Worst Case Enqueue -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_worst_enqueue.dat}
 \end{table}
 
 
@@ -1956,119 +1952,119 @@ every odd row/.style={
 \clearpage
 
 \begin{table}[ht!]
-\caption{Best Case Dequeue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_best_dequeue.dat}
+    \caption{Best Case Dequeue -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_best_dequeue.dat}
 \end{table}
 
 
 
 
 \begin{table}[ht!]
-\caption{Average Case Dequeue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_avg_dequeue.dat}
+    \caption{Average Case Dequeue -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_avg_dequeue.dat}
 \end{table}
 
 
 
 
 \begin{table}[ht!]
-\caption{Worst Case Dequeue -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Running Time in Milliseconds},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*1000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-columns/2/.style={
-    column name={$2\times$SD ($N=50$)},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1*2*1000},
-    /pgf/number format/precision=2
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_worst_dequeue.dat}
+    \caption{Worst Case Dequeue -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Running Time in Milliseconds},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*1000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    columns/2/.style={
+        column name={$2\times$SD ($N=50$)},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1*2*1000},
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_worst_dequeue.dat}
 \end{table}
 
 \chapter{Results -- Memory Usage}\label{app:memoryusage}
@@ -2125,127 +2121,127 @@ Thus, the higher memory usage.
 \end{figure}
 
 \begin{table}[ht!]
-\caption{Memory Usage -- Singly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Memory Usage in Megabytes},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1/1000000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/singly_linked_list_memory.dat}
+    \caption{Memory Usage -- Singly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Memory Usage in Megabytes},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1/1000000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/singly_linked_list_memory.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Memory Usage -- Doubly Linked List}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Memory Usage in Megabytes},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1/1000000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_memory.dat}
+    \caption{Memory Usage -- Doubly Linked List}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Memory Usage in Megabytes},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1/1000000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_memory.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Memory Usage -- Doubly Linked List with Modification}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Memory Usage in Megabytes},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1/1000000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/doubly_linked_list_avg_memory.dat}
+    \caption{Memory Usage -- Doubly Linked List with Modification}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Memory Usage in Megabytes},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1/1000000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/doubly_linked_list_avg_memory.dat}
 \end{table}
 
 \begin{table}[ht!]
-\caption{Memory Usage -- Scheduling Queue}
-\centering
-\label{}
-\small
-\pgfplotstabletypeset[
-columns/0/.style={
-    column name={Number of Elements},
-    /pgf/number format/.cd,
-    1000 sep={}
-},
-columns/1/.style={
-    column name={Memory Usage in Megabytes},
-    /pgf/number format/fixed zerofill,
-    /pgfplots/table/preproc/expr={##1/1000000},
-    1000 sep={},
-    /pgf/number format/precision=2,
-},
-every head row/.style={
-    before row=\toprule,
-    after row=\midrule
-},
-every last row/.style={
-    after row=\bottomrule
-},
-every odd row/.style={
-    before row={\rowcolor[gray]{.8}}
-}
-]{../data_all_latex/array_priority_memory.dat}
+    \caption{Memory Usage -- Scheduling Queue}
+    \centering
+    \label{}
+    \small
+    \pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Number of Elements},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Memory Usage in Megabytes},
+        /pgf/number format/fixed zerofill,
+        /pgfplots/table/preproc/expr={##1/1000000},
+        1000 sep={},
+        /pgf/number format/precision=2,
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+    ]{../data_all_latex/array_priority_memory.dat}
 \end{table}
 
 \chapter{Code Listings}
