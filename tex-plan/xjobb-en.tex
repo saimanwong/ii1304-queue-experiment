@@ -29,7 +29,7 @@
 
 % Försättssida: Här anger man namn på alla författare, titlar och kontaktinformation
 \title{Experimental Method - Planning}
-\subtitle{December 3, 2017}
+\subtitle{\today}
 \author{Wong, Sai Man\\ Tigerstr\"{o}m, Gabriel}
 \blurb{}
 \trita{}
@@ -55,29 +55,25 @@
 
 \chapter{Experimental Method - Planning}
 Throughout the paper, we describe our plan and process to conduct experiments on four queue-implementations.
-Our task comes from \cite{Uppgiftl9:online}, and \cref{app:A} shows an overview of the requirements we must complete.
+Our task comes from \cite{Uppgiftl9:online}, and \cite{Uppgiftl9:online} shows an overview of the requirements we must complete.
 
 \section{Purpose}\label{sec:purpose}
-
-A data structure represent a model to store data in a methodical manner \cite{deshpande2004c}.
+A data structure represents a model to store data methodically \cite{deshpande2004c}.
 Software engineers use queues in software developer to manage arbitrary entities in a first-in-first-out (FIFO) order.
-For example, developers use a queue to develop a memory buffer, or scheduling in an operating system.
+For example, developers use a queue to develop a memory buffer or scheduling in an operating system.
 
-\skippara Higher level programming languages often provide a standardized library with finished implementations, such as a queue.
+\skippara Higher level programming languages often provide a standardized library with complete implementations, such as a queue.
 Software developers use these implementations frequently, and sometimes take the underlying architecture for granted.
-Thus, an inexperienced developer possess a limited knowledge of the theory and technical aspects of the used implementations.
+Thus, an inexperienced developer possesses a limited knowledge of the theory and technical aspects of the used implementations.
 
-
-\skippara Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted.
-Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation.
-Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
+\skippara Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted. Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation. Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
 
 \section{Prestudy}\label{sec:prestudy}
 Developers use the data structure, or model, linked list to store data linearly.
 The simple linked list consists of entities.
 An entity stores data and includes a connection to the next entity in the list.
 Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
-That is, an element stores data and consists of a pointer to the next element in the list.
+That is an element stores data and consists of a pointer to the next element in the list.
 Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
 
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
@@ -92,67 +88,72 @@ We must implement the queues in the low-level programming language \texttt{C}, a
             \item In the head -- The new element's priority is higher than the mean, that is, \\numerical value $<$ mean value.
             \item In the rear -- The new element's priority is lower than the mean, that is,\\numerical value $\ge$ mean value.
         \end{itemize}
-    \item \textbf{Scheduling queue} -- The queue consists of an FIFO-queue for each priority in the $[0,40]$ interval.
+    \item \textbf{Scheduling queue} -- The queue consists of a FIFO-queue for each priority in the $[0,40]$ interval.
 \end{enumerate}
 
+\skippara Computer scientists evaluate algorithms regarding space and time, such as execution time and memory usage.
+That is, we gather a large quantity of these metrics to determine best, average and worst cases.
+Thus, we asked ourselves: “Do these queues achieve similar performance, or does the performance vary depending on the circumstance?”
 
-\skippara Computer scientists evaluate algorithms in terms of space and time, such as execution time and memory usage.
-That is, we gather a large quantity of these metric to determine best, average and worst cases.
-Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
-
-\skippara A queue's purpose is to enqueue and dequeue elements with an FIFO policy.
+\skippara A queue's purpose is to enqueue and dequeue elements with a FIFO policy.
 Because of the FIFO policy, we can assume with a correct implementation and theory that the dequeue-operation should take $\mathcal{O}(1)$ time.
 However, the enqueue-operation is more sensitive to the element's priority, because it must insert each element in the correct spot in the queue.
 Thus, the implementations can perform differently due to the distribution of the priorities.
 
 \section{Indentify Relevant Methods}\label{sec:methods}
-As mentioned in the last section, the most relevant metrics to examine algorithms with are time and space, such as execution time and memory usage.
-These metrics are all quantifiable.
-In contrast to, for example, interviews and surveys, which are common methods in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
-That is, qualitative studies reaches conclusions from the quality of the data rather quantity.
-Thus, this study uses an experimental quantitative method to try to get a deeper insight about queues.
+As mentioned in the last section, the most relevant metrics to examine algorithms with our time and space, such as execution time and memory usage.
+These metrics are all quantifiable. In contrast to, for example, interviews and surveys, which are standard methods in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
+That is, qualitative studies reach conclusions from the quality of the data rather quantity.
+Thus, this study uses an experimental quantitative method to try to get a more in-depth insight into queues.
 However, we use both inductive and deductive method to reason about the algorithms.
 
 \skippara We reason with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
 That is, we can reach theoretical conclusions from complexity theory about the algorithms.
 For example, it is possible to determine an algorithm's performance based solely on theoretical knowledge.
 On the contrary, the usage of deductive methods can also yield unexpected results when put into practice.
-Thus, we generate realistic data from our experiments, and use an inductive method to further analyze it.
-That is, to explore if we can notice any observable patters in the data with help of models.
+Thus, we generate realistic data from our experiments and use an inductive method to analyze it further.
+That is, to explore if we can notice any observable patterns in the data with the help of models.
 
 \section{Experimental Plan}\label{sec:plan}
-We verify, validate and examine the implementation's performance in form of time and space.
+We verify, validate and examine the implementation's performance in the form of time and space.
 Also, we analyze and test the best, average and worst case for each implementation.
 Finally, we evaluate these based on both theoretical knowledge and practical observations from the experiments.
-This is a must, because if it is not performed rigorously and correctly, then the study loses credibility.
+It is essential, because if we approach it carelessly, then the study loses credibility.
 
-\skippara We measure execution time for the implementation's enqueue- and dequeue-operations to determine its efficiency for best, average and worst cases.
+\skippara We measure execution time for the implementation's enqueue- and dequeue-operations to determine its effectiveness for best, average and worst cases.
 From a practical aspect, we use different stochastic distributions for the priorities to test the implementations.
 The space metric is also important to take into consideration.
 For example, to examine the memory usage of the algorithms.
-And, to avoid an incorrect implementation of a queue, which can result in memory leaks.
+Moreover, to avoid an incorrect implementation of a queue, which can result in memory leaks.
 We use Valgrind to monitor allocation and deallocation of memory as it is a widely accepted tool for this purpose.
 The following list presents the overview of our experiment plan:
 \begin{enumerate}
-    \item \textbf{Understand the problem} -- Gather a general understanding of queues, linked list and algorithm complexity.
-        And, analyze how these models relates to our problem, or task, in theory and practice.
+    \item \textbf{Understand the problem} --
+        Gather a general understanding of queues, linked list, and algorithm complexity.
+        Also, analyze how these models relate to our problem, or task, in theory, and practice.
         Finally, set up hypotheses and assumptions based on the analysis.
-    \item \textbf{Methods} -- Evaluate different scientific methods to apply in this study.
-        That is, for our purpose, an experimental quantitative study is the most feasible one
-        Finally, we discuss the findings and reach conclusions with both deductive and inductive reasoning.
-    \item \textbf{Break down the problem} -- Use scientific methodology to set up smaller and clear requirements for the experiments.
+    \item \textbf{Methods} --
+       Evaluate different scientific methods to apply in this study.
+       That is, for our purpose, an experimental quantitative study is the most feasible one.
+       Finally, we discuss the findings and reach conclusions with both deductive and inductive reasoning.
+    \item \textbf{Break down the problem} --
+       Use the scientific methodology to set up smaller and precise requirements for the experiments.
     \item \textbf{Implementation} -- Implement the four variations of a queue.
-    \item \textbf{Verification} -- Test each implementation's behavior.
-        For example, write tests to verify that the implementation can enqueue the elements in correct order.
-    \item \textbf{Validation} -- Analyze and validate the generated results from the implementation with theory.
+    \item \textbf{Verification} --
+       Test each implementation's behavior.
+       For example, write tests to verify that the implementation can enqueue the elements in correct order.
+    \item \textbf{Validation} --
+        Analyze and validate the generated results from the implementation of theory.
         That is, to avoid unexpected and inaccurate output.
-        The execution time of a specific implementation for best case tests are higher than worst case is an example of inaccurate result.
-    \item \textbf{Interpretation and visualize} -- It is useless in science to generate data without an interpretation of it.
+        The execution time of a specific implementation for best case tests are higher than the worst case is an example of the wrong result.
+    \item \textbf{Interpretation and visualize} --
+        It is useless in science to generate data without an interpretation of it.
         We can represent, for example, the execution time and memory usage in graphs.
-        That is, we use inductive method to interpret the data and reach a conclusion.
+        That is, we use the inductive method to interpret the data and reach a conclusion.
         Finally, then compare the latter conclusion with theoretical findings from deductive reasoning.
-    \item \textbf{Communication} -- Present the entire work in form of a report.
-        It is important that the study is as transparent, honest and rigorous as possible.
+    \item \textbf{Communication} --
+        Present the entire work in the form of a report.
+        It is crucial that the study be as transparent, honest and rigorous as possible.
         That is, to create a credible and reproducible work.
 \end{enumerate}
 
@@ -162,49 +163,47 @@ In this study, we demonstrate our knowledge about these as clearly as possible.
 
 \subsection{System}
 We conduct the experiments on a Microsoft Azure virtual machine.
-Basically, it is a high-performance virtual private server.
+It is a high-performance virtual private server.
 We use this service because we have full control over the environment.
-The system consists of a 64 bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
+The system consists of a 64-bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
 
-\subsection{Error Sources} Error sources are also necessary to take into account as these can influence the results of this study.
+\subsection{Error Sources}
+Error sources are also necessary to take into account as these can influence the results of this study.
 That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
-Every software and computational research depend heavily on the underlying system, both hardware and software.
+Every software and computational research depend heavily on the underlying system, both hardware, and software.
 Assume that the implementation is correct, the results depend on memory and CPU to produce accurate output, but also the operating system.
 Thus, we run the experiments multiple times and calculate statistical features, such as mean value and standard deviation.
-Standard deviation is relevant, because we can then identify how the execution time vary around the mean.
-For example, a large standard deviation indicates, for example, that another process irregularly consume a large amount of resources.
+Standard deviation is relevant because we can then identify how the execution time varies around the mean.
+For example, a significant standard deviation indicates, for example, that another process irregularly consumes a large number of resources.
 
 \skippara Another error source is poor design and implementation of models.
-Thus, it important to grasp and follow scientific methodology rigorously, verify and validate the implementations.
-It gets significantly more difficult to identify error sources, if the latter mentioned points are not taken seriously.
-For example, a poor implementation design results in that the researcher waste valuable time to debug.
-And, especially in a relative low-level programming language, such as C.
+Thus, it necessary to grasp and follow scientific methodology rigorously, verify and validate the implementations.
+It gets significantly more challenging to identify error sources if the latter mentioned points nonchalantly.
+For example, a weak implementation design results in that the researcher waste valuable time to debug.
+Especially in a relatively low-level programming language, such as C.
 
 \subsection{Implementation}
 A queue implementation consists primarily of enqueue- and dequeue-operations.
-When the queue enqueues an element, the implementation needs to allocate memory for the it and put it in the correct spot in the queue based on priority.
-For the dequeue-operation, the queue need to return the correct element with highest priority and free it from the memory to avoid memory leak.
+When the queue enqueues an element, the implementation needs to allocate memory for it and put it in the correct spot in the queue based on priority.
+For the dequeue-operation, the queue needs to return the correct element with the highest priority and free it from the memory to avoid a memory leak.
 
-\skippara We represent elements with help of data structure that can store data.
-And, it must also store one or two pointers.
-That is, the type of queue determines the amount of pointers.
+\skippara We represent elements with the help of data structure that can store data.
+Moreover, it must also store one or two pointers.
+That is, the type of queue determines the number of pointers.
 For example, an element in a singly linked list has one pointer, which refers to the next element in the list.
-And, an element in a doubly linked list has an additional pointer and it connects with the previous element.
+Also, an element in a doubly linked list has an additional pointer, and it connects to the previous element.
 We plan to create an executable for each of the queue-implementations.
 Thus, for each executable we set up test cases to 1) test exertion time for best, average, worst cases and other stochastic distributions and 2) test memory usage.
 
 \skippara
 
 \section{Goals Reached and Experiments Completed}\label{sec:goal}
-The bigger goal is to get a deeper knowledge about the scientific method, and apply it to evaluate four queue-implementations.
-In this paper we have identified what needs to be done to complete this study.
+The more prominent goal is to get a more in-depth knowledge of the scientific method and apply it to evaluate four queue-implementations.
+In this paper, we have identified what needs to be done to complete this study.
 Thus, the only goals to be reached is to execute the experiments, analyze the results, discuss and conclude the entire work in a smaller scientific report.
-\cref{app:A} also shows gives an overview over the requirement analysis of this study.
+\cref{app:A} also shows an overview of the requirement analysis of this study.
 
-\skippara The experiments are completed if the results are both verified and validated.
-Because, there is no value in scientific work to analyze inaccurate and wrong data.
-We explained the verification and validation process in \cref{sec:plan} and \cref{sec:setup}.
-
+\skippara The experiments are completed if the results are both verified and validated. Because there is no value in scientific work to analyze inaccurate and wrong data. We explained the verification and validation process in \cref{sec:plan} and \cref{sec:setup}.
 
 
 \appendix
