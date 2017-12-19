@@ -21,6 +21,11 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{deshpande2004c}
+P.~Deshpande and O.~Kakde, \emph{C \& Data Structures}, ser. Charles River
+  Media Computer Engineering.\hskip 1em plus 0.5em minus 0.4em\relax Charles
+  River Media, 2004.
+
 \bibitem{Uppgiftl9:online}
 \BIBentryALTinterwordspacing
 R.~R\"{o}nngren. Uppgift l\"{a}s\r{a}ret 15/16 | ingenj\"{o}rskunskap och
@@ -29,17 +34,19 @@ R.~R\"{o}nngren. Uppgift l\"{a}s\r{a}ret 15/16 | ingenj\"{o}rskunskap och
   [Accessed: 2015-12-08]
 \BIBentrySTDinterwordspacing
 
-\bibitem{deshpande2004c}
-P.~Deshpande and O.~Kakde, \emph{C \& Data Structures}, ser. Charles River
-  Media Computer Engineering.\hskip 1em plus 0.5em minus 0.4em\relax Charles
-  River Media, 2004.
-
 \bibitem{Omexperi69:online}
 \BIBentryALTinterwordspacing
 R.~R\"{o}nngren. Om experimentell och vetenskaplig metodik.pdf. [Online].
   Available:
   \url{https://www.kth.se/social/files/562ce17af2765431e02db7c3/Om%20experimentell%20och%20vetenskaplig%20metodik.pdf}
   [Accessed: 2017-11-28]
+\BIBentrySTDinterwordspacing
+
+\bibitem{web:induction}
+\BIBentryALTinterwordspacing
+W.~M. Trochim. (2006) Deduction and induction. [Online]. Available:
+  \url{http://www.socialresearchmethods.net/kb/dedind.php} [Accessed:
+  2015-12-08]
 \BIBentrySTDinterwordspacing
 
 \bibitem{haakansson2013portal}

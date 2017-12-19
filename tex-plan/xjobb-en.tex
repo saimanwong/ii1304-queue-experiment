@@ -17,17 +17,30 @@
 }
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
-% För formateringen av en rapport/artikel finns ofta färdiga mallar. Publicerar man t.ex. en artikel på en konferens eller i en tidskrift finns mallar/anvisningar som beskriver vilka typsnitt, storlekar, radavstånd, marginaler paragrafnumrering etc. som skall användas.
-% Ofta beskrivs också hur lång texten får vara i antal ord och antal sidor.
-% För den här uppgiften skall texten ligga mellan 7 och 12 sidor oräknat försättsblad, Abstract, sammanfattning, referenslista och bilagor.
 
-% Den här rapportmallen beskriver vad man kan förvänta sig finna i en teknisk rapport som baseras på någon form av undersökning/utredning. De rubriker/stycken som är beskrivna är de som återfinns i de allra flesta rapporter. För längre rapporter delar man ofta upp rapporten i flera stycken med egna rubriker. T.ex. kanske man beskriver flera olika experiment och experimentuppställningar.
+\usepackage{amsmath}  % for \hookrightarrow
+\usepackage{adjustbox}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-% I rapporten kan och bör du återanvända delar av det du skrivit i din projektplanering.
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+\usepackage{geometry}
+\usepackage{marginnote}
 
-% Försättssida: Titeln skall vara deskriptiv/informativ. Sätts i Arial 14 punkter fet stil (KTH titel)
+% F\"{o}r formateringen av en rapport/artikel finns ofta f\"{a}rdiga mallar. Publicerar man t.ex. en artikel p\r{a} en konferens eller i en tidskrift finns mallar/anvisningar som beskriver vilka typsnitt, storlekar, radavst\r{a}nd, marginaler paragrafnumrering etc. som skall anv\"{a}ndas.
+% Ofta beskrivs ocks\r{a} hur l\r{a}ng texten f\r{a}r vara i antal ord och antal sidor.
+% F\"{o}r den h\"{a}r uppgiften skall texten ligga mellan 7 och 12 sidor or\"{a}knat f\"{o}rs\"{a}ttsblad, Abstract, sammanfattning, referenslista och bilagor.
 
-% Försättssida: Här anger man namn på alla författare, titlar och kontaktinformation
+% Den h\"{a}r rapportmallen beskriver vad man kan f\"{o}rv\"{a}nta sig finna i en teknisk rapport som baseras p\r{a} n\r{a}gon form av unders\"{o}kning/utredning. De rubriker/stycken som \"{a}r beskrivna \"{a}r de som \r{a}terfinns i de allra flesta rapporter. F\"{o}r l\"{a}ngre rapporter delar man ofta upp rapporten i flera stycken med egna rubriker. T.ex. kanske man beskriver flera olika experiment och experimentuppst\"{a}llningar.
+
+% I rapporten kan och b\"{o}r du \r{a}teranv\"{a}nda delar av det du skrivit i din projektplanering.
+
+% F\"{o}rs\"{a}ttssida: Titeln skall vara deskriptiv/informativ. S\"{a}tts i Arial 14 punkter fet stil (KTH titel)
+
+% F\"{o}rs\"{a}ttssida: H\"{a}r anger man namn p\r{a} alla f\"{o}rfattare, titlar och kontaktinformation
 \title{Experimental Method - Planning}
 \subtitle{\today}
 \author{Wong, Sai Man\\ Tigerstr\"{o}m, Gabriel}
@@ -41,11 +54,11 @@
 \maketitle
 \selectlanguage{english}
 
-% Ny sida- startar på högersida: I examensarbetsrapporter på KTH skall det finnas sammanfattning på både svenska och engelska (Abstract). Rubriken sätts i Arial 12 punkter fet stil ( KTH rubrik), brödtexten som  Times New Roman 10 punkter (KTH Brödtext)
+% Ny sida- startar p\r{a} h\"{o}gersida: I examensarbetsrapporter p\r{a} KTH skall det finnas sammanfattning p\r{a} b\r{a}de svenska och engelska (Abstract). Rubriken s\"{a}tts i Arial 12 punkter fet stil ( KTH rubrik), br\"{o}dtexten som  Times New Roman 10 punkter (KTH Br\"{o}dtext)
 
-% Ny sida, startar på högersida. Sammanfattning och Abstract skall innehålla samma text men på olika språk. Sammanfattningen skall översiktligt beskriva vad rapporten innehåller och de viktigaste resultaten. Den hålls normalt ganska kortfattad (1/4-1/2 A4 sida text. De skrivs på separata sidor.
+% Ny sida, startar p\r{a} h\"{o}gersida. Sammanfattning och Abstract skall inneh\r{a}lla samma text men p\r{a} olika spr\r{a}k. Sammanfattningen skall \"{o}versiktligt beskriva vad rapporten inneh\r{a}ller och de viktigaste resultaten. Den h\r{a}lls normalt ganska kortfattad (1/4-1/2 A4 sida text. De skrivs p\r{a} separata sidor.
 
-% Om man har ett bra verktyg som man skriver sin rapport i och man använder väldefinierade paragraf/stilmallar så kan innehållsförteckningen oftast automatgenereras
+% Om man har ett bra verktyg som man skriver sin rapport i och man anv\"{a}nder v\"{a}ldefinierade paragraf/stilmallar s\r{a} kan inneh\r{a}llsf\"{o}rteckningen oftast automatgenereras
 {
       \hypersetup{linkcolor=black}
       \tableofcontents*
@@ -53,157 +66,462 @@
 \mainmatter
 \pagestyle{newchap}
 
-\chapter{Experimental Method - Planning}
-Throughout the paper, we describe our plan and process to conduct experiments on four queue-implementations.
-Our task comes from \cite{Uppgiftl9:online}, and \cite{Uppgiftl9:online} shows an overview of the requirements we must complete.
 
-\section{Purpose}\label{sec:purpose}
+%---------------------------------------------------------------------------------------------------- 
+%---------------------------------------------------------------------------------------------------- 
+%--------------------------------------------NEW----------------------------------------------------- 
+%---------------------------------------------------------------------------------------------------- 
+%---------------------------------------------------------------------------------------------------- 
+
+\chapter{Experiment Method -- Planning}
+\section{Introduction}
+\marginnote{1. En ordentlig litteraturstudie s\r{a} man har f\"{o}rst\r{a}tt hur algoritmerna fungerar och man har studerat hur liknande (tidigare) studier genomf\"{o}rts - som man kan l\r{a}na id\'eer fr\r{a}n t.ex. hur man kan designa experiment.}
+
+\skippara A researcher plan in advance to conduct a successful and credible scientific work.
+However, students and engineers occasionally carelessly approach the planning phase.
+As a result, researchers waste time to redo the changes due to poor design and execution.
+Students and engineers lack a more profound knowledge of the scientific method to produce high-quality work.
+That is, science emphasizes the importance of theoretical knowledge and its application in practice.
+Thus, in our study, we used the scientific method to evaluate algorithms with a rigorous, honest and transparent method.
+
+% Underrubriker (f\"{o}rsta niv\r{a}n) s\"{a}tts i Arial 12 punkter fet stil autonumrerad (KTH  nRubrik 2). (Har man ytterligare underniv\r{a}er s\"{a}tter man rubrikerna f\"{o}r n\"{a}sta niv\r{a}  med (KTH nRubrik 3)) Man f\"{o}rs\"{o}ker ofta beg\"{a}r\"{a}nsa sig till tre niv\r{a}er p\r{a} rubriker och man har i princip aldrig fler \"{a}n 4 niv\r{a}er p\r{a} rubriker.
+%I stycket om bakgrund (som ibland kallas ”Related work” p\r{a} engelska) f\"{o}rv\"{a}ntar man sig hitta en gedigen bakgrundsbeskrivning till problemomr\r{a}det i stort och till det specifika problem som studeras i rapporten. Den skall inneh\r{a}lla/baseras p\r{a} en litteraturstudie. Det beh\"{o}ver v\"{a}l knappast p\r{a}pekas att den b\"{o}r inneh\r{a}lla utvalda, h\"{o}gkvalitativa referenser.
+\subsection{Background}
 A data structure represents a model to store data methodically \cite{deshpande2004c}.
-Software engineers use queues in software developer to manage arbitrary entities in a first-in-first-out (FIFO) order.
+Software engineers use queues in software development to manage arbitrary entities in a first-in-first-out (FIFO) order.
 For example, developers use a queue to develop a memory buffer or scheduling in an operating system.
 
 \skippara Higher level programming languages often provide a standardized library with complete implementations, such as a queue.
 Software developers use these implementations frequently, and sometimes take the underlying architecture for granted.
 Thus, an inexperienced developer possesses a limited knowledge of the theory and technical aspects of the used implementations.
 
-\skippara Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted. Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation. Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
-
-\section{Prestudy}\label{sec:prestudy}
-Developers use the data structure, or model, linked list to store data linearly.
+\skippara Developers use the data structure, or model, linked list to store data linearly.
 The simple linked list consists of entities.
 An entity stores data and includes a connection to the next entity in the list.
 Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
 That is an element stores data and consists of a pointer to the next element in the list.
 Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
 
+
+% H\"{a}r beskriver du problemomr\r{a}det och problemet i detalj. Beskriv ocks\r{a} varf\"{o}r det \"{a}r v\"{a}rdefullt att unders\"{o}ka problemet. F\"{o}rs\"{o}k formulera din problemst\"{a}llning s\r{a} klart och koncist som m\"{o}jligt – g\"{a}rna i en mening!
+\subsection{Problem}\label{sec:problem}
+\marginnote{2. Enkel F\"{o}rstudie, d\"{a}r du visar att du:
+F\"{o}rst\r{a}tt uppgiften
+F\"{o}rst\r{a}tt systemet som skall studeras 
+Vilka parametrar beror systemet av, vilka kan varieras? Hur beror parametrarna av varandra?}
+\skippara An engineer must learn the skill to apply the scientific method in practice.
+Later on, possess the ability to contribute to further development and exploration within the scientific community.
+Also, a software engineer needs to grasp the basics of features in an API\footnote{API -- Application Programming Interface}-library.
+However, developers sometimes use these library features in projects and take these algorithms for granted to behave in a specific manner.
+Thus, we applied the scientific method rigorously to evaluate algorithms in depth, both in theory and practice.
+
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
 Each element compromises of a number to represent its priority in the queue.
 For clarification, an element with a low number represents higher priority, because the element lies closer to the present time and therefore ready for execution.
-We must implement the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
+We implemented the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
 \begin{enumerate}
     \item \textbf{Singly linked list} -- Insertion of new elements takes place in the head.
     \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the rear.
-        \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean of the first and last element's priority.
+    \item \textbf{Doubly linked list} -- Insertion of new elements takes place based on the mean of the first and last element's priority.
         \begin{itemize}
             \item In the head -- The new element's priority is higher than the mean, that is, \\numerical value $<$ mean value.
             \item In the rear -- The new element's priority is lower than the mean, that is,\\numerical value $\ge$ mean value.
         \end{itemize}
-    \item \textbf{Scheduling queue} -- The queue consists of a FIFO-queue for each priority in the $[0,40]$ interval.
+    \item \textbf{Scheduling queue} -- The queue consists of an FIFO-queue for each priority in the $[0,40]$ interval.
 \end{enumerate}
-
-\skippara Computer scientists evaluate algorithms regarding space and time, such as execution time and memory usage.
-That is, we gather a large quantity of these metrics to determine best, average and worst cases.
-Thus, we asked ourselves: “Do these queues achieve similar performance, or does the performance vary depending on the circumstance?”
-
-\skippara A queue's purpose is to enqueue and dequeue elements with a FIFO policy.
-Because of the FIFO policy, we can assume with a correct implementation and theory that the dequeue-operation should take $\mathcal{O}(1)$ time.
-However, the enqueue-operation is more sensitive to the element's priority, because it must insert each element in the correct spot in the queue.
-Thus, the implementations can perform differently due to the distribution of the priorities.
-
-\section{Indentify Relevant Methods}\label{sec:methods}
-As mentioned in the last section, the most relevant metrics to examine algorithms with our time and space, such as execution time and memory usage.
-These metrics are all quantifiable. In contrast to, for example, interviews and surveys, which are standard methods in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
-That is, qualitative studies reach conclusions from the quality of the data rather quantity.
-Thus, this study uses an experimental quantitative method to try to get a more in-depth insight into queues.
-However, we use both inductive and deductive method to reason about the algorithms.
-
-\skippara We reason with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
-That is, we can reach theoretical conclusions from complexity theory about the algorithms.
-For example, it is possible to determine an algorithm's performance based solely on theoretical knowledge.
-On the contrary, the usage of deductive methods can also yield unexpected results when put into practice.
-Thus, we generate realistic data from our experiments and use an inductive method to analyze it further.
-That is, to explore if we can notice any observable patterns in the data with the help of models.
-
-\section{Experimental Plan}\label{sec:plan}
-We verify, validate and examine the implementation's performance in the form of time and space.
-Also, we analyze and test the best, average and worst case for each implementation.
-Finally, we evaluate these based on both theoretical knowledge and practical observations from the experiments.
-It is essential, because if we approach it carelessly, then the study loses credibility.
-
-\skippara We measure execution time for the implementation's enqueue- and dequeue-operations to determine its effectiveness for best, average and worst cases.
-From a practical aspect, we use different stochastic distributions for the priorities to test the implementations.
-The space metric is also important to take into consideration.
-For example, to examine the memory usage of the algorithms.
-Moreover, to avoid an incorrect implementation of a queue, which can result in memory leaks.
-We use Valgrind to monitor allocation and deallocation of memory as it is a widely accepted tool for this purpose.
-The following list presents the overview of our experiment plan:
-\begin{enumerate}
-    \item \textbf{Understand the problem} --
-        Gather a general understanding of queues, linked list, and algorithm complexity.
-        Also, analyze how these models relate to our problem, or task, in theory, and practice.
-        Finally, set up hypotheses and assumptions based on the analysis.
-    \item \textbf{Methods} --
-       Evaluate different scientific methods to apply in this study.
-       That is, for our purpose, an experimental quantitative study is the most feasible one.
-       Finally, we discuss the findings and reach conclusions with both deductive and inductive reasoning.
-    \item \textbf{Break down the problem} --
-       Use the scientific methodology to set up smaller and precise requirements for the experiments.
-    \item \textbf{Implementation} -- Implement the four variations of a queue.
-    \item \textbf{Verification} --
-       Test each implementation's behavior.
-       For example, write tests to verify that the implementation can enqueue the elements in correct order.
-    \item \textbf{Validation} --
-        Analyze and validate the generated results from the implementation of theory.
-        That is, to avoid unexpected and inaccurate output.
-        The execution time of a specific implementation for best case tests are higher than the worst case is an example of the wrong result.
-    \item \textbf{Interpretation and visualize} --
-        It is useless in science to generate data without an interpretation of it.
-        We can represent, for example, the execution time and memory usage in graphs.
-        That is, we use the inductive method to interpret the data and reach a conclusion.
-        Finally, then compare the latter conclusion with theoretical findings from deductive reasoning.
-    \item \textbf{Communication} --
-        Present the entire work in the form of a report.
-        It is crucial that the study be as transparent, honest and rigorous as possible.
-        That is, to create a credible and reproducible work.
-\end{enumerate}
-
-\section{Experimental setup}\label{sec:setup}
-A solid foundation of software development, algorithms, data structures and complexity theory are required prerequisites to perform this experiment.
-In this study, we demonstrate our knowledge about these as clearly as possible.
-
-\subsection{System}
-We conduct the experiments on a Microsoft Azure virtual machine.
-It is a high-performance virtual private server.
-We use this service because we have full control over the environment.
-The system consists of a 64-bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
-
-\subsection{Error Sources}
-Error sources are also necessary to take into account as these can influence the results of this study.
-That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
-Every software and computational research depend heavily on the underlying system, both hardware, and software.
-Assume that the implementation is correct, the results depend on memory and CPU to produce accurate output, but also the operating system.
-Thus, we run the experiments multiple times and calculate statistical features, such as mean value and standard deviation.
-Standard deviation is relevant because we can then identify how the execution time varies around the mean.
-For example, a significant standard deviation indicates, for example, that another process irregularly consumes a large number of resources.
-
-\skippara Another error source is poor design and implementation of models.
-Thus, it necessary to grasp and follow scientific methodology rigorously, verify and validate the implementations.
-It gets significantly more challenging to identify error sources if the latter mentioned points nonchalantly.
-For example, a weak implementation design results in that the researcher waste valuable time to debug.
-Especially in a relatively low-level programming language, such as C.
-
-\subsection{Implementation}
-A queue implementation consists primarily of enqueue- and dequeue-operations.
-When the queue enqueues an element, the implementation needs to allocate memory for it and put it in the correct spot in the queue based on priority.
-For the dequeue-operation, the queue needs to return the correct element with the highest priority and free it from the memory to avoid a memory leak.
-
-\skippara We represent elements with the help of data structure that can store data.
-Moreover, it must also store one or two pointers.
-That is, the type of queue determines the number of pointers.
-For example, an element in a singly linked list has one pointer, which refers to the next element in the list.
-Also, an element in a doubly linked list has an additional pointer, and it connects to the previous element.
-We plan to create an executable for each of the queue-implementations.
-Thus, for each executable we set up test cases to 1) test exertion time for best, average, worst cases and other stochastic distributions and 2) test memory usage.
 
 \skippara
+Computer scientists evaluate algorithms regarding space and time, such as execution time and memory usage.
+That is, we gather a large quantity of these metrics to determine best, average and worst cases.
+Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
 
-\section{Goals Reached and Experiments Completed}\label{sec:goal}
-The more prominent goal is to get a more in-depth knowledge of the scientific method and apply it to evaluate four queue-implementations.
-In this paper, we have identified what needs to be done to complete this study.
-Thus, the only goals to be reached is to execute the experiments, analyze the results, discuss and conclude the entire work in a smaller scientific report.
-\cref{app:A} also shows an overview of the requirement analysis of this study.
 
-\skippara The experiments are completed if the results are both verified and validated. Because there is no value in scientific work to analyze inaccurate and wrong data. We explained the verification and validation process in \cref{sec:plan} and \cref{sec:setup}.
+\clearpage
+% Om detta \"{a}r en studie d\"{a}r syftet \"{a}r att unders\"{o}ka en hypotes (alla projekt \"{a}r inte hypotespr\"{o}vande) s\r{a} beskriver du/formulerar du hypotesen h\"{a}r. L\"{a}mpligt \"{a}r ocks\r{a} att beskriva hur/varf\"{o}r/p\r{a} vilka grunder du formulerat hypotesen. Är det inte ett hypotespr\"{o}vande projekt s\r{a} tar du bort rubriken.
+\subsection{Hypothesis}
+A queue either enqueues or dequeues elements with a FIFO policy.
+Because of the FIFO policy, we assumed with a correct implementation and theory, the dequeue- operation take $\mathcal{O}(1)$ time.
+However, the enqueue-operation becomes more sensitive to an element's priority, because the algorithm inserts each element in the correct spot in the queue.
+Thus, the implementations perform differently because of priority distribution.
+For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm traverses through the entire list to enqueue an element.
+
+\skippara The following list describes our hypotheses:
+\begin{itemize}
+    \item The dequeue-operation for all the queues takes $\mathcal{O}(1)$ time.
+    \item The enqueue-operation for all the queues takes $\mathcal{O}(n)$ time.
+\end{itemize}
+
+% Beskriv varf\"{o}r projektet genomf\"{o}rs.
+\subsection{Purpose}
+\marginnote{1. Identifiera resultat- och effektm\r{a}l
+    Fr\r{a}ga dig vad syftet med en experimentell utv\"{a}rdering av ett antal algoritmer kan vara och hur en s\r{a}dan studie kan anv\"{a}ndas.
+}
+\skippara Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted.
+Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation.
+Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
+
+% Beskriv de f\"{o}rv\"{a}ntade resultat- och effektm\r{a}len av unders\"{o}kningen. Beskriv alla m\r{a}l du satt upp \"{a}ven om de inte n\r{a}ddes!
+\subsection{Goal}
+\marginnote{6. N\"{a}r har de m\r{a}l som identifierats n\r{a}tts? N\"{a}r \"{a}r experimenten f\"{a}rdiga?}[2cm]
+\skippara The bigger goal was to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
+However, the following list demonstrates the sub-goals:
+\begin{itemize}
+    \item Apply the scientific method to plan, design, experiment, document, analyze and present the findings.
+    \item Grasp the importance of scientific method.
+    \item Conduct a reproducible study.
+    \item Attain the ability to present, analyze and draw conclusions from experiments, both in theory and practice.
+    \item Implement queues correctly, that is, verify its behavior and validate the data.
+    \item Create tests to generate the execution time and memory usage from the algorithms.
+\end{itemize}
+
+% Beskriv vem och p\r{a} vilket s\"{a}tt man kan ha nytta av utredningen. Beskriv etiska och h\r{a}llbar utvecklingsrelaterade fr\r{a}gor kopplade till utredningen.
+\subsection{Social Benefit, Ethics and Sustainable Development}
+Our study influence students and engineers to apply the scientific method more with a more serious approach.
+Also, the study facilitates the process for software engineers to choose an implementation of a queue, which fits their specific purpose.
+Finally, we delve into the foundations of algorithms, data structure, and complexity theory.
+Thus, our work helps students and engineers to acquire a deeper comprehension of computer science.
+
+\skippara Within science, a researcher undertakes a moral responsibility to conduct a reproducible work with honesty and transparency.
+However, sometimes scientists encounter difficult circumstances, which limits their ability to produce a reproducible work.
+For example, due to economic and practical reasons, such as expensive hardware.
+We documented each step and presented findings with rigor, honesty, and transparency.
+That is, we encourage students to reproduce our findings.
+
+\skippara We experimented with a virtual machine on Microsoft's cloud platform.
+Thus, we used the exact quantity of resources needed to conduct the experiments.
+That is, we avoided to waste additional electricity due to, for example, system idle.
+
+
+
+\clearpage
+% ///////////////////////////////////
+% ///////////////////////////////////
+%       Method
+% ///////////////////////////////////
+% ///////////////////////////////////
+
+% I metoelen beskriver du den vetenskapliga metod du baserat ditt projekt p\r{a}.
+%
+% Vilka relevanta metoder finns? Vilka har du \"{o}verv\"{a}gt att anv\"{a}nda? Varf\"{o}r valde du den/de metoder du anv\"{a}nt?
+%  Beskriv kort den metod du anv\"{a}nt och hur du applicerat den - dvs. vilken data du samlar in, hur du g\"{o}r det och varf\"{o}r. Beskriv ocks\r{a} tillf\"{o}rlitligheten hos data du samlar in. G\r{a}r experimenten att upprepa? Finns etiska eller HU aspekter p\r{a} ditt arbete.
+\section{Method}\label{chapter:method}
+\marginnote{3. Identifiera vilken/vilka typer av metoder studien kommer att baseras p\r{a} (kvalitativa, kvanitativa, induktiva, deduktiva, mfl.)}
+
+\subsection{Inductive and Deductive Method}
+Scientists apply an inductive method to reach practical conclusions from observations or data \cite{Omexperi69:online}.
+That is, in sequential order to 1) collect data, 2) detect the pattern in the data, 3) set up a hypothesis and 4) explain the findings with the established theory to reach 5) a conclusion \cite{web:induction}.
+The method is sometimes informally called a bottom-up approach due to its style to first observe data.
+Software engineers frequently apply an inductive method to observe algorithms and a system's behavior.
+For example, a developer put in a specific input in the implementation and generate an output to observe the algorithm's performance.
+
+\skippara With the deductive method, also called top-down approach, scientists reach logical conclusions from a theory first.
+For example, mathematicians use a deductive method to explain the unknown with the help of established theory (axioms and theorems).
+A deductive method also applies to researchers within computer science.
+That is, computer scientists use mathematical notations to represent theoretical models in, for example, algorithm analysis and complexity theory.
+Thus, researchers use these methods for a variety of purposes and sometimes combine them to reach both a logical and practical conclusion.
+
+\subsection{Quantitative and Qualitative Method}
+Researchers apply a quantitative method in studies, which rely on measurable data in large quantities to explain findings \cite{haakansson2013portal}.
+That is, a quantitative study uses measurable metrics, such as time, temperature and age.
+These studies apply statistical analysis to summarize the data in tables and graphs with error margins.
+For example, scientists use a quantitative method to predict a nation's growth based on the birth and death rate over a more extended period.
+
+\skippara In contrast, a qualitative method relies on data of quality to interpret the results \cite{merriam2009qualitative}.
+Scientists use a qualitative method in studies when the data is significantly more difficult to quantify, such as opinions, thoughts, and happiness.
+The researchers conduct, for example, interviews and surveys, to collect data from individuals.
+Thus, psychologists often implement a qualitative method to examine people's behavior.
+
+% Beskriv hur du samlar in data, material och annat underlag f\"{o}r din unders\"{o}kning? Svara p\r{a} fr\r{a}gor som: Hur skall unders\"{o}kningen genomf\"{o}ras? Hur \"{a}r experimentuppst\"{a}llningen organiserad?
+\subsection{Data Collection}
+We used quantifiable metrics in our study.
+That is, execution time and memory usage because computer scientists commonly apply these for algorithm och complexity analysis.
+In contrast to, for example, interviews and surveys, which the researchers within social sciences regularly use in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
+That is, qualitative studies reach conclusions from the quality of the data.
+Thus, our study uses an experimental quantitative method to reach a broader insight into data structures and queue implementations.
+
+\skippara For each of the four queue-implementations, we tested and generated the execution time for the best, average and worst case.
+That is, we created input for the queues with varying distributions of the element's priorities.
+Besides execution time, we log the memory usage for each implementation.
+Finally, we wrote scripts to execute the tests and logged the raw data.
+
+% Beskriv metoden f\"{o}r hur du avser analysera insamlad data/material. Beskriv ocks\r{a} hur du planerar tolka  data
+\subsection{Data Analysis}
+We reasoned with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
+That is, we analyzed the algorithms with the help of established complexity theory.
+For example, to determine an algorithm's performance based solely on theoretical knowledge.
+However, the usage of only a deductive methods can yield unexpected results when put into practice.
+Thus, we generate realistic data from our experiments and use an inductive method to analyze the algorithms further.
+That is, to explore if we can notice observable patterns in the data with the help of complexity models.
+
+\skippara We used both graphs and tables to visualize the execution time and memory usage.
+Also, ran the experiments multiple times to generate the sample mean and standard deviation.
+The standard deviation adds a deeper insight into the data and spread around the mean.
+Also, it helps us to identify the external or internal error sources.
+If the standard deviation is relatively high, then we can suspect that something is wrong with, for example, the underlying system.
+
+
+\clearpage
+% ///////////////////////////////////
+% ///////////////////////////////////
+%       System Description
+% ///////////////////////////////////
+% ///////////////////////////////////
+
+% Ett kapitel om Systembeskrivning / Konstruktion eller i detta fall Experimentuppst\"{a}llning  finns inte med i alla studier men ofta i tekniska rapporter d\"{a}r man konstruerat ett system. Den h\"{a}r delen kan vara ett kapitel/stycke eller flera beroende p\r{a} hur stort arbete man gjort.
+
+% H\"{a}r startar man normalt med en beskrivning av det/de system man utvecklat och /eller haft som underlag i studien.
+\section{System Description}\label{chapter:system}
+
+
+% Om du utvecklat ett system (som algoritmerna f\"{o}r den h\"{a}r studien) s\r{a} b\"{o}r du beskriva vilken/vilka metoder och verktyg du anv\"{a}nt f\"{o}r systemutvecklingen. I st\"{o}rre unders\"{o}kningar/arbeten vill man g\"{a}rna ocks\r{a} se en diskussion om olika alternativ och varf\"{o}r man valt de man anv\"{a}nt.
+\subsection{System Development Method}
+Our implementation produces an executable for each of the four queue-implementations.
+The experiment consists of primarily three files, \texttt{main.c} with the tests, \texttt{queues.h} and \texttt{queues.c} which respectively describes and implements the functionalities of the queue.
+Finally, we used compile-time macros to determine the executable to produce based on the implementations.
+
+\skippara We used Bash-scripts to run tests and log the results in plain text automatically.
+Also, we developed a Python-script, which 1) calculated the sample mean and standard deviation, and 2) summarized and visualized the data with tables and graphs in \LaTeX.\.
+Finally, we used Valgrind on our implementations to examine memory allocation and deallocation.
+
+\skippara We added an optional solution to run the entire experiment in a container.
+That is, if anyone wants to run the entire experiment, and spend minimum time on the setup process, then the user only has to install Docker and execute a command to achieve the similar results we produced.
+Docker containers introduce a practical approach to package software because containers use the same resources as the host operating system.
+
+% Det h\"{a}r \"{a}r en anpassad rubrik f\"{o}r just den h\"{a}r studien. H\"{a}r beskriver du (ev. med flera underrubriker) mer i detalj de algoritmer du implementerat, analyserar dem och hur du implementerat dem.
+\subsection{Queue Algorithms}\label{sec:algorithms}
+\marginnote{2. En analytisk studie av algoritmerna s\r{a} man f\"{o}rst\r{a}r hur de fungerar och kan identifiera n\"{a}r de fungerar som b\"{a}st/s\"{a}mst - n\r{a}got som ligger till grund f\"{o}r hur man kan designa experiment f\"{o}r att testa b\"{a}sta/v\"{a}rsta fall.\\\null\\4. Experimentplan
+Beskriv vilka experiment som skall utf\"{o}ras och varf\"{o}r? (OBS! detta \"{a}r en central del och du beh\"{o}ver inte ha detaljkunskap om implementationen av algoritmerna f\"{o}r att kunna planera detta!)
+Beskriv vad som skall m\"{a}tas och hur?}
+\skippara Our task is to implement four different queue-implementation in the programming language \texttt{C}, as described in \cref{sec:problem}.
+The following are standard operations for a queue:
+\begin{itemize}
+    \item \textbf{Enqueue} -- enqueues the element in the correct spot in the priority queue.
+    \item \textbf{Dequeue} -- dequeues the element with the highest priority, that is, the first element in the queue.
+\end{itemize}
+
+\skippara The queues approach to enqueue varies for the implementations, because the algorithm traverses and inserts the new element in the correct position in the queue.
+Each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to additional elements.
+
+\skippara The following sections describe our implementation of the queues.
+Additionally, we analyzed the time complexity for the enqueue-operation.
+We found the average case time complexity more challenging to analyze compared to the best and worst case theoretically.
+Thus, we examined the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
+
+\subsubsection{Singly Linked List}\label{sec:singly}
+This queue implementation uses a singly linked list to represent a queue.
+That is, an element in the queue stores 1) a unique number identifier, 2) a priority and 3) a pointer to the next element in the queue.
+The algorithm enqueues new elements from head.
+The following list analyzes the enqueue-operation's time complexity:
+\begin{itemize}
+    \item \textbf{Best Case $\mathcal{O}(1)$} --
+        The best case occurs when the enqueue-operation of new elements always takes place in the head.
+        That is, the algorithm avoids to traverse the list to find the correct spot to insert the new element.
+        On the other hand, the queue needs only to perform one operation to put the new element in the head.
+        Thus, we can reach the best case with a distribution of priorities where the numerical value descends from a higher one.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} --
+        The worst case happens when the implementation traverse through the entire list, or $n$-times, to insert the new element in the correct place.
+        Thus, the implementation reaches the worst case scenario with priority distribution of the same numerical value, because the queue uses FIFO policy to manage elements of the same priority.
+\end{itemize}
+
+\subsubsection{Doubly Linked List}
+This algorithm uses a doubly linked list data structure.
+An element stores 1) a unique number identifier, 2) priority and 3-4) two pointers that connect to the next and previous element in the queue.
+The enqueue-operation of new elements takes place in the rear.
+The following examines the time complexity of the algorithm:
+\begin{itemize}
+    \item \textbf{Best Case $\mathcal{O}(1)$} --
+        The algorithm achieves the best case when the priority distribution consists of the same number because the queue applies FIFO to manage elements of the same priority.
+        Thus, it requires only one operation to insert the new element.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} --
+        The queue reaches the worst case when the priority's numerical value continually descends from a higher one.
+        Thus, the algorithm traverses the list from the rear $n$-times to insert the new element correctly.
+\end{itemize}
+
+\subsubsection{Doubly Linked List with Modification}
+This queue is similar to the previous section's implementation.
+That is an element stores the same properties as the last one.
+However, for this algorithm, the insertion of new elements takes place in either the head or rear.
+The enqueue-operation depends on the average of the first and last element in the list.
+The following list demonstrates the enqueue rules of the modified version:
+\begin{itemize}
+    \item In the head -- New element has a higher priority than the mean value, that is, \\numerical value $<$ mean value.
+    \item In the rear -- New element has a lower or equal priority to the mean value, that is,\\numerical value $\ge$ mean value.
+\end{itemize}
+
+\skippara We analyzed the best and worst case for this implementation.
+The following summarizes the analysis:
+\begin{itemize}
+    \item \textbf{Best Case $\mathcal{O}(1)$} --
+       For the best case, we can either design the distribution of priorities to take place in either head or rear.
+       For example, let us say that we create a distribution of the same priority.
+       The average will always be the same as the new element's priority.
+       Thus, the insertion for each of new elements takes place in the rear.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} --
+        To achieve the worst case, we must traverse through the list for each insertion of a new element.
+        It is achievable if the queue, for example, first enqueues two elements with significantly differing priorities.
+        One with a high priority, and another with significantly lower priority.
+        The average will skew towards the lower priority, that is, a notably high numerical value.
+        Thus, if for each new element, it receives a lower priority than the previous one, then the insertion takes place in the head and traverses $(n - 1)$-times to insert new element correctly in the queue.
+\end{itemize}
+
+\subsubsection{Scheduling Queue}
+This queue uses a static list, which consists of 41 pointers.
+These entries represent the priority in the [0, 40] interval, and each pointer connects to an FIFO-queue.
+A singly linked list represent each of the FIFO-queues, as described in \cref{sec:singly}.
+The following list presents the time complexity for the best and worst case:
+\begin{itemize}
+    \item \textbf{Best Case $\mathcal{O}(n)$} -- The algorithm achieve the best time complexity if we distrubute the elements equally in the queue.
+        The simplest distribution enqueues elements from highest to the lowest priority and resets from lowest.
+        That is, from priority 0 to 40, and then start over again from priority 0.
+        However, when the implementation starts over from priority 0, the enqueue operation still has to traverse through the FIFO-queues to insert the new elements correctly.
+        For example, if we assume that the elements are distributed equally, we can represent the running time as:
+        \begin{equation*}
+            1 + \left\floor{\frac{n}{41}\right}
+        \end{equation*}
+        The one represents the cost to access the priority queue.
+        The rest represents the cost to traverse through the list.
+    \item \textbf{Worst Case $\mathcal{O}(n)$} -- The algorithm achieves the same worst case the singly linked list, which we described in \cref{sec:singly}.
+        That is, the implementation traverse $n$-times for a priority distribution of the same priority.
+\end{itemize}
+
+
+% Testb\"{a}dd eller Experimentuppst\"{a}llning. Ocks\r{a} en rubrik specifik f\"{o}r den h\"{a}r unders\"{o}kningen – men ocks\r{a} vanlig i m\r{a}nga unders\"{o}kningar d\"{a}r man utv\"{a}rderar ett tekniskt system.
+
+% H\"{a}r beskriver du mer i detalj din experimentuppst\"{a}llning. Vilken h\r{a}rdvara, OS har du k\"{o}rt p\r{a}. Hur har du f\"{o}rs\"{o}kt minimera felk\"{a}llor (sominverkan av andra anv\"{a}ndare).
+% Beskriv de testfall du anv\"{a}nt och implementerat. Argumentera f\"{o}r varf\"{o}r de \"{a}r rimliga/bra.
+\subsection{Experimental Setup}
+\marginnote{4. Beskriv experimentuppst\"{a}lningen \\\null\\5. Experimentuppst\"{a}llning
+Vad beh\"{o}vs f\"{o}r resurser? (beskriv dem i n\r{a}gorlunda detalj)
+Vilka os\"{a}kerhets/felk\"{a}llor finns? Hur stor inverkan kan de ha p\r{a} resultaten och hur hanterar du det?
+Vad beh\"{o}ver implementeras? En plan f\"{o}r implementationen.
+Plan f\"{o}r hur du skall verifiera/validera/testa experimentuppst\"{a}llningen\\\null\\3. Utreda hur man kan m\"{a}ta det man avser m\"{a}ta. I det h\"{a}r fallet handlar det prim\"{a}rt om hur man m\"{a}ter tid. Valet av m\"{a}tmetod har en stor inverkan p\r{a} hur man kan designa experimenten. Man b\"{o}r ocks\r{a} validera noggranheten hos m\"{a}tmetoden(erna) \\\null\\ 6. Designa och beskriva hur experiment och algoritmer skall valideras.}
+\skippara We conducted the experiments on a Microsoft Azure virtual private server (VPS).
+We used a VPS service because we gain full access to the machine.
+The system consisted of a 64-bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
+
+\subsubsection{Error Sources}
+\marginnote{}
+\skippara Error sources are important to take into account as these can influence the results of the study.
+That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
+Software and computational research depend heavily on the underlying system, both hardware, and software.
+Thus, we run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
+Standard deviation is relevant because we can then identify how the execution time varies around the mean.
+A large standard deviation indicates, for example, that another process a significant quantity of resources.
+
+\marginnote{}
+\skippara Another error source comes from poor design and implementation of models.
+Thus, we must grasp and follow scientific method rigorously, verify and validate the implementations.
+For example, a developer wastes time to debug an implementation due to poor design.
+Furthermore, especially in a relatively low-level programming language, such as \texttt{C}.
+
+\subsubsection{Verification and Validation}
+We developed a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
+Our Python script generates an input- and output file.
+The former consists of elements of randomized priorities and the output file contain the elements in correct order.
+Finally, we used the input and output files in our implementations to verify its correctness.
+We used Valgrind and verified the memory allocation and deallocation of our implementations.
+
+\skippara We developed tests for the best, average and worst cases to validate its behavior.
+That is, we analyzed the running time and complexity theoretically.
+Also, used statistical analysis and complexity theory to validate the algorithms.
+Finally, we examined the edge cases, for example, an empty or a list containing only one element.
+
+% Beskriv och motivera de experiment du designat (var noga att motivera varf\"{o}r de bidrar till att uppfylla m\r{a}len)
+\clearpage
+\subsubsection{Experiments}
+\marginnote{5. Designa och beskriv de experiment som skall implementeras/utf\"{o}ras.}
+\skippara To test the best, average and worst case, we created a variety of priority distributions as input based on our complexity analysis of our algorithms. The analysis takes place in \cref{sec:algorithms}.
+We did not analyze the time complexity for the average case theoretically.
+However, we assumed the average case somewhere lies between the best and worst case.
+Thus, We randomly assigned priorities in $[0, 40]$ interval to the elements in the average case experiments.
+Finally, \cref{tab:param} presents the remaining parameters we used for each test case.
+
+
+\begin{table}
+    \small
+    \caption{Experiment parameters for each implementation and test case}
+    \label{tab:param}
+    \begin{adjustbox}{center}
+        \renewcommand*\arraystretch{1.2}\begin{tabular}{| L{3.5cm} || L{5.5cm} |}
+            \hline
+            \textbf{Iterations} & 50
+            \\ \hline
+            \textbf{Elements} & 10 000 -- 60 000 (multiples of 5000)
+            \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+\end{table}
+
+
+\skippara The following list summarizes the element's priority distribution, where $N$, $p$ and $n$ represent a set of elements, a numerical priority and the number of elements, respectively:
+\clearpage
+\begin{itemize}
+    \item \textbf{Singly linked list}
+        \begin{itemize}
+            \item Best case -- Each element's priority increases linearly, for example,
+                \begin{equation*}
+                    N = \Big\{p_1, (p-1)_2, (p-2)_3, (p-3)_4,...,(p-n)_n \, \Big| \, p \ge n \ge 0 \Big\}
+                \end{equation*}
+            \item Worst case -- Each element's priority is the same, for example,
+                \begin{equation*}
+                    N = \Big\{p_{n} \, \Big| \, p \ge 0,\ n \ge 0 \Big\}
+                \end{equation*}
+        \end{itemize}
+    \item \textbf{Doubly linked list}
+        \begin{itemize}
+            \item Best case -- Each element's priority is the same, for example,
+                \begin{equation*}
+                    N = \left\{p_{n} \, \Big| \, p \ge 0,\, n \ge 0 \right\}
+                \end{equation*}
+            \item Worst case -- Each element's priority increases linearly, for example,
+                \begin{equation*}
+                    N = \Big\{p_1, (p-1)_2, (p-2)_3, (p-3)_4,...,(p-n)_n \, \Big| \, p \ge n\ge 0 \Big\}
+                \end{equation*}
+        \end{itemize}
+    \item \textbf{Doubly linked list with modification}
+        \begin{itemize}
+            \item Best case -- Each element's priority is the same, for example,
+                \begin{equation*}
+                    N = \left\{p_{n} \, \Big| \, p \ge 0,\, n \ge 0 \right\}
+                \end{equation*}
+            \item Worst case -- Insert two elements with significant difference in priority to skew the average.
+                Then, linearly decrease the priority from one with the highest one, for example:
+                \begin{equation*}
+                    \resizebox{.9\hsize}{!}{$N = \left\{p_1, (p*2)_2, (p+1)_3, (p+2)_4, (p+3)_5,..., (p+n-2)_{(n-2)} \, \Big| \, p \ge n \ge 3 \right\}$}
+                \end{equation*}
+        \end{itemize}
+    \item \textbf{Scheduling queue}
+        \begin{itemize}
+            \item Best case -- The element's priority is equally distributed, for example,
+                \begin{equation*}
+                    \resizebox{.9\hsize}{!}{$N = \left\{\left((p+1) \bmod 41\right)_1, \left((p+2) \bmod 41\right)_2,..., \left((p+n) \bmod 41\right)_n \, \Big| \, 0 \le p \le 40, \, n \ge 0\right\}$}
+                \end{equation*}
+            \item Worst case -- Each element's priority is the same, for example,
+                \begin{equation*}
+                    N = \left\{p_{n} \, \Big| \, p \ge 0,\, n \ge 0 \right\}
+                \end{equation*}
+        \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \appendix
@@ -251,11 +569,11 @@ Thus, we need to set up requirements that describes how to pass the task about t
 % that we refer to here: \ref{RDF_4}
 
     \clearpage
-    % Här listar du dina referenser. De skall täcka in alla relevanta delar  i din bakgrund, vara väl utvalda (dvs. hålla för källkritik).
+    % H\"{a}r listar du dina referenser. De skall t\"{a}cka in alla relevanta delar  i din bakgrund, vara v\"{a}l utvalda (dvs. h\r{a}lla f\"{o}r k\"{a}llkritik).
     %
-    % I den här rapporten använder du ISO690 numerisk variant för referenserna.
+    % I den h\"{a}r rapporten anv\"{a}nder du ISO690 numerisk variant f\"{o}r referenserna.
     %
-    % Har man ett bra verktyg som man skriver i/hantera referenserna i så kan referenslistan automatgenereras. Det gör det också lättare att uppdatera referenslistan utan att behöva gå igenom varje referens i texten manuellt. Dessutom får man bara med källor som man refererat till minst en gång från texten.
+    % Har man ett bra verktyg som man skriver i/hantera referenserna i s\r{a} kan referenslistan automatgenereras. Det g\"{o}r det ocks\r{a} l\"{a}ttare att uppdatera referenslistan utan att beh\"{o}va g\r{a} igenom varje referens i texten manuellt. Dessutom f\r{a}r man bara med k\"{a}llor som man refererat till minst en g\r{a}ng fr\r{a}n texten.
     \bibliographystyle{IEEEtran}
     \bibliography{IEEEabrv,sources}
     \end{document}
