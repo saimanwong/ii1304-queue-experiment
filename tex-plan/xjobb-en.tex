@@ -67,14 +67,14 @@
 \pagestyle{newchap}
 
 
-%---------------------------------------------------------------------------------------------------- 
-%---------------------------------------------------------------------------------------------------- 
-%--------------------------------------------NEW----------------------------------------------------- 
-%---------------------------------------------------------------------------------------------------- 
-%---------------------------------------------------------------------------------------------------- 
+%----------------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------
+%--------------------------------------------NEW-----------------------------------------------------
+%----------------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------
 
 \chapter{Experiment Method -- Planning}
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 \marginnote{1. En ordentlig litteraturstudie s\r{a} man har f\"{o}rst\r{a}tt hur algoritmerna fungerar och man har studerat hur liknande (tidigare) studier genomf\"{o}rts - som man kan l\r{a}na id\'eer fr\r{a}n t.ex. hur man kan designa experiment.}
 
 \skippara A researcher plan in advance to conduct a successful and credible scientific work.
@@ -86,7 +86,7 @@ Thus, in our study, we used the scientific method to evaluate algorithms with a 
 
 % Underrubriker (f\"{o}rsta niv\r{a}n) s\"{a}tts i Arial 12 punkter fet stil autonumrerad (KTH  nRubrik 2). (Har man ytterligare underniv\r{a}er s\"{a}tter man rubrikerna f\"{o}r n\"{a}sta niv\r{a}  med (KTH nRubrik 3)) Man f\"{o}rs\"{o}ker ofta beg\"{a}r\"{a}nsa sig till tre niv\r{a}er p\r{a} rubriker och man har i princip aldrig fler \"{a}n 4 niv\r{a}er p\r{a} rubriker.
 %I stycket om bakgrund (som ibland kallas ”Related work” p\r{a} engelska) f\"{o}rv\"{a}ntar man sig hitta en gedigen bakgrundsbeskrivning till problemomr\r{a}det i stort och till det specifika problem som studeras i rapporten. Den skall inneh\r{a}lla/baseras p\r{a} en litteraturstudie. Det beh\"{o}ver v\"{a}l knappast p\r{a}pekas att den b\"{o}r inneh\r{a}lla utvalda, h\"{o}gkvalitativa referenser.
-\subsection{Background}
+\subsection{Background}\label{sec:background}
 A data structure represents a model to store data methodically \cite{deshpande2004c}.
 Software engineers use queues in software development to manage arbitrary entities in a first-in-first-out (FIFO) order.
 For example, developers use a queue to develop a memory buffer or scheduling in an operating system.
@@ -107,7 +107,7 @@ Thus, developers frequently use linked list implementations to store and manage 
 \subsection{Problem}\label{sec:problem}
 \marginnote{2. Enkel F\"{o}rstudie, d\"{a}r du visar att du:
 F\"{o}rst\r{a}tt uppgiften
-F\"{o}rst\r{a}tt systemet som skall studeras 
+F\"{o}rst\r{a}tt systemet som skall studeras
 Vilka parametrar beror systemet av, vilka kan varieras? Hur beror parametrarna av varandra?}
 \skippara An engineer must learn the skill to apply the scientific method in practice.
 Later on, possess the ability to contribute to further development and exploration within the scientific community.
@@ -152,7 +152,7 @@ For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm t
 \end{itemize}
 
 % Beskriv varf\"{o}r projektet genomf\"{o}rs.
-\subsection{Purpose}
+\subsection{Purpose}\label{sec:purpose}
 \marginnote{1. Identifiera resultat- och effektm\r{a}l
     Fr\r{a}ga dig vad syftet med en experimentell utv\"{a}rdering av ett antal algoritmer kan vara och hur en s\r{a}dan studie kan anv\"{a}ndas.
 }
@@ -161,7 +161,7 @@ Thus, we applied the scientific method to conduct experiments and evaluate four 
 Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
 
 % Beskriv de f\"{o}rv\"{a}ntade resultat- och effektm\r{a}len av unders\"{o}kningen. Beskriv alla m\r{a}l du satt upp \"{a}ven om de inte n\r{a}ddes!
-\subsection{Goal}
+\subsection{Goal}\label{sec:goal}
 \marginnote{6. N\"{a}r har de m\r{a}l som identifierats n\r{a}tts? N\"{a}r \"{a}r experimenten f\"{a}rdiga?}[2cm]
 \skippara The bigger goal was to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
 However, the following list demonstrates the sub-goals:
@@ -204,7 +204,7 @@ That is, we avoided to waste additional electricity due to, for example, system 
 %
 % Vilka relevanta metoder finns? Vilka har du \"{o}verv\"{a}gt att anv\"{a}nda? Varf\"{o}r valde du den/de metoder du anv\"{a}nt?
 %  Beskriv kort den metod du anv\"{a}nt och hur du applicerat den - dvs. vilken data du samlar in, hur du g\"{o}r det och varf\"{o}r. Beskriv ocks\r{a} tillf\"{o}rlitligheten hos data du samlar in. G\r{a}r experimenten att upprepa? Finns etiska eller HU aspekter p\r{a} ditt arbete.
-\section{Method}\label{chapter:method}
+\section{Method}\label{sec:methods}
 \marginnote{3. Identifiera vilken/vilka typer av metoder studien kommer att baseras p\r{a} (kvalitativa, kvanitativa, induktiva, deduktiva, mfl.)}
 
 \subsection{Inductive and Deductive Method}
@@ -270,7 +270,7 @@ If the standard deviation is relatively high, then we can suspect that something
 % Ett kapitel om Systembeskrivning / Konstruktion eller i detta fall Experimentuppst\"{a}llning  finns inte med i alla studier men ofta i tekniska rapporter d\"{a}r man konstruerat ett system. Den h\"{a}r delen kan vara ett kapitel/stycke eller flera beroende p\r{a} hur stort arbete man gjort.
 
 % H\"{a}r startar man normalt med en beskrivning av det/de system man utvecklat och /eller haft som underlag i studien.
-\section{System Description}\label{chapter:system}
+\section{System Description}\label{section:system}
 
 
 % Om du utvecklat ett system (som algoritmerna f\"{o}r den h\"{a}r studien) s\r{a} b\"{o}r du beskriva vilken/vilka metoder och verktyg du anv\"{a}nt f\"{o}r systemutvecklingen. I st\"{o}rre unders\"{o}kningar/arbeten vill man g\"{a}rna ocks\r{a} se en diskussion om olika alternativ och varf\"{o}r man valt de man anv\"{a}nt.
@@ -389,7 +389,7 @@ The following list presents the time complexity for the best and worst case:
 
 % H\"{a}r beskriver du mer i detalj din experimentuppst\"{a}llning. Vilken h\r{a}rdvara, OS har du k\"{o}rt p\r{a}. Hur har du f\"{o}rs\"{o}kt minimera felk\"{a}llor (sominverkan av andra anv\"{a}ndare).
 % Beskriv de testfall du anv\"{a}nt och implementerat. Argumentera f\"{o}r varf\"{o}r de \"{a}r rimliga/bra.
-\subsection{Experimental Setup}
+\subsection{Experimental Setup}\label{sec}
 \marginnote{4. Beskriv experimentuppst\"{a}lningen \\\null\\5. Experimentuppst\"{a}llning
 Vad beh\"{o}vs f\"{o}r resurser? (beskriv dem i n\r{a}gorlunda detalj)
 Vilka os\"{a}kerhets/felk\"{a}llor finns? Hur stor inverkan kan de ha p\r{a} resultaten och hur hanterar du det?
@@ -507,23 +507,6 @@ Finally, \cref{tab:param} presents the remaining parameters we used for each tes
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \appendix
 \addappheadtotoc
 \chapter{Requirement Analysis}\label{app:A}
@@ -539,41 +522,32 @@ Thus, we need to set up requirements that describes how to pass the task about t
         \hline
         Requirement number & Requirement type & Name or source & Clarified description of the requirement, followed by what should be fulfilled& Fulfilled or not fulfilled or partly fulfilled\\
         \hline
-        1 & \textbf{Must} mandatory task & Purpose \cite{A3Experi4:online} & Ask good questions and identify the purpose. That is, why is it necessary to conduct an experimental evaluation of algorithms, and what is the application of it. The specific task description is described in \cite{Uppgiftl9:online}. & Fulfilled (\cref{sec:purpose})\\
+        1 & \textbf{Must} mandatory task & Purpose \cite{A3Experi4:online} & Ask good questions and identify the purpose. That is, why is it necessary to conduct an experimental evaluation of algorithms, and what is the application of it. The specific task description is described in \cite{Uppgiftl9:online}. & Fulfilled \cref{sec:purpose}\\
         \hline
-        2 & \textbf{Must} mandatory task & Prestudy \cite{A3Experi4:online} & Demonstrate an understanding about the task and field of study. Also, identify which parameters to use, how these can depend on and vary from each other & Fulfilled \cref{sec:prestudy}\\
+        2 & \textbf{Must} mandatory task & Prestudy \cite{A3Experi4:online} & Demonstrate an understanding about the task and field of study. Also, identify which parameters to use, how these can depend on and vary from each other & Fulfilled \cref{sec:background}\\
         \hline
         3 & \textbf{Must} mandatory task & Methods \cite{A3Experi4:online} & Identify which scientific method(s) to use. For example, quantitative, qualitative, deductive and/or inductive method & Fulfilled \cref{sec:methods}\\
         \hline
-        4 & \textbf{Must} mandatory task & Experimental Plan \cite{A3Experi4:online} & Identify experiments to conduct. Describe why these are relevant. Examine metrics to measure and elaborate on why these are relevant to this study. & Fulfilled \cref{sec:plan}\\
+        4 & \textbf{Must} mandatory task & Experimental Plan \cite{A3Experi4:online} & Identify experiments to conduct. Describe why these are relevant. Examine metrics to measure and elaborate on why these are relevant to this study. & Fulfilled \cref{sec:algorithms}\\
         \hline
         5 & \textbf{Must} mandatory task & Experimental Setup \cite{A3Experi4:online} & Describe in details the resources needed. Identify and examine the influence of error sources, both external and internal ones. Set up an implementation, verification and validation plan. & Fulfilled \cref{sec:setup}\\
         \hline
-        5 & \textbf{Must} mandatory task & Goals \cite{A3Experi4:online} & Demonstrate how to determine when a goal is reached and an experiment is completed. & Fulfilled \cref{sec:goal}\\
+        6 & \textbf{Must} mandatory task & Goals \cite{A3Experi4:online} & Demonstrate how to determine when a goal is reached and an experiment is completed. & Fulfilled \cref{sec:goal}\\
         \hline
-        6 & \textbf{Must} mandatory task & Communication Part \RN{1} \cite{A3Experi4:online} & Communicate and summarize the discussions of requirement 1-5 (\cref{app:A}) in a document and hand it in to the mentor/supervisor & Fulfilled \\
+        7 & \textbf{Must} mandatory task & Communication Part \RN{1} \cite{A3Experi4:online} & Communicate and summarize the discussions of requirement 1-6 (\cref{app:A}) in a document and hand it in to the mentor/supervisor & Fulfilled \\
         \hline
-        7 & \textbf{Must} mandatory task & Experimental Execution \cite{A3Experi4:online, Uppgiftl9:online} & Follow the discussed requirements 1-5, or only 6, to conduct the experiments on a real system. And, regularly document the findings with honesty and transparency. & \\
+        8 & \textbf{Must} mandatory task & Experimental Execution \cite{A3Experi4:online, Uppgiftl9:online} & Follow the discussed requirements 1-6, or only 7, to conduct the experiments on a real system. And, regularly document the findings with honesty and transparency. & \\
         \hline
-        8 & \textbf{Must} mandatory task & Communication Part \RN{2} \cite{A3Experi7:online} & Summarize the entire work and its requirements, that is 1-7, in a smaller version of a technical report. Use the IMRAD-structure (Introduction, Method, Results, and Discussion). It is a common communication structure in scientific reports. & \\
+        9 & \textbf{Must} mandatory task & Communication Part \RN{2} \cite{A3Experi7:online} & Summarize the entire work and its requirements, that is 1-8, in a smaller version of a technical report. Use the IMRAD-structure (Introduction, Method, Results, and Discussion). It is a common communication structure in scientific reports. & \\
         \hline
 \end{longtable}}
 
-% \begin{figure}[ht]
-%     \begin{center}
-%         And here is a figure
-%         \caption{\small{Several statements describing the same resource.}}\label{RDF_4}
-%     \end{center}
-% \end{figure}
-
-% that we refer to here: \ref{RDF_4}
-
-    \clearpage
-    % H\"{a}r listar du dina referenser. De skall t\"{a}cka in alla relevanta delar  i din bakgrund, vara v\"{a}l utvalda (dvs. h\r{a}lla f\"{o}r k\"{a}llkritik).
-    %
-    % I den h\"{a}r rapporten anv\"{a}nder du ISO690 numerisk variant f\"{o}r referenserna.
-    %
-    % Har man ett bra verktyg som man skriver i/hantera referenserna i s\r{a} kan referenslistan automatgenereras. Det g\"{o}r det ocks\r{a} l\"{a}ttare att uppdatera referenslistan utan att beh\"{o}va g\r{a} igenom varje referens i texten manuellt. Dessutom f\r{a}r man bara med k\"{a}llor som man refererat till minst en g\r{a}ng fr\r{a}n texten.
-    \bibliographystyle{IEEEtran}
-    \bibliography{IEEEabrv,sources}
-    \end{document}
+\clearpage
+% H\"{a}r listar du dina referenser. De skall t\"{a}cka in alla relevanta delar  i din bakgrund, vara v\"{a}l utvalda (dvs. h\r{a}lla f\"{o}r k\"{a}llkritik).
+%
+% I den h\"{a}r rapporten anv\"{a}nder du ISO690 numerisk variant f\"{o}r referenserna.
+%
+% Har man ett bra verktyg som man skriver i/hantera referenserna i s\r{a} kan referenslistan automatgenereras. Det g\"{o}r det ocks\r{a} l\"{a}ttare att uppdatera referenslistan utan att beh\"{o}va g\r{a} igenom varje referens i texten manuellt. Dessutom f\r{a}r man bara med k\"{a}llor som man refererat till minst en g\r{a}ng fr\r{a}n texten.
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,sources}
+\end{document}
