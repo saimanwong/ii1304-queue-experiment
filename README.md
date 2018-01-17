@@ -43,6 +43,7 @@ __1) Create an image:__
 $ docker build -t <IMAGE_NAME> .
 ```
 __1) Run the image:__
+
 Run entire experiment in container and interactive mode with bash:
 ```bash
 $ docker run -it --entrypoint bash <IMAGE_NAME>
