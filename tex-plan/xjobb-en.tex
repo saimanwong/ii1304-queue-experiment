@@ -82,7 +82,7 @@ However, students and engineers occasionally carelessly approach the planning ph
 As a result, researchers waste time to redo the changes due to poor design and execution.
 Students and engineers lack a more profound knowledge of the scientific method to produce high-quality work.
 That is, science emphasizes the importance of theoretical knowledge and its application in practice.
-Thus, in our study, we used the scientific method to evaluate algorithms with a rigorous, honest and transparent method.
+Thus, in our study, we apply the scientific method to evaluate algorithms with a rigorous, honest and transparent method.
 
 % Underrubriker (f\"{o}rsta niv\r{a}n) s\"{a}tts i Arial 12 punkter fet stil autonumrerad (KTH  nRubrik 2). (Har man ytterligare underniv\r{a}er s\"{a}tter man rubrikerna f\"{o}r n\"{a}sta niv\r{a}  med (KTH nRubrik 3)) Man f\"{o}rs\"{o}ker ofta beg\"{a}r\"{a}nsa sig till tre niv\r{a}er p\r{a} rubriker och man har i princip aldrig fler \"{a}n 4 niv\r{a}er p\r{a} rubriker.
 %I stycket om bakgrund (som ibland kallas ”Related work” p\r{a} engelska) f\"{o}rv\"{a}ntar man sig hitta en gedigen bakgrundsbeskrivning till problemomr\r{a}det i stort och till det specifika problem som studeras i rapporten. Den skall inneh\r{a}lla/baseras p\r{a} en litteraturstudie. Det beh\"{o}ver v\"{a}l knappast p\r{a}pekas att den b\"{o}r inneh\r{a}lla utvalda, h\"{o}gkvalitativa referenser.
@@ -118,7 +118,7 @@ Thus, we applied the scientific method rigorously to evaluate algorithms in dept
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
 Each element compromises of a number to represent its priority in the queue.
 For clarification, an element with a low number represents higher priority, because the element lies closer to the present time and therefore ready for execution.
-We implemented the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
+We must implement the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
 \begin{enumerate}
     \item \textbf{Singly linked list} -- Insertion of new elements takes place in the head.
     \item \textbf{Doubly linked list} -- Insertion of new elements takes place in the rear.
@@ -132,15 +132,15 @@ We implemented the queues in the low-level programming language \texttt{C}, and 
 
 \skippara
 Computer scientists evaluate algorithms regarding space and time, such as execution time and memory usage.
-That is, we gather a large quantity of these metrics to determine best, average and worst cases.
-Thus, we asked ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
+That is, we plan to gather a large quantity of these metrics to determine best, average and worst cases.
+Thus, we ask ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
 
 
 \clearpage
 % Om detta \"{a}r en studie d\"{a}r syftet \"{a}r att unders\"{o}ka en hypotes (alla projekt \"{a}r inte hypotespr\"{o}vande) s\r{a} beskriver du/formulerar du hypotesen h\"{a}r. L\"{a}mpligt \"{a}r ocks\r{a} att beskriva hur/varf\"{o}r/p\r{a} vilka grunder du formulerat hypotesen. Är det inte ett hypotespr\"{o}vande projekt s\r{a} tar du bort rubriken.
 \subsection{Hypothesis}
 A queue either enqueues or dequeues elements with a FIFO policy.
-Because of the FIFO policy, we assumed with a correct implementation and theory, the dequeue- operation take $\mathcal{O}(1)$ time.
+Because of the FIFO policy, based on a correct implementation and theory, the dequeue-operation takes $\mathcal{O}(1)$ time.
 However, the enqueue-operation becomes more sensitive to an element's priority, because the algorithm inserts each element in the correct spot in the queue.
 Thus, the implementations perform differently because of priority distribution.
 For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm traverses through the entire list to enqueue an element.
@@ -156,14 +156,14 @@ For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm t
 \marginnote{1. Identifiera resultat- och effektm\r{a}l
     Fr\r{a}ga dig vad syftet med en experimentell utv\"{a}rdering av ett antal algoritmer kan vara och hur en s\r{a}dan studie kan anv\"{a}ndas.
 }
-\skippara Our purpose was to raise awareness of the features in standardized libraries, which developers and engineers often take for granted.
+\skippara Our purpose is to raise awareness of the features in standardized libraries, which developers and engineers often take for granted.
 Thus, we applied the scientific method to conduct experiments and evaluate four versions of a priority queue implementation.
-Consequently, we wanted to produce a credible and scientific work, so that other students and engineers can learn from and further develop.
+Consequently, we want to produce a credible and scientific work, so that other students and engineers can learn from, reproduce, and further develop.
 
 % Beskriv de f\"{o}rv\"{a}ntade resultat- och effektm\r{a}len av unders\"{o}kningen. Beskriv alla m\r{a}l du satt upp \"{a}ven om de inte n\r{a}ddes!
 \subsection{Goal}\label{sec:goal}
 \marginnote{6. N\"{a}r har de m\r{a}l som identifierats n\r{a}tts? N\"{a}r \"{a}r experimenten f\"{a}rdiga?}[2cm]
-\skippara The bigger goal was to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
+\skippara The goal is to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
 However, the following list demonstrates the sub-goals:
 \begin{itemize}
     \item Apply the scientific method to plan, design, experiment, document, analyze and present the findings.
@@ -187,7 +187,7 @@ For example, due to economic and practical reasons, such as expensive hardware.
 We documented each step and presented findings with rigor, honesty, and transparency.
 That is, we encourage students to reproduce our findings.
 
-\skippara We experimented with a virtual machine on Microsoft's cloud platform.
+\skippara We experimented in a virtual machine on Microsoft's cloud platform.
 Thus, we used the exact quantity of resources needed to conduct the experiments.
 That is, we avoided to waste additional electricity due to, for example, system idle.
 
