@@ -77,7 +77,7 @@
 \section{Introduction}\label{sec:intro}
 \marginnote{1. En ordentlig litteraturstudie s\r{a} man har f\"{o}rst\r{a}tt hur algoritmerna fungerar och man har studerat hur liknande (tidigare) studier genomf\"{o}rts - som man kan l\r{a}na id\'eer fr\r{a}n t.ex. hur man kan designa experiment.}
 
-\skippara A researcher plan in advance to conduct a successful and credible scientific work.
+\skippara A researcher plans in advance to conduct a successful and credible scientific work.
 However, students and engineers occasionally carelessly approach the planning phase.
 As a result, researchers waste time to redo the changes due to poor design and execution.
 Students and engineers lack a more profound knowledge of the scientific method to produce high-quality work.
@@ -98,9 +98,8 @@ Thus, an inexperienced developer possesses a limited knowledge of the theory and
 \skippara Developers use the data structure, or model, linked list to store data linearly.
 The simple linked list consists of entities.
 An entity stores data and includes a connection to the next entity in the list.
-Computer scientist and developers refer the entity as a node or an element, and the connection as a pointer.
-That is an element stores data and consists of a pointer to the next element in the list.
-Thus, developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
+Computer scientists and developers refer the entity as a node or an element, and the connection as a pointer.
+Developers frequently use linked list implementations to store and manage data linearly, for example, in a queue implementation.
 
 
 % H\"{a}r beskriver du problemomr\r{a}det och problemet i detalj. Beskriv ocks\r{a} varf\"{o}r det \"{a}r v\"{a}rdefullt att unders\"{o}ka problemet. F\"{o}rs\"{o}k formulera din problemst\"{a}llning s\r{a} klart och koncist som m\"{o}jligt – g\"{a}rna i en mening!
@@ -110,13 +109,14 @@ F\"{o}rst\r{a}tt uppgiften
 F\"{o}rst\r{a}tt systemet som skall studeras
 Vilka parametrar beror systemet av, vilka kan varieras? Hur beror parametrarna av varandra?}
 \skippara An engineer must learn the skill to apply the scientific method in practice.
-Later on, possess the ability to contribute to further development and exploration within the scientific community.
+Thereby enabling the engineer to contribute to further development and exploration within the scientific community.
 Also, a software engineer needs to grasp the basics of features in an API\footnote{API -- Application Programming Interface}-library.
 However, developers sometimes use these library features in projects and take these algorithms for granted to behave in a specific manner.
 Thus, we applied the scientific method rigorously to evaluate algorithms in depth, both in theory and practice.
 
+%%% Check the first sentence here, is compromises used correctly?
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
-Each element compromises of a number to represent its priority in the queue.
+Each element comprises a number to represent its priority in the queue.
 For clarification, an element with a low number represents higher priority, because the element lies closer to the present time and therefore ready for execution.
 We must implement the queues in the low-level programming language \texttt{C}, and the following list presents the implementation specifications:
 \begin{enumerate}
@@ -131,8 +131,8 @@ We must implement the queues in the low-level programming language \texttt{C}, a
 \end{enumerate}
 
 \skippara
-Computer scientists evaluate algorithms regarding space and time, such as execution time and memory usage.
-That is, we plan to gather a large quantity of these metrics to determine best, average and worst cases.
+Computer scientists evaluate algorithms by their execution time and memory usage.
+We plan to gather a large quantity of these metrics to determine best, average and worst cases.
 Thus, we ask ourselves: ``Do these queues achieve similar performance, or does the performance vary depending on the circumstance?''
 
 
@@ -141,7 +141,7 @@ Thus, we ask ourselves: ``Do these queues achieve similar performance, or does t
 \subsection{Hypothesis}
 A queue either enqueues or dequeues elements with a FIFO policy.
 Because of the FIFO policy, based on a correct implementation and theory, the dequeue-operation takes $\mathcal{O}(1)$ time.
-However, the enqueue-operation becomes more sensitive to an element's priority, because the algorithm inserts each element in the correct spot in the queue.
+However, the enqueue-operation needs to consider an element's priority, because the algorithm inserts each element in the correct spot in the queue.
 Thus, the implementations perform differently because of priority distribution.
 For example, the implementation reaches $\mathcal{O}(n)$ time if the algorithm traverses through the entire list to enqueue an element.
 
@@ -164,7 +164,7 @@ Consequently, we want to produce a credible and scientific work, so that other s
 \subsection{Goal}\label{sec:goal}
 \marginnote{6. N\"{a}r har de m\r{a}l som identifierats n\r{a}tts? N\"{a}r \"{a}r experimenten f\"{a}rdiga?}[2cm]
 \skippara The goal is to attain deeper knowledge of the scientific method, and apply the method to evaluate four queue-implementations.
-However, the following list demonstrates the sub-goals:
+The following list demonstrates the sub-goals:
 \begin{itemize}
     \item Apply the scientific method to plan, design, experiment, document, analyze and present the findings.
     \item Grasp the importance of scientific method.
@@ -176,7 +176,7 @@ However, the following list demonstrates the sub-goals:
 
 % Beskriv vem och p\r{a} vilket s\"{a}tt man kan ha nytta av utredningen. Beskriv etiska och h\r{a}llbar utvecklingsrelaterade fr\r{a}gor kopplade till utredningen.
 \subsection{Social Benefit, Ethics and Sustainable Development}
-Our study influence students and engineers to apply the scientific method more with a more serious approach.
+Our study might influence students and engineers to apply the scientific method with a more serious approach.
 Also, the study facilitates the process for software engineers to choose an implementation of a queue, which fits their specific purpose.
 Finally, we delve into the foundations of algorithms, data structure, and complexity theory.
 Thus, our work helps students and engineers to acquire a deeper comprehension of computer science.
@@ -184,12 +184,12 @@ Thus, our work helps students and engineers to acquire a deeper comprehension of
 \skippara Within science, a researcher undertakes a moral responsibility to conduct a reproducible work with honesty and transparency.
 However, sometimes scientists encounter difficult circumstances, which limits their ability to produce a reproducible work.
 For example, due to economic and practical reasons, such as expensive hardware.
-We documented each step and presented findings with rigor, honesty, and transparency.
+We will document each step and present our findings with rigor, honesty, and transparency.
 That is, we encourage students to reproduce our findings.
 
-\skippara We experimented in a virtual machine on Microsoft's cloud platform.
-Thus, we used the exact quantity of resources needed to conduct the experiments.
-That is, we avoided to waste additional electricity due to, for example, system idle.
+\skippara We will experiment in a virtual machine on Microsoft's cloud platform.
+Thus, we use the exact quantity of resources needed to conduct the experiments.
+Thereby, avoiding waste of electricity due to, for example, system idle.
 
 
 
@@ -233,28 +233,27 @@ Thus, psychologists often implement a qualitative method to examine people's beh
 
 % Beskriv hur du samlar in data, material och annat underlag f\"{o}r din unders\"{o}kning? Svara p\r{a} fr\r{a}gor som: Hur skall unders\"{o}kningen genomf\"{o}ras? Hur \"{a}r experimentuppst\"{a}llningen organiserad?
 \subsection{Data Collection}
-We used quantifiable metrics in our study.
-That is, execution time and memory usage because computer scientists commonly apply these for algorithm och complexity analysis.
+We will be handling quantifiable metrics in our study.
+That is, execution time and memory usage because computer scientists commonly apply these for algorithm complexity analysis.
 In contrast to, for example, interviews and surveys, which the researchers within social sciences regularly use in qualitative studies \cite{Omexperi69:online, haakansson2013portal}.
 That is, qualitative studies reach conclusions from the quality of the data.
-Thus, our study uses an experimental quantitative method to reach a broader insight into data structures and queue implementations.
+Thus, our study use an experimental quantitative method to reach a broader insight into data structures and queue implementations.
 
-\skippara For each of the four queue-implementations, we tested and generated the execution time for the best, average and worst case.
-That is, we created input for the queues with varying distributions of the element's priorities.
-Besides execution time, we log the memory usage for each implementation.
-Finally, we wrote scripts to execute the tests and logged the raw data.
+\skippara For each of the four queue-implementations, we will test and generate the execution time for the best, average and worst case.
+We will create input for the queues with varying distributions of the element's priorities.
+Besides execution time, we will log the memory usage for each implementation.
+Finally, we will write scripts to execute the tests and log the raw data.
 
 % Beskriv metoden f\"{o}r hur du avser analysera insamlad data/material. Beskriv ocks\r{a} hur du planerar tolka  data
 \subsection{Data Analysis}
-We reasoned with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
-That is, we analyzed the algorithms with the help of established complexity theory.
+We reason with a deductive method to explore the theory within computer science, such as algorithm complexity theory.
+That is, we analyze the algorithms with the help of established complexity theory.
 For example, to determine an algorithm's performance based solely on theoretical knowledge.
-However, the usage of only a deductive methods can yield unexpected results when put into practice.
-Thus, we generate realistic data from our experiments and use an inductive method to analyze the algorithms further.
+However, the usage of only a deductive method can yield unexpected results when put into practice.
+Thus, we will generate realistic data from our experiments and use an inductive method to analyze the algorithms further.
 That is, to explore if we can notice observable patterns in the data with the help of complexity models.
 
-\skippara We used both graphs and tables to visualize the execution time and memory usage.
-Also, ran the experiments multiple times to generate the sample mean and standard deviation.
+\skippara By running the experiments multiple times we can obtain the sample mean and standard deviation.
 The standard deviation adds a deeper insight into the data and spread around the mean.
 Also, it helps us to identify the external or internal error sources.
 If the standard deviation is relatively high, then we can suspect that something is wrong with, for example, the underlying system.
