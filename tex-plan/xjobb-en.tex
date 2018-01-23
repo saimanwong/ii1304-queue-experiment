@@ -391,9 +391,10 @@ Vad beh\"{o}vs f\"{o}r resurser? (beskriv dem i n\r{a}gorlunda detalj)
 Vilka os\"{a}kerhets/felk\"{a}llor finns? Hur stor inverkan kan de ha p\r{a} resultaten och hur hanterar du det?
 Vad beh\"{o}ver implementeras? En plan f\"{o}r implementationen.
 Plan f\"{o}r hur du skall verifiera/validera/testa experimentuppst\"{a}llningen\\\null\\3. Utreda hur man kan m\"{a}ta det man avser m\"{a}ta. I det h\"{a}r fallet handlar det prim\"{a}rt om hur man m\"{a}ter tid. Valet av m\"{a}tmetod har en stor inverkan p\r{a} hur man kan designa experimenten. Man b\"{o}r ocks\r{a} validera noggranheten hos m\"{a}tmetoden(erna) \\\null\\ 6. Designa och beskriva hur experiment och algoritmer skall valideras.}
-\skippara We conducted the experiments on a Microsoft Azure virtual private server (VPS).
-We used a VPS service because we gain full access to the machine.
-The system consisted of a 64-bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
+
+\skippara We plan to conduct the experiments on a Microsoft Azure virtual private server (VPS).
+We use a VPS service to gain full access to the machine.
+The system consist of a 64-bit architecture virtual CPU with two cores (Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz), 8 GB memory and Ubuntu 16.04.3 LTS (Xenial Xerus) operating system.
 
 \subsubsection{Error Sources}
 \marginnote{}
@@ -402,34 +403,35 @@ That is, if we identify error sources early in the planning phase, we can then m
 Software and computational research depend heavily on the underlying system, both hardware, and software.
 Thus, we run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
 Standard deviation is relevant because we can then identify how the execution time varies around the mean.
-A large standard deviation indicates, for example, that another process a significant quantity of resources.
+A large standard deviation indicates, for example, that another process use a significant quantity of resources.
 
 \marginnote{}
-\skippara Another error source comes from poor design and implementation of models.
-Thus, we must grasp and follow scientific method rigorously, verify and validate the implementations.
-For example, a developer wastes time to debug an implementation due to poor design.
-Furthermore, especially in a relatively low-level programming language, such as \texttt{C}.
+\skippara Another error source comes from poor design and implementation of
+models.  Thus, we must grasp and follow scientific method rigorously, verify
+and validate the implementations.  For example, a developer wastes time to
+debug an implementation due to poor design, especially in a relatively
+low-level programming language, such as \texttt{C}.
 
 \subsubsection{Verification and Validation}
-We developed a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
-Our Python script generates an input- and output file.
-The former consists of elements of randomized priorities and the output file contain the elements in correct order.
-Finally, we used the input and output files in our implementations to verify its correctness.
-We used Valgrind and verified the memory allocation and deallocation of our implementations.
+We will use a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
+A Python script will be used to generate an input- and output file.
+The former will consist of elements of randomized priorities and the output file contain the elements in correct order.
+The input and output files can then be used to verify the correctness of the implementation.
+We plan to use Valgrind to verify the memory allocation and deallocation of our implementations.
 
-\skippara We developed tests for the best, average and worst cases to validate its behavior.
+\skippara We will test for the best, average and worst cases to validate its behavior.
 That is, we analyzed the running time and complexity theoretically.
 Also, used statistical analysis and complexity theory to validate the algorithms.
-Finally, we examined the edge cases, for example, an empty or a list containing only one element.
+Finally, we will examine the edge cases, for example, an empty or a list containing only one element.
 
 % Beskriv och motivera de experiment du designat (var noga att motivera varf\"{o}r de bidrar till att uppfylla m\r{a}len)
 \clearpage
 \subsubsection{Experiments}
 \marginnote{5. Designa och beskriv de experiment som skall implementeras/utf\"{o}ras.}
-\skippara To test the best, average and worst case, we created a variety of priority distributions as input based on our complexity analysis of our algorithms. The analysis takes place in \cref{sec:algorithms}.
+\skippara To test the best, average and worst case, we will create a variety of priority distributions as input based on our complexity analysis of our algorithms. The analysis takes place in \cref{sec:algorithms}.
 We did not analyze the time complexity for the average case theoretically.
-However, we assumed the average case somewhere lies between the best and worst case.
-Thus, We randomly assigned priorities in $[0, 40]$ interval to the elements in the average case experiments.
+However, we assumed the average case lies somewhere between the best and worst case.
+Thus, we will randomly assign priorities in $[0, 40]$ interval to the elements in the average case experiments.
 Finally, \cref{tab:param} presents the remaining parameters we used for each test case.
 
 
