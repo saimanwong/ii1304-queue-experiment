@@ -273,17 +273,15 @@ If the standard deviation is relatively high, then we can suspect that something
 
 % Om du utvecklat ett system (som algoritmerna f\"{o}r den h\"{a}r studien) s\r{a} b\"{o}r du beskriva vilken/vilka metoder och verktyg du anv\"{a}nt f\"{o}r systemutvecklingen. I st\"{o}rre unders\"{o}kningar/arbeten vill man g\"{a}rna ocks\r{a} se en diskussion om olika alternativ och varf\"{o}r man valt de man anv\"{a}nt.
 \subsection{System Development Method}
-Our implementation produces an executable for each of the four queue-implementations.
-The experiment consists of primarily three files, \texttt{main.c} with the tests, \texttt{queues.h} and \texttt{queues.c} which respectively describes and implements the functionalities of the queue.
-Finally, we used compile-time macros to determine the executable to produce based on the implementations.
+In our implementation, we plan to generate an executable for each of the four queue-implementations.
+The experiment would consists of, for example, \texttt{main.c} containing the tests, \texttt{queues.h} and \texttt{queues.c} which respectively would describe and implement the functionalities of the queue.
+Thus, we must use compile-time macros to determine the executable to produce based on the implementations, and check for memory leaks with, for example, Valgrind.
 
-\skippara We used Bash-scripts to run tests and log the results in plain text automatically.
-Also, we developed a Python-script, which 1) calculated the sample mean and standard deviation, and 2) summarized and visualized the data with tables and graphs in \LaTeX.\.
-Finally, we used Valgrind on our implementations to examine memory allocation and deallocation.
-
-\skippara We added an optional solution to run the entire experiment in a container.
-That is, if anyone wants to run the entire experiment, and spend minimum time on the setup process, then the user only has to install Docker and execute a command to achieve the similar results we produced.
-Docker containers introduce a practical approach to package software because containers use the same resources as the host operating system.
+\skippara We plan to 1) use scripts and container technology (Docker) to automate the experiments.
+Also, 2) to process and analyze the data, we can use mathematical tools, such as MATLAB or the Python library NumPy for scientific computing.
+Lastly, we must 3) present these findings, analysis, and interpretation in form of tables and graphs in \LaTeX.\.
+Thus, our procedure is to implement 1) to gather, 2) analyze and 3) present the data.
+ocker containers introduce a practical approach to package software because containers use the same resources as the host operating system.
 
 % Det h\"{a}r \"{a}r en anpassad rubrik f\"{o}r just den h\"{a}r studien. H\"{a}r beskriver du (ev. med flera underrubriker) mer i detalj de algoritmer du implementerat, analyserar dem och hur du implementerat dem.
 \subsection{Queue Algorithms}\label{sec:algorithms}
