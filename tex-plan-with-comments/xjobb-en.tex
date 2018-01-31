@@ -298,10 +298,11 @@ The following are standard operations for a queue:
 \skippara The queues approach to enqueue varies for the implementations, because the algorithm traverses and inserts the new element in the correct position in the queue.
 Each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to additional elements.
 
-\skippara The following sections describe our implementation of the queues.
-Additionally, we analyzed the time complexity for the enqueue-operation.
-We found the average case time complexity more challenging to analyze compared to the best and worst case theoretically.
-Thus, we examined the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
+%%% Denna paragrafen skulle kunna ändras
+\skippara The following sections describe the implementation of the queues.
+Additionally, we analyze the time complexity for the enqueue-operation.
+We found the theoretical average case time complexity more challenging to analyze compared to the best and worst case.
+Thus, we examine the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
 
 \subsubsection{Singly Linked List}\label{sec:singly}
 This queue implementation uses a singly linked list to represent a queue.
@@ -366,7 +367,7 @@ These entries represent the priority in the [0, 40] interval, and each pointer c
 A singly linked list represent each of the FIFO-queues, as described in \cref{sec:singly}.
 The following list presents the time complexity for the best and worst case:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(n)$} -- The algorithm achieve the best time complexity if we distrubute the elements equally in the queue.
+    \item \textbf{Best Case $\mathcal{O}(n)$} -- The algorithm achieve the best time complexity if we distribute the elements equally in the queue.
         The simplest distribution enqueues elements from highest to the lowest priority and resets from lowest.
         That is, from priority 0 to 40, and then start over again from priority 0.
         However, when the implementation starts over from priority 0, the enqueue operation still has to traverse through the FIFO-queues to insert the new elements correctly.
@@ -401,9 +402,9 @@ The system consist of a 64-bit architecture virtual CPU with two cores (Intel(R)
 \skippara Error sources are important to take into account as these can influence the results of the study.
 That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
 Software and computational research depend heavily on the underlying system, both hardware, and software.
-Thus, we run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
+Thus, we will run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
 Standard deviation is relevant because we can then identify how the execution time varies around the mean.
-A large standard deviation indicates, for example, that another process use a significant quantity of resources.
+A large standard deviation could indicate, for example, that another process use a significant quantity of resources.
 
 \marginnote{}
 \skippara Another error source comes from poor design and implementation of
@@ -428,11 +429,12 @@ Finally, we will examine the edge cases, for example, an empty or a list contain
 \clearpage
 \subsubsection{Experiments}
 \marginnote{5. Designa och beskriv de experiment som skall implementeras/utf\"{o}ras.}
+
 \skippara To test the best, average and worst case, we will create a variety of priority distributions as input based on our complexity analysis of our algorithms. The analysis takes place in \cref{sec:algorithms}.
 We did not analyze the time complexity for the average case theoretically.
-However, we assumed the average case lies somewhere between the best and worst case.
+However, we assume the average case lies somewhere between the best and worst case.
 Thus, we will randomly assign priorities in $[0, 40]$ interval to the elements in the average case experiments.
-Finally, \cref{tab:param} presents the remaining parameters we used for each test case.
+Finally, \cref{tab:param} presents the remaining parameters we will use for each test case.
 
 
 \begin{table}
