@@ -12,9 +12,9 @@
       \textup{\uppercase\expandafter{\romannumeral#1}}%
   }
 \usepackage{longtable}
-% \newcommand\fnurl[2]{%
-%     \href{#1}{#2}\footnote{\url{#1}}%
-% }
+\newcommand\fnurl[2]{%
+    \href{#1}{#2}\footnote{\url{#1}}%
+}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
 
@@ -24,6 +24,9 @@
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
 
 % F\"{o}r formateringen av en rapport/artikel finns ofta f\"{a}rdiga mallar. Publicerar man t.ex. en artikel p\r{a} en konferens eller i en tidskrift finns mallar/anvisningar som beskriver vilka typsnitt, storlekar, radavst\r{a}nd, marginaler paragrafnumrering etc. som skall anv\"{a}ndas.
 % Ofta beskrivs ocks\r{a} hur l\r{a}ng texten f\r{a}r vara i antal ord och antal sidor.
@@ -273,15 +276,16 @@ The following are standard operations for a queue:
 \skippara The queues approach to enqueue varies for the implementations, because the algorithm traverses and inserts the new element in the correct position in the queue.
 Each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to additional elements.
 
-\skippara The following sections describe our implementation of the queues.
-Additionally, we analyzed the time complexity for the enqueue-operation.
-We found the average case time complexity more challenging to analyze compared to the best and worst case theoretically.
-Thus, we examined the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
+%%% Vad tycker du?
+\skippara The following sections describe the implementation of the queues.
+Additionally, we must analyze the time complexity for the enqueue-operation.
+The theoretical average case's time complexity is more challenging to analyze compared to the best and worst case.
+Thus, we can examine the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
 
 \subsubsection{Singly Linked List}\label{sec:singly}
 This queue implementation uses a singly linked list to represent a queue.
 That is, an element in the queue stores 1) a unique number identifier, 2) a priority and 3) a pointer to the next element in the queue.
-The algorithm enqueues new elements from head.
+The algorithm enqueues new elements from the head.
 The following list analyzes the enqueue-operation's time complexity:
 \begin{itemize}
     \item \textbf{Best Case $\mathcal{O}(1)$} --
@@ -341,7 +345,7 @@ These entries represent the priority in the [0, 40] interval, and each pointer c
 A singly linked list represent each of the FIFO-queues, as described in \cref{sec:singly}.
 The following list presents the time complexity for the best and worst case:
 \begin{itemize}
-    \item \textbf{Best Case $\mathcal{O}(n)$} -- The algorithm achieve the best time complexity if we distrubute the elements equally in the queue.
+    \item \textbf{Best Case $\mathcal{O}(n)$} -- The algorithm achieve the best time complexity if we distribute the elements equally in the queue.
         The simplest distribution enqueues elements from highest to the lowest priority and resets from lowest.
         That is, from priority 0 to 40, and then start over again from priority 0.
         However, when the implementation starts over from priority 0, the enqueue operation still has to traverse through the FIFO-queues to insert the new elements correctly.
@@ -369,9 +373,9 @@ The system consist of a 64-bit architecture virtual CPU with two cores (Intel(R)
 Error sources are important to take into account as these can influence the results of the study.
 That is, if we identify error sources early in the planning phase, we can then mitigate unexpected behaviors and results.
 Software and computational research depend heavily on the underlying system, both hardware, and software.
-Thus, we run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
+Thus, we will run the experiments multiple times and calculate statistical features, such as mean and standard deviation for the sample.
 Standard deviation is relevant because we can then identify how the execution time varies around the mean.
-A large standard deviation indicates, for example, that another process use a significant quantity of resources.
+A large standard deviation could indicate, for example, that another process use a significant quantity of resources.
 
 \skippara Another error source comes from poor design and implementation of
 models.  Thus, we must grasp and follow scientific method rigorously, verify
@@ -380,14 +384,14 @@ debug an implementation due to poor design, especially in a relatively
 low-level programming language, such as \texttt{C}.
 
 \subsubsection{Verification and Validation}
-We will use a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
+We will use a test case to verify the implementation' correctness, specifically the dequeue- and enqueue-operation to insert new elements at the correct position in the queue.
 A Python script will be used to generate an input- and output file.
 The former will consist of elements of randomized priorities and the output file contain the elements in correct order.
 The input and output files can then be used to verify the correctness of the implementation.
 We plan to use Valgrind to verify the memory allocation and deallocation of our implementations.
 
 \skippara We will test for the best, average and worst cases to validate its behavior.
-That is, we analyzed the running time and complexity theoretically.
+That is, we need to analayze the running time and complexity theoretically.
 Also, used statistical analysis and complexity theory to validate the algorithms.
 Finally, we will examine the edge cases, for example, an empty or a list containing only one element.
 
@@ -396,9 +400,9 @@ Finally, we will examine the edge cases, for example, an empty or a list contain
 \subsubsection{Experiments}
 To test the best, average and worst case, we will create a variety of priority distributions as input based on our complexity analysis of our algorithms. The analysis takes place in \cref{sec:algorithms}.
 We did not analyze the time complexity for the average case theoretically.
-However, we assumed the average case lies somewhere between the best and worst case.
+However, we assume the average case lies somewhere between the best and worst case.
 Thus, we will randomly assign priorities in $[0, 40]$ interval to the elements in the average case experiments.
-Finally, \cref{tab:param} presents the remaining parameters we used for each test case.
+Finally, \cref{tab:param} presents the remaining parameters we will use for each test case.
 
 
 \begin{table}

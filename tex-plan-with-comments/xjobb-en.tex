@@ -112,7 +112,7 @@ Vilka parametrar beror systemet av, vilka kan varieras? Hur beror parametrarna a
 Thereby enabling the engineer to contribute to further development and exploration within the scientific community.
 Also, a software engineer needs to grasp the basics of features in an API\footnote{API -- Application Programming Interface}-library.
 However, developers sometimes use these library features in projects and take these algorithms for granted to behave in a specific manner.
-Thus, we applied the scientific method rigorously to evaluate algorithms in depth, both in theory and practice.
+Thus, we plan to apply the scientific method rigorously to evaluate algorithms in depth, both in theory and practice.
 
 \skippara Our task was to evaluate four variations of a list-based data structure to represent a queue \cite{Uppgiftl9:online}.
 Each element comprises a number to represent its priority in the queue.
@@ -298,16 +298,16 @@ The following are standard operations for a queue:
 \skippara The queues approach to enqueue varies for the implementations, because the algorithm traverses and inserts the new element in the correct position in the queue.
 Each element stores at least 1) a unique number identifier of the data type integer, 2) a priority number of the data type double and 3) a pointer to refer to additional elements.
 
-%%% Denna paragrafen skulle kunna ändras
+%%% Vad tycker du?
 \skippara The following sections describe the implementation of the queues.
-Additionally, we analyze the time complexity for the enqueue-operation.
-We found the theoretical average case time complexity more challenging to analyze compared to the best and worst case.
-Thus, we examine the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
+Additionally, we must analyze the time complexity for the enqueue-operation.
+The theoretical average case's time complexity is more challenging to analyze compared to the best and worst case.
+Thus, we can examine the best and worst cases in theory to interpret the average case for each implementation's enqueue-operation.
 
 \subsubsection{Singly Linked List}\label{sec:singly}
 This queue implementation uses a singly linked list to represent a queue.
 That is, an element in the queue stores 1) a unique number identifier, 2) a priority and 3) a pointer to the next element in the queue.
-The algorithm enqueues new elements from head.
+The algorithm enqueues new elements from the head.
 The following list analyzes the enqueue-operation's time complexity:
 \begin{itemize}
     \item \textbf{Best Case $\mathcal{O}(1)$} --
@@ -414,14 +414,14 @@ debug an implementation due to poor design, especially in a relatively
 low-level programming language, such as \texttt{C}.
 
 \subsubsection{Verification and Validation}
-We will use a test case to verify the implementation' correctness, specifically the dequeue-operation to insert new elements at the correct position in the queue.
+We will use a test case to verify the implementation' correctness, specifically the dequeue- and enqueue-operation to insert new elements at the correct position in the queue.
 A Python script will be used to generate an input- and output file.
 The former will consist of elements of randomized priorities and the output file contain the elements in correct order.
 The input and output files can then be used to verify the correctness of the implementation.
 We plan to use Valgrind to verify the memory allocation and deallocation of our implementations.
 
 \skippara We will test for the best, average and worst cases to validate its behavior.
-That is, we analyzed the running time and complexity theoretically.
+That is, we need to analayze the running time and complexity theoretically.
 Also, used statistical analysis and complexity theory to validate the algorithms.
 Finally, we will examine the edge cases, for example, an empty or a list containing only one element.
 
